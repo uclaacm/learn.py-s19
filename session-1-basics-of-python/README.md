@@ -27,7 +27,7 @@
 
 ## What is Python?
 An easy to learn programming language created in 1991 by Guido van Rossum:
-![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/creater.png)
+![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/creater.png "Guido van Rossum")
 (this dude)
 
 So why learn Python?
@@ -495,8 +495,8 @@ _"for each character, c, in name: do the following"_
 
 We can also loop through a range of numbers using the range function. For example:
 ```python
-	for i in range(0,10):
-		print(i)
+for i in range(0,10):
+	print(i)
 ```
 This will output:
 ```
