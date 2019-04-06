@@ -27,7 +27,7 @@
 
 ## What is Python?
 An easy to learn programming language created in 1991 by Guido van Rossum:
-![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/creater.png "Guido van Rossum")
+<img src="images/creater.png">
 (this dude)
 
 So why learn Python?
@@ -37,7 +37,7 @@ So why learn Python?
 Fun Fact: Python is named after Monty Python, not the snake :)
 
 We will be teaching Python 3 rather than Python 2. Python 2 will no longer be maintained after 2020.
-![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/salute.png)
+<img src="images/salute">
 
 ## How to Install and Run Python
 How to download Python for:
@@ -49,7 +49,7 @@ How to download Python for:
 4. Run the installer
 5. Make sure to check "Add Python 3.x to PATH"
 
-![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/win_install.png)
+<img src="images/win_install.png">
 
 **Mac**
 
@@ -62,7 +62,7 @@ Go to http://brew.sh/
 3. Confirm the "The software was installed" dialog from the developer tools installer
 4. In the terminal, hit ENTER to continue with the installation
     * Homebrew will ask for your device password to finish the installation. It will download the files it needs. Hopefully UCLA’s internet connection isn’t terrible
-![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/mac_install1.png)
+<img src="images/mac_install1.png">
 It should say "Installation successful"
 
 _Install Python_
@@ -70,7 +70,7 @@ _Install Python_
 2. You should be done
 3. Check the install by typing pip3 and ENTER in the terminal
     * It should give you usage information similar to the following, and not -bash: pip3: command not found"
-![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/mac_install2.png)
+<img src="images/mac_install2">
 If not, retry the installation or call a mentor
 
 _Command line_
