@@ -58,10 +58,10 @@ Go to http://brew.sh/
 1. Copy the code under "Install Homebrew"
     * /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 2. Run that code in a terminal window (this will take a while)
-    * Note: Apple<sup>TM</sup> might ask you to install to install their CoMmAnD LiNe DeVeLoPeR ToOlS: Just confirm and install those.
+    * Note: Apple<sup>TM</sup> might ask you to install their CoMmAnD LiNe DeVeLoPeR ToOlS: Just confirm and install those.
 3. Confirm the "The software was installed" dialog from the developer tools installer
 4. In the terminal, hit ENTER to continue with the installation
-    * Homebrew will ask for your device password to finish the installation. It will download the files it needs. Hopefully UCLA’s internet connection isn’t terrible
+    * Homebrew will ask for your device password to finish the installation. It will download the files it needs. Hopefully UCLA’s internet connection isn’t terrible.
 <img src="images/mac_install1.png">
 It should say "Installation successful"
 
@@ -106,7 +106,7 @@ For example:
 myPhysicsGrade = 65
 ```
 
-So what does this do? Well the number 65 has just been stored in memory on our computer under the name `myPhysicsGrade`. Later on, we can have access to our stored value of 65 by simply using the name we gave it.
+So what does this do? Well, the number 65 has just been stored in memory on our computer under the name `myPhysicsGrade`. Later on, we can have access to our stored value of 65 by simply using the name we gave it.
 
 So typing out `print(myPhysicsGrade)` will output 65, which is the value we have stored in the `myPhysicsGrade` variable.
 
@@ -270,7 +270,7 @@ Decimal(0.1) + Decimal(0.2) = 0.300
 Multiplication in Python is expressed using the \*.
 So `3 * 8 = 24` and `-30 * 2 = -60`
 
-### Divison
+### Division
 Division in python will automatically be interpreted as a float expression. In Python, dividing always gives you a float.
 ```
 6/5 -> 1.2
