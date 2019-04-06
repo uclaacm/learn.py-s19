@@ -204,7 +204,7 @@ A brief note on the escape character '\\':
 
   Here are a few examples:
   * '\\\\' – allows us to insert the backslash (the escape character) into a string
-  * '\\t' -- adds an indentation (four spaces) in the string
+  * '\\t' – adds an indentation (four spaces) in the string
   * '\\n' – begins a new-line in a string
   * '\\a' – plays the ascii bell alert sound
 
