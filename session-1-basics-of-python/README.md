@@ -72,7 +72,8 @@ _Install Python_
     * It should give you usage information similar to the following, and not -bash: pip3: command not found"
 
 <img src="images/mac_install2.png">
-If not, retry the installation or call a mentor
+If not, retry the installation or call a mentor.
+
 
 _Command line_
 * cd: change (working) directory – moves you into a different folder
@@ -92,6 +93,7 @@ _Mac_
 2. Type: python3 <file> (or python3.7 <file>)
     * This runs python in the terminal
 You can type a .py file after this to run that file
+
 
 
 ## Variables and Basic Types
