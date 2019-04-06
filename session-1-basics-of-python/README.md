@@ -9,6 +9,7 @@
 ## Resources
 **Slides**
 * [Slides](https://docs.google.com/presentation/d/1AW-HPMYfJziM7V_ovLN9W09NjdhKcA4qTVpGk1qOLvg/edit?usp=sharing)
+
 **ACM Membership Attendance Portal**
 
 * [Portal](https://members.uclaacm.com/login)
@@ -26,7 +27,7 @@
 
 ## What is Python?
 An easy to learn programming language created in 1991 by Guido van Rossum:
-![alt text](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwizvufZzLrhAhVlNn0KHRX9AewQjRx6BAgBEAU&url=https%3A%2F%2Fwww.theinquirer.net%2Finquirer%2Fnews%2F3035842%2Fpython-boss-guido-van-rossum-steps-down-after-30-years&psig=AOvVaw2Q1q3rMUXKv2S1r0BPXfUv&ust=1554610270208940)
+![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/creater)
 (this dude)
 
 So why learn Python?
@@ -36,7 +37,7 @@ So why learn Python?
 Fun Fact: Python is named after Monty Python, not the snake :)
 
 We will be teaching Python 3 rather than Python 2. Python 2 will no longer be maintained after 2020.
-![alt text](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjs9dSXzbrhAhV4CjQIHcNjD_8QjRx6BAgBEAU&url=https%3A%2F%2Fwww.reddit.com%2Fr%2Freactionpics%2Fcomments%2Fa54qmh%2Fguy_saluting_and_screaming%2F&psig=AOvVaw1A2seu6gicn4trL2zCkf7p&ust=1554610393940830)
+![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/salute)
 
 ## How to Install and Run Python
 How to download Python for:
@@ -48,28 +49,28 @@ How to download Python for:
 4. Run the installer
 5. Make sure to check "Add Python 3.x to PATH"
 
-# TODO: INSERT IMAGE HERE
+![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/win_install)
 
 **Mac**
 
 _Install homebrew_
-  * Go to http://brew.sh/
+Go to http://brew.sh/
 1. Copy the code under "Install Homebrew"
-  * /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-3. Run that code in a terminal window (this will take a while)
-  * Note: Apple<sup>TM</sup> might ask you to install to install their CoMmAnD LiNe DeVeLoPeR ToOlS: Just confirm and install those.
-4. Confirm the "The software was installed" dialog from the developer tools installer
-5. In the terminal, hit ENTER to continue with the installation
-  * Homebrew will ask for your device password to finish the installation. It will download the files it needs. Hopefully UCLA’s internet connection isn’t terrible
-# TODO: INSERT IMAGE HERE
+    * /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+2. Run that code in a terminal window (this will take a while)
+    * Note: Apple<sup>TM</sup> might ask you to install to install their CoMmAnD LiNe DeVeLoPeR ToOlS: Just confirm and install those.
+3. Confirm the "The software was installed" dialog from the developer tools installer
+4. In the terminal, hit ENTER to continue with the installation
+    * Homebrew will ask for your device password to finish the installation. It will download the files it needs. Hopefully UCLA’s internet connection isn’t terrible
+![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/mac_install1)
 It should say "Installation successful"
 
 _Install Python_
 1. Type "brew install python3" and hit ENTER all in the terminal
 2. You should be done
 3. Check the install by typing pip3 and ENTER in the terminal
-  * It should give you usage information similar to the following, and not -bash: pip3: command not found"
-# TODO: INSERT IMAGE HERE
+    * It should give you usage information similar to the following, and not -bash: pip3: command not found"
+![alt text](https://github.com/uclaacm/learn.py-s19/tree/master/session-1-basics-of-python/images/mac_install2)
 If not, retry the installation or call a mentor
 
 _Command line_
@@ -82,13 +83,13 @@ _Command line_
 _Running a Python Script_
 _Windows_
 1. Change directories into the folder that contains your python script (.py)
-  * cd /folder/that/holds/the/python/script.py
+    * cd /folder/that/holds/the/python/script.py
 2. Type: python.exe file_name.py
 This begins executing your python file in the terminal
 _Mac_
 1. Change directories into the folder that contains your python script (.py)
 2. Type: python3 <file> (or python3.7 <file>)
-  * This runs python in the terminal
+    * This runs python in the terminal
 You can type a .py file after this to run that file
 
 
