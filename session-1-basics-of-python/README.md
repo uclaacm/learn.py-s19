@@ -70,7 +70,8 @@ _Install Python_
 2. You should be done
 3. Check the install by typing pip3 and ENTER in the terminal
     * It should give you usage information similar to the following, and not -bash: pip3: command not found"
-<img src="images/mac_install2">
+
+<img src="images/mac_install2.png">
 If not, retry the installation or call a mentor
 
 _Command line_
