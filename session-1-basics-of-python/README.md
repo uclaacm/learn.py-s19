@@ -243,7 +243,8 @@ Astute students may notice that when declaring variables, one does not need to s
 Now let's do some quick maths. Basic arithmetic in Python is mostly identical to basic arithmetic in real life with a few exceptions.
 
 ### Addition and Subtraction
-**With Integers** 
+**With Integers**
+
 `1 + 1` will give you **2** and `2 - 1000` will give you **-998**.
 
 **With Floats**
@@ -252,7 +253,7 @@ Now let's do some quick maths. Basic arithmetic in Python is mostly identical to
 ```
 Wait what? What's going on here?
 
-Well remember that floats have up 15 precise decimal places. Because of this, we get this strange behavior of adding our floats.
+Well remember that floats have up 15 precise decimal places. Because of this, we get this strange behavior when adding our floats.
 
 There are ways we can perform precise float arithmetic using Decimal objects. We won't get too much into detail here, but for those who want a brief example, here it is:
 ```python
@@ -263,7 +264,7 @@ Decimal(0.1) + Decimal(0.2) = 0.300
 
 ### Multiplication
 Multiplication in Python is expressed using the \*.
-`3 * 8 = 24` and `-30 * 2 = -60`
+So `3 * 8 = 24` and `-30 * 2 = -60`
 
 ### Divison
 Division in python will automatically be interpreted as a float expression. In Python, dividing always gives you a float.
@@ -284,8 +285,8 @@ _Note: Instead of truncating the result (cutting of the decimal part) , Python r
 
 ### Some other useful arithmetic expressions
 #### Exponents
-If we wanted to compute 2<sup>5</sup> we could write 2*2*2*2*2 but that's long and tedious. What if we wanted to compute 2<sup>1000</sup> instead? Then we'd have to write 2*2*2*\.\.\. a thousand times! Luckily, Python instead gives us a short way to write components with '\*\*'
-So 2<sup>5</sup> would be written as `2 ** 5`
+If we wanted to compute 2<sup>5</sup> we could write 2\*2\*2\*2\*2 but that's long and tedious. What if we wanted to compute 2<sup>1000</sup> instead? Then we'd have to write 2\*2\*2\*\.\.\. a thousand times! Luckily, Python instead gives us a short way to write components with '\*\*'
+So 2<sup>5</sup> would be written as `2 ** 5`.
 2<sup>1000</sup> would be written as `2 ** 1000`.
 
 #### Modulus
@@ -312,10 +313,10 @@ Hello my name is Jody and I am 18 years old.
 
 We can also print variables as well. For example:
 ```python
-	name = 'Jody'
-	age = 18
-	print(name)
-	print(age)
+name = 'Jody'
+age = 18
+print(name)
+print(age)
 ```
 This will output:
 ```
@@ -333,6 +334,7 @@ Hello, my name is Jody and I am 18 years old.
 ```
 
 _Note: This automatically adds spaces for us on either side of the variable we are inserting._
+
 
 Another way we could do this is by using this syntax:
 ```python
@@ -403,10 +405,11 @@ if(some_condition_is_true): 	# here is the condition
 
 In Python, one must indent a line to indicate its scope (a fancy word which essentially means 'where this code is valid and runs').
 
-A brief explanation of scope:
-So what is scope? In code, some lines of code essentially hold other lines of code. To execute those inner lines of code, one must access it through that outer code that holds it. When some code is contained within other code, we say that code is within the scope of that outer code.
+>A brief explanation of scope:
 
-We indicate a line of code is within the scope of something, in this case, an if-statement, by indenting lines as shown above. In our if-statement example, think of scope like a box. Our if-statement is the box that contains some code. If we are not inside the box (we are not inside our the scope of our if-statement), all the code inside basically don't exist to us. If we declared variables or wrote print statements there, they will not execute unless we are inside the box (inside the if-statement). So all lines that are indented in our if-statement are in contained within that if-statement--that is, they are within the scope of the statement. If a line is not indented, it is NOT within the scope of the if-statement and will execute regardless of how the if-statement before is evaluated.
+  >So what is scope? In code, some lines of code essentially hold other lines of code. To execute those inner lines of code, one must access it through that outer code that holds it. When some code is contained within other code, we say that code is within the scope of that outer code.
+
+  >We indicate a line of code is within the scope of something, in this case, an if-statement, by indenting lines as shown above. In our if-statement example, think of scope like a box. Our if-statement is the box that contains some code. If we are not inside the box (we are not inside our the scope of our if-statement), all the code inside basically don't exist to us. If we declared variables or wrote print statements there, they will not execute unless we are inside the box (inside the if-statement). So all lines that are indented in our if-statement are in contained within that if-statement--that is, they are within the scope of the statement. If a line is not indented, it is NOT within the scope of the if-statement and will execute regardless of how the if-statement before is evaluated.
 
 Confusing? Let's look at a few examples.
 
@@ -427,13 +430,13 @@ This means the exact same thing as before. The if-statement will only execute th
 
 There are also 2 more optional lines you can add onto an if-statement. These are elif and else.
 ```
-	if(condition_one):
-		[code to execute if condition_one is True]
-	elif(condition_two):
-		[code to execute if condition_one was NOT met (aka False)...]
-[...and condition_two is True]
-	else:
-		[code to execute if no conditions listed above were met]
+if(condition_one):
+	[code to execute if condition_one is True]
+elif(condition_two):
+	[code to execute if condition_one was NOT met (aka False)...]
+  [...and condition_two is True]
+else:
+	[code to execute if no conditions listed above were met]
 ```
 
 `elif` stands for else-if and will only execute if its condition is met and the previous conditions were NOT met. If a condition before is met, this will NOT execute.
@@ -475,7 +478,7 @@ For example:
 ```python
 name = 'Eggert'
 for c in name:
-	print(c)
+  print(c)
 ```
 Will output:
 ```
@@ -486,7 +489,8 @@ e
 r
 t
 ```
-As we can see we go through each character in the string and the print it out. You can read this as **"for each character, c, in name: do the following"**
+As we can see we go through each character in the string and the print it out. You can read this as
+_"for each character, c, in name: do the following"_
 
 We can also loop through a range of numbers using the range function. For example:
 ```python
@@ -565,7 +569,7 @@ For example:
 for i in range(1,5):
 	print(i)
 else:
-	print('We have reached the end of the for-loop.')
+  print('We have reached the end of the for-loop.')
 ```
 This outputs:
 ```
@@ -624,7 +628,7 @@ Now currently our function has no arguments (as seen by an empty set of '( )'). 
 Suppose we had defined our function like this:
 ```python
 def greetingTwo(name):
-		print(p'Hello there {name}! It's nice to meet you!)
+	print(p'Hello there {name}! It's nice to meet you!)
 ```
 As we can see, we have listed the variable 'name' as an argument (also called a _parameter_). Now inside the function, we can use whatever value that's passed into 'name' in our string!
 
