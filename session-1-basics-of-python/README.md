@@ -203,10 +203,10 @@ A brief note on the escape character '\\':
   Due to the way strings are written, sometimes we need to indicate that a symbol is just a symbol that we want in our string, rather than a symbol to do something (e.g. single and double quotes indicate the start and end of strings). Conversely, sometimes there’s special instructions we want our string to perform, but we need a way to indicate that we our special instructions are not part of the string (e.g. the way to indicate a new-line in a string involves using an escape character). To make this distinction, we use the escape character.
 
   Here are a few examples:
-  '\\\\' – allows us to insert the backslash (the escape character) into a string
-  '\\t' -- adds an indentation (four spaces) in the string
-  '\\n' – begins a new-line in a string
-  '\\a' – plays the ascii bell alert sound
+  * '\\\\' – allows us to insert the backslash (the escape character) into a string
+  * '\\t' -- adds an indentation (four spaces) in the string
+  * '\\n' – begins a new-line in a string
+  * '\\a' – plays the ascii bell alert sound
 
 We can also declare **multi-line strings** using triple quotes. For example:
 ```python
