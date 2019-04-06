@@ -124,7 +124,7 @@ This type of variable simply stores the value 'True' or 'False'.
 Example: `doILoveBoba = True` or `schoolIsFun = False`
 
 ### Integers
-This is (suprise!) just anything that is an integer (does not contain a decimal). So the variable we used before called `myPhysicsGrade` stored the integer value 65.
+This is (surprise!) just anything that is an integer (does not contain a decimal). So the variable we used before called `myPhysicsGrade` stored the integer value 65.
 
 Integers can be declared with an integer literal (a whole number) or with the int constructor.   
 
@@ -144,7 +144,7 @@ This will store the binary value 0101 (5 in base 10).
 
 _Note: To declare an integer this way, the integer must be in the form of a string and the base must be of type int._
 
-Also note that there is no size limitation on an integer! As long as there is memory left on the computer, you can make an integer as large or small as you want!
+Also, note that there is no size limitation on an integer! As long as there is memory left on the computer, you can make an integer as large or small as you want!
 
 ### Floats
 Float stands for "Floating-Point", which is just a fancy way of saying "a number with a decimal". This can be 3.14, -8.3749, or even just, 0.0.
@@ -174,7 +174,7 @@ sayHi = "uwu"
 ```
 A call to `print(sayHi)` in either case would output: `uwu`.
 
-Now what happens if we want our string to include a quotation mark so that printing it would output: `Connie says 'uwu' a lot.`
+Now what happens if we want our string to include a quotation mark so that printing it would output: `Connie says 'uwu' a lot.`?
 
 Notice that if we type
 ```
@@ -200,7 +200,7 @@ Connie says 'uwu' a lot.
 ```
 
 A brief note on the escape character '\\':
-  Due to the way strings are written, sometimes we need to indicate that a symbol is just a symbol that we want in our string, rather than a symbol to do something (e.g. single and double quotes indicate the start and end of strings). Conversely, sometimes there’s special instructions we want our string to perform, but we need a way to indicate that we our special instructions are not part of the string (e.g. the way to indicate a new-line in a string involves using an escape character). To make this distinction, we use the escape character.
+  Due to the way strings are written, sometimes we need to indicate that a symbol is just a symbol that we want in our string, rather than a symbol to do something (e.g. single and double quotes indicate the start and end of strings). Conversely, sometimes there’s special instructions we want our string to perform, but we need a way to indicate that our special instructions are not part of the string (e.g. the way to indicate a new-line in a string involves using an escape character). To make this distinction, we use the escape character.
 
   Here are a few examples:
   * '\\\\' – allows us to insert the backslash (the escape character) into a string
@@ -257,7 +257,7 @@ Now let's do some quick maths. Basic arithmetic in Python is mostly identical to
 ```
 Wait what? What's going on here?
 
-Well remember that floats have up 15 precise decimal places. Because of this, we get this strange behavior when adding our floats.
+Well, remember that floats have up 15 precise decimal places. Because of this, we get this strange behavior when adding our floats.
 
 There are ways we can perform precise float arithmetic using Decimal objects. We won't get too much into detail here, but for those who want a brief example, here it is:
 ```python
@@ -350,7 +350,7 @@ This outputs the same as before:
 Hello my name is Jody and I am 18 years old.
 ```
 
-The f in front indicates that we will be formatting the string by replacing everything contained by the curly braces with the contents of the variable of that same name.
+The 'f' in front indicates that we will be formatting the string by replacing everything contained by the curly braces with the contents of the variable of that same name.
 
 ### Input
 Now what if we wanted to directly get information from the user and store that in a variable? Python lets us do this with the input() function. This takes in a string as an argument and returns the string that the user typed.
@@ -432,7 +432,7 @@ if (bobaIsTooExpensive) # will execute code if boolean is true
 ```
 This means the exact same thing as before. The if-statement will only execute the code within it if the boolean is True. This is simply a shorter and faster way to write it.
 
-There are also 2 more optional lines you can add onto an if-statement. These are elif and else.
+There are also 2 more optional lines you can add onto an if-statement. These are `elif` and `else`.
 ```
 if(condition_one):
 	[code to execute if condition_one is True]
@@ -445,7 +445,7 @@ else:
 
 `elif` stands for else-if and will only execute if its condition is met and the previous conditions were NOT met. If a condition before is met, this will NOT execute.
 
-`else` contains code that will execute if none of the conditions before are met. This must go after all `if` and `elif` statements. Because it requires that all conditions before be evaluated to false, it doesn't make sense for an else statement to exist without having a previous if or elif statements.
+`else` contains code that will execute if none of the conditions before are met. This must go after all `if` and `elif` statements. Because it requires that all conditions before be evaluated to false, it doesn't make sense for an else statement to exist without having a previous `if` or `elif` statements.
 
 Here's an example of these in action:
 ```python
@@ -564,7 +564,7 @@ Have now bought 10 bobas
 ```
 
 ### Else in Loops
-In Python, there's the added feature of loops that have an else statement. This works because if you think about it, loops are just fancy looking if-statements. If the condition is true, it will execute the code. Then it will loop back to the condition and check if the condition is still true. If it is, it executes the code inside again. This then repeats. If the condition is not met, the loop simply skips over it's inner code and moves on to whatever comes next in the code.
+In Python, there's the added feature of loops that have an else statement. This works because if you think about it, loops are just fancy looking if-statements. If the condition is true, it will execute the code. Then it will loop back to the condition and check if the condition is still true. If it is, it executes the code inside again. This then repeats. If the condition is not met, the loop simply skips over its inner code and moves on to whatever comes next in the code.
 
 Because of this, loops can also have an else statement! This statement will be executed when the condition in the loop is false.
 
