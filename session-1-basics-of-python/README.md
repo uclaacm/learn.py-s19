@@ -37,7 +37,7 @@ So why learn Python?
 Fun Fact: Python is named after Monty Python, not the snake :)
 
 We will be teaching Python 3 rather than Python 2. Python 2 will no longer be maintained after 2020.
-<img src="images/salute">
+<img src="images/salute.png">
 
 ## How to Install and Run Python
 How to download Python for:
