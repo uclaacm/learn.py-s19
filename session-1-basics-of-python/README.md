@@ -95,18 +95,18 @@ What is a variable? A variable is anything that holds a value.
 Just like in math or science class, we can say that the variable x represents the height of a building, the displacement of an object, or number of L's you took last quarter, in Python we can declare a variable to hold almost anything.
 
 For example:
-  ```python
-	myPhysicsGrade = 65
-  ```
+```python
+myPhysicsGrade = 65
+```
 
 So what does this do? Well the number 65 has just been stored in memory on our computer under the name `myPhysicsGrade`. Later on, we can have access to our stored value of 65 by simply using the name we gave it.
 
 So typing out `print(myPhysicsGrade)` will output 65, which is the value we have stored in the `myPhysicsGrade` variable.
 
 What other kinds of things can we store in a variable? Could we have instead typed this?
-	```python
-	myPhysicsGrade = 'C'
-  ```
+```python
+myPhysicsGrade = 'C'
+```
 The answer is yes! In this case, we have stored what we called a **string** inside our variable `myPhysicsGrade`.
 
 So what are some of the basic types we can store in variables? Some of these basic types include **booleans**, **integers**, **floats**, and **strings**. So what are these?
