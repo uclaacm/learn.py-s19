@@ -1,6 +1,7 @@
 # Learn.py Session 1 Basics of Python: Data Types, I/O, Control Flow
 
 **Location:** Covel 227
+
 **Time:** 6:15pm - 8:15pm, 10 April 2019
 
 **Teacher:** Jody Lin
@@ -9,6 +10,7 @@
 **Slides**
 * [Slides](https://docs.google.com/presentation/d/1AW-HPMYfJziM7V_ovLN9W09NjdhKcA4qTVpGk1qOLvg/edit?usp=sharing)
 **ACM Membership Attendance Portal**
+
 * [Portal](https://members.uclaacm.com/login)
 
 ## What we'll be learning today
@@ -49,6 +51,7 @@ How to download Python for:
 # TODO: INSERT IMAGE HERE
 
 **Mac**
+
 _Install homebrew_
   * Go to http://brew.sh/
 1. Copy the code under "Install Homebrew"
@@ -117,7 +120,7 @@ This type of variable simply stores the value 'True' or 'False'.
 Example: `doILoveBoba = True` or `schoolIsFun = False`
 
 ### Integers
-This is (suprise!) just anything that is an integer (does not contain a decimal). So the variable we used before called myPhysicsGrade stored the integer value 65.
+This is (suprise!) just anything that is an integer (does not contain a decimal). So the variable we used before called `myPhysicsGrade` stored the integer value 65.
 
 Integers can be declared with an integer literal (a whole number) or with the int constructor.   
 
@@ -142,17 +145,17 @@ Also note that there is no size limitation on an integer! As long as there is me
 ### Floats
 Float stands for "Floating-Point", which is just a fancy way of saying "a number with a decimal". This can be 3.14, -8.3749, or even just, 0.0.
 
-Here are some ways to declare floats: (you can also type a float literal, which is just a decimal)
+Here are some ways to declare floats:
 ```python
 pi = 3.1415926535989793238462643383
 float('+1.23')
-1.23
+  # 1.23
 float('1e-003')
-0.001
+  # 0.001
 float('+1E6')
-1000000.0
+  # 1000000.0
 float('-Infinity')
--inf
+  # -inf
 ```
 
 Floats have up to 15 precise decimal places, which leads to strange behavior when we do math with them later. But we'll get into that later.
@@ -185,7 +188,7 @@ This then reads the string from the first appearance of " to the second appearan
 
 The second method would be to use the escape character ('\' - aka the backslash). We simply place the escape character in front of the special character that we want to be read as part of the string.
 ```python
-  sayHi = 'Connie says \'uwu\' a lot'
+sayHi = 'Connie says \'uwu\' a lot'
 ```
 Calling `print` now on `sayHi` with `print(sayHi)` will now output the line properly as
 ```
@@ -226,7 +229,7 @@ So
 'President' ' Lea'
 ```
 becomes `'President Lea'`
-And
+and
 ```python
 'President' + ' Connie'
 ```
@@ -240,7 +243,7 @@ Astute students may notice that when declaring variables, one does not need to s
 Now let's do some quick maths. Basic arithmetic in Python is mostly identical to basic arithmetic in real life with a few exceptions.
 
 ### Addition and Subtraction
-**With Integers**
+**With Integers** 
 `1 + 1` will give you **2** and `2 - 1000` will give you **-998**.
 
 **With Floats**
