@@ -63,16 +63,14 @@ _Command line_
 * rmdir: remove an empty directory (folder)
 
 _Running a Python Script_
-_Windows_
 1. Change directories into the folder that contains your python script (.py)
-    * cd /folder/that/holds/the/python/script.py
-2. Type: python.exe file_name.py
-This begins executing your python file in the terminal
-_Mac_
-1. Change directories into the folder that contains your python script (.py)
-2. Type: python3 <file> (or python3.7 <file>)
-    * This runs python in the terminal
-You can type a .py file after this to run that file
+    * cd /folder/that/holds/the/python/script
+2. WINDOWS:
+    Type
+        python name_of_file.py
+3. MAC:
+    Type
+        python3 name_of_file.pye
 
 
 
