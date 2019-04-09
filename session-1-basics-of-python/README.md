@@ -168,7 +168,7 @@ sayHi = "Connie says 'uwu' a lot."
 ```
 This then reads the string from the first appearance of " to the second appearance of ". The single quotes inside are read as part of the string.
 
-The second method would be to use the escape character ('\' - aka the backslash). We simply place the escape character in front of the special character that we want to be read as part of the string.
+The second method would be to use the escape character ('\\' - aka the backslash). We simply place the escape character in front of the special character that we want to be read as part of the string.
 ```python
 sayHi = 'Connie says \'uwu\' a lot'
 ```
