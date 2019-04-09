@@ -473,7 +473,47 @@ ELSE we will look for another college because none of the previous conditions we
 In this case `amSmart` was False, so 'Will go to UCLA' was NOT printed, but `amRich` was True, so 'Will go to USC' was printed. Because at least one of the conditions before was met, our else statement was not executed and thus we did NOT print out 'Will look for another college'.  If `amSmart` was True and `amRich` was True, you would only go to UCLA, because that's the first condition in the chain that is True.
 
 ## Loops
-What if wanted to execute a line of code a bunch of times without having to rewrite it over and over and over? This is where loops come in! We will introduce 2 types of loops: the **for-loop** and the **while-loop**.
+What if wanted to execute a line of code a bunch of times without having to rewrite it over and over and over? This is where loops come in! We will introduce 2 types of loops: the **while-loop** and the **for-loop**.
+
+### While-Loop
+This loop will continue executing the code inside of it until the condition it presents is false. Once the condition is evaluated to false, the loop stops running and we proceed to the rest of the code.
+
+```python
+while (condition_to_be_met):
+		[execute some code]
+```
+
+For example:
+```python
+bobasBought = 0
+while(bobasBought < 10):
+    print('Buy more boba!')
+    bobasBought += 1
+    print('Have now bought', bobasBought, 'bobas')
+```
+This will output:
+```
+Buy more boba!
+Have now bought 1 bobas
+Buy more boba!
+Have now bought 2 bobas
+Buy more boba!
+Have now bought 3 bobas
+Buy more boba!
+Have now bought 4 bobas
+Buy more boba!
+Have now bought 5 bobas
+Buy more boba!
+Have now bought 6 bobas
+Buy more boba!
+Have now bought 7 bobas
+Buy more boba!
+Have now bought 8 bobas
+Buy more boba!
+Have now bought 9 bobas
+Buy more boba!
+Have now bought 10 bobas
+```
 
 ### For-Loop
 This loop is an incrementing loop that will execute code as it increments through a given range of values. It will then exit the loop when it reaches the end of that range.
@@ -522,46 +562,6 @@ for i in range(10):
 	print(i)
 ```
 In this case, the starting value is set to 0 by default. This will have the same output as the previous loop.
-
-### While-Loop
-This loop will continue executing the code inside of it until the condition it presents is false.
-
-```python
-while (condition_to_be_met):
-		[execute some code]
-```
-
-For example:
-```python
-bobasBought = 0
-while(bobasBought < 10):
-    print('Buy more boba!')
-    bobasBought += 1
-    print('Have now bought', bobasBought, 'bobas')
-```
-This will output:
-```
-Buy more boba!
-Have now bought 1 bobas
-Buy more boba!
-Have now bought 2 bobas
-Buy more boba!
-Have now bought 3 bobas
-Buy more boba!
-Have now bought 4 bobas
-Buy more boba!
-Have now bought 5 bobas
-Buy more boba!
-Have now bought 6 bobas
-Buy more boba!
-Have now bought 7 bobas
-Buy more boba!
-Have now bought 8 bobas
-Buy more boba!
-Have now bought 9 bobas
-Buy more boba!
-Have now bought 10 bobas
-```
 
 ### Else in Loops
 In Python, there's the added feature of loops that have an else statement. This works because if you think about it, loops are just fancy looking if-statements. If the condition is true, it will execute the code. Then it will loop back to the condition and check if the condition is still true. If it is, it executes the code inside again. This then repeats. If the condition is not met, the loop simply skips over its inner code and moves on to whatever comes next in the code.
@@ -612,7 +612,8 @@ def function_name(arguments):
 	[to be included in the function]
 	(optional return value)
 ```
-_(We will be getting into functions in detail next week, so if you're wondering what a 'return value' is, don't worry too much just yet.)_
+
+_(We will be getting into functions in detail next week, so don't worry if this is a little confusing.)_
 
 Now let's put our code in a function. We can define it like this:
 ```python
@@ -632,7 +633,7 @@ Now currently our function has no arguments (as seen by an empty set of '( )'). 
 Suppose we had defined our function like this:
 ```python
 def greetingTwo(name):
-	print(p'Hello there {name}! It's nice to meet you!)
+  print(p'Hello there {name}! It's nice to meet you!)
 ```
 As we can see, we have listed the variable 'name' as an argument (also called a _parameter_). Now inside the function, we can use whatever value that's passed into 'name' in our string!
 
@@ -645,3 +646,30 @@ This will now execute the code inside `greetingTwo(name)` and output this:
 ```
 Hello there Tim Gu! It's nice to meet you!
 ```
+### Return
+We can see above in our function syntax that there is an optional return value. But what is a return value?
+
+A `return` value is a value that is returned to the code when a function is called. For example, if we defined a very simple function like this:
+```python
+def addNums(x, y):
+  return x + y
+```
+we can see that we return `x + y`. So what does that mean?  Well, when we call our function, our function call gets replaced by the value that we return.
+
+So if we say
+```python
+sum = addNums(3, 10)
+```
+our function `addNums(x, y)` is called. In this case, we pass in **3** and **10** to our parameters `x` and `y`. We then add these two together, which equals **13**. We then return **13** from our function. This value of **13** is then stored in `sum`.
+
+An easy way to picture it is this: Whatever is after the word `return` replaces our initial call to `addNums(3, 10)`.
+
+So under the hood:
+```python
+sum = addNums(3, 10)
+```
+**addNums(3, 10)** gets replaced by `x + y`, which in our example, is `3 + 10`, which equals `13`. `13` then replaces `addNums(3, 10)` so that under the hood our code looks like this:
+```python
+sum = 13
+```
+Now **13** is stored in sum!
