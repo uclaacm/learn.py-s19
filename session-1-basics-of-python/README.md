@@ -673,3 +673,132 @@ sum = addNums(3, 10)
 sum = 13
 ```
 Now **13** is stored in sum!
+
+---
+# Mini-Projects
+Now that we've learned some of the basics of Python, let's try make something ourselves!
+
+Here are 3 mini-projects that you can code using what we have learned.
+
+### Level 1: Beginner
+1. Write a function that returns the greater of two numbers
+2. If both values are the same, you can return either one
+3. Use the template
+```
+def getMax(x, y):
+	[...you code this…]
+	return [...you code this as well…]
+```
+
+Example usage of this code might look like this:
+```
+x1 = getMax(-35, 0)
+x2 = getMax(1.5, 10)
+x3 = getMax(4, 4)
+print(x1)
+print(x2)
+print(x3)
+```
+OUTPUT:
+```
+0
+10
+4
+```
+
+> Hint: You will need conditional statements (if, elif, else)
+
+### Level 2: Intermediate
+1. Write a function that takes in a lower bound (lowB) and an upper bound (upB) and returns the sum of the values from lowB up to, but not including, upB
+  * Assume lowB less than or equal to upB
+  * [lowB, upB)
+2. Use the template
+```
+def getSum(lowB, upB):
+	[...you code this…]
+	return [...you code this as well…]
+```
+
+Example usage of this code might look like this:
+```
+s1 = getSum(1, 10)
+s2 = getSum(3, 5)
+s3 = getSum(4, 4)
+print(s1)
+print(s2)
+print(s3)
+```
+OUTPUT:
+```
+45
+7
+0
+```
+
+> Hint1 : use a for loop with the range() function
+Hint 2: store the sum in a variable that you update as you iterate through the for-loop
+
+### Level 3: Hard
+1. The Caesar Cipher is a simple method of encryption that takes a letter and replaces it with the letter k letters to the right , where k is a number determined by the encryptor.
+
+The conversion looks like something like this:
+<img src="https://github.com/uclaacm/learn.py-s19/blob/master/session-1-basics-of-python/images/cipher.PNG">
+k = 3 in this case. The top row holds the value of the original character while the bottom holds the new encoded letter.
+
+2. The upper and lowercase versions of letters are treated equivalently in a cipher
+3. Examples of the Cipher where k = 3
+```
+HELLO WORLD → KHOOR ZRUOG
+PYTHON IS FUN → SBKRQ LV IXQ
+```
+
+Finding the character k letters to the right of a letter can be made easy by exploiting the ASCII values of a character.
+
+In Python, to get the ASCII value of a letter and vice versa, we use these two functions:
+```
+chr(integer)
+ord(length_1_string)
+```
+**chr()** takes in an integer (0-255) and returns the equivalent character according to the ASCII value
+**ord()** takes a string of length 1 (one letter) and returns the equivalent ASCII value
+
+Examples:
+```
+		chr(65) → ‘A’
+		ord(‘S’) → 83
+```
+Here is an ASCII table for reference:
+<img src="https://github.com/uclaacm/learn.py-s19/blob/master/session-1-basics-of-python/images/ascii.png">
+
+Challenge:
+Your job is to create a function that will decode an encrypted message when given a decryption key.
+
+**To simplify things, assume all letters given in the message are uppercase and that all are alphabet characters (no special characters like . , ! # $ % etc.). Also note that spaces are not changed and are kept as spaces in the encoded message.**
+
+Use this template for your function:
+```
+def decrypt(message, key):
+	[...you code this…]
+	return [the decoded string]
+```
+
+Example usage of this code might look like:
+```
+m1 = 'FH FLLA'
+k1 = 7
+decrypt(m1, k1)
+
+m2 = 'JNXNAQN SBERIRE'
+k2 = 13
+decrypt(m2, k2)
+
+m3 = 'FYRER DVREJ WRDZCP REU WRDZCP DVREJ EFSFUP XVKJ CVWK SVYZEU FI WFIXFKKVE'
+k3 = 17
+decrypt(m3, k3)
+```
+OUTPUT:
+```
+YA YEET
+WAKANDA FOREVER
+OHANA MEANS FAMILY AND FAMILY MEANS NOBODY GETS LEFT BEHIND OR FORGOTTEN
+```
