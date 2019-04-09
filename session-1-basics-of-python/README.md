@@ -666,6 +666,8 @@ to this:
 sum = 13
 ```
 As we can see, by using return, we can directly call a function and store the returned value in a variable or use it in a command like print().
+
+
 ---
 # Mini-Projects
 Now that we've learned some of the basics of Python, let's try make something ourselves!
