@@ -732,6 +732,7 @@ chr(integer)
 ord(length_1_string)
 ```
 **chr()** takes in an integer (0-255) and returns the equivalent character according to the ASCII value
+
 **ord()** takes a string of length 1 (one letter) and returns the equivalent ASCII value
 
 Examples:
