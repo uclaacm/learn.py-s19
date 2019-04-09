@@ -239,7 +239,7 @@ Well, remember that floats have up 15 precise decimal places. Because of this, w
 
 There are ways we can perform precise float arithmetic using Decimal objects. We won't get too much into detail here, but for those who want a brief example, here it is:
 ```python
-from decimal import Decimal
+from decimal import *
 getcontext().prec = 3
 Decimal(0.1) + Decimal(0.2) = 0.300
 ```
