@@ -40,39 +40,19 @@ We will be teaching Python 3 rather than Python 2. Python 2 will no longer be ma
 <img src="images/salute.png">
 
 ## How to Install and Run Python
-How to download Python for:
+How to download Python:
 
-**Windows**
-1. Download the Python 3 installer (https://www.python.org/downloads/windows/)
-2. Click "Latest Python 3 Release - Python 3.x.x" (As of now, it’s 3.7.3)
-3. Scroll to the bottom and select either Windows x86-64 executable installer for 64-bit or Windows x86 executable installer for 32-bit.
-4. Run the installer
-5. Make sure to check "Add Python 3.x to PATH"
-
-<img src="images/win_install.png">
-
-**Mac**
-
-_Install homebrew_
-Go to http://brew.sh/
-1. Copy the code under "Install Homebrew"
-    * /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-2. Run that code in a terminal window (this will take a while)
-    * Note: Apple<sup>TM</sup> might ask you to install their CoMmAnD LiNe DeVeLoPeR ToOlS: Just confirm and install those.
-3. Confirm the "The software was installed" dialog from the developer tools installer
-4. In the terminal, hit ENTER to continue with the installation
-    * Homebrew will ask for your device password to finish the installation. It will download the files it needs. Hopefully UCLA’s internet connection isn’t terrible.
-<img src="images/mac_install1.png">
-It should say "Installation successful"
-
-_Install Python_
-1. Type "brew install python3" and hit ENTER all in the terminal
-2. You should be done
-3. Check the install by typing pip3 and ENTER in the terminal
-    * It should give you usage information similar to the following, and not -bash: pip3: command not found"
-
-<img src="images/mac_install2.png">
-If not, retry the installation or call a mentor.
+1. Download the Python 3 installer (https://www.python.org/downloads/)
+2. Click "Download Python 3.x.x" (As of now, it’s 3.7.3)
+    * should detect your OS automatically
+    * if this does not work, try this:
+      1. click your Operating System (Windows, MacOS)
+      2. Click "Latest Python 3 Release - Python 3.x.x" (As of now, it’s 3.7.3)
+      3. WINDOWS: Scroll to the bottom and select either Windows x86-64 executable installer for 64-bit or Windows x86 executable installer for 32-bit.
+      4. MAC: Scroll to the bottom and select macOS 64-bit installer
+3. Run the installer (find in File Explorer and double-click)
+4. For Windows: Make sure to check "Add Python 3.x to PATH"
+5. For Mac: Hit agree to everything and continue
 
 
 _Command line_
