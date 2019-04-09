@@ -402,41 +402,35 @@ In this case, we use something called conditional-statements. This is code that 
 
 This is formatted like this:
 ```
-if(some_condition_is_true): 	# here is the condition
+if some_condition_is_true: 	# here is the condition
 	[lines to execute] 	# here is the body
 [these lines execute regardless of the condition]  # not contained within body
 ```
 
-In Python, one must indent a line to indicate its scope (a fancy word which essentially means 'where this code is valid and runs').
-
->A brief explanation of scope:
-
-  >So what is scope? In code, some lines of code essentially hold other lines of code. To execute those inner lines of code, one must access it through that outer code that holds it. When some code is contained within other code, we say that code is within the scope of that outer code.
-
-  >We indicate a line of code is within the scope of something, in this case, an if-statement, by indenting lines as shown above. In our if-statement example, think of scope like a box. Our if-statement is the box that contains some code. If we are not inside the box (we are not inside our the scope of our if-statement), all the code inside basically don't exist to us. If we declared variables or wrote print statements there, they will not execute unless we are inside the box (inside the if-statement). So all lines that are indented in our if-statement are in contained within that if-statement--that is, they are within the scope of the statement. If a line is not indented, it is NOT within the scope of the if-statement and will execute regardless of how the if-statement before is evaluated.
+In Python, one must indent to indicate that it is _contained_ within the if-statement. Even if a line of code is listed immediately after an if-statement, if it is NOT indented, it is NOT part of the if-statement and essentially functions as separate code.
 
 Confusing? Let's look at a few examples.
 
 So for example:
 ```python
-if (bobaIsTooExpensive == True)
+if bobaIsTooExpensive == True:
 	print('complain')
 print('Buy boba')
 ```
-In this case, `'complain'` will only be printed if the boolean `bobaIsTooExpensive` is `True`. However, it will print 'Buy boba' either way because it is not contained within the if-statement.
+In this case, `'complain'` will only be printed if the boolean `bobaIsTooExpensive` is `True`. However, it will print 'Buy boba' either way because it is not indented and therefore not contained within the if-statement. It is its own line of code and therefore prints regardless of how the if-statement before is evaluated.
 
 _Note: An identical form of this statement is this:_
 ```python
-if (bobaIsTooExpensive) # will execute code if boolean is true
+if bobaIsTooExpensive: # will execute code if boolean is true
 		print('complain')
 ```
 This means the exact same thing as before. The if-statement will only execute the code within it if the boolean is True. This is simply a shorter and faster way to write it.
 
 There are also 2 more optional lines you can add onto an if-statement. These are `elif` and `else`.
 ```
-if(condition_one):
+if condition_one:
 	[code to execute if condition_one is True]
-elif(condition_two):
+elif condition_two:
 	[code to execute if condition_one was NOT met (aka False)...]
   [...and condition_two is True]
 else:
@@ -452,9 +446,9 @@ Here's an example of these in action:
 amSmart = False
 amRich = True
 
-if(amSmart == True):
+if amSmart == True:
     print('Will go to UCLA')
-elif(amRich == True):
+elif amRich == True:
     print('Will go to USC')
 else:
     print('Will look for another college')
@@ -479,14 +473,14 @@ What if wanted to execute a line of code a bunch of times without having to rewr
 This loop will continue executing the code inside of it until the condition it presents is false. Once the condition is evaluated to false, the loop stops running and we proceed to the rest of the code.
 
 ```python
-while (condition_to_be_met):
+while condition_to_be_met:
 		[execute some code]
 ```
 
 For example:
 ```python
 bobasBought = 0
-while(bobasBought < 10):
+while bobasBought < 10:
     print('Buy more boba!')
     bobasBought += 1
     print('Have now bought', bobasBought, 'bobas')
@@ -735,8 +729,8 @@ OUTPUT:
 0
 ```
 
-> Hint1 : use a for loop with the range() function
-Hint 2: store the sum in a variable that you update as you iterate through the for-loop
+> Hint 1 : use a for loop with the range() function
+> Hint 2: store the sum in a variable that you update as you iterate through the for-loop
 
 ### Level 3: Hard
 1. The Caesar Cipher is a simple method of encryption that takes a letter and replaces it with the letter k letters to the right , where k is a number determined by the encryptor.
@@ -764,10 +758,11 @@ ord(length_1_string)
 
 Examples:
 ```
-		chr(65) → ‘A’
-		ord(‘S’) → 83
+chr(65) → ‘A’
+ord(‘S’) → 83
 ```
 Here is an ASCII table for reference:
+
 <img src="https://github.com/uclaacm/learn.py-s19/blob/master/session-1-basics-of-python/images/ascii.png">
 
 Challenge:
@@ -786,15 +781,15 @@ Example usage of this code might look like:
 ```
 m1 = 'FH FLLA'
 k1 = 7
-decrypt(m1, k1)
+print(decrypt(m1, k1))
 
 m2 = 'JNXNAQN SBERIRE'
 k2 = 13
-decrypt(m2, k2)
+print(decrypt(m2, k2))
 
 m3 = 'FYRER DVREJ WRDZCP REU WRDZCP DVREJ EFSFUP XVKJ CVWK SVYZEU FI WFIXFKKVE'
 k3 = 17
-decrypt(m3, k3)
+print(decrypt(m3, k3))
 ```
 OUTPUT:
 ```
@@ -802,3 +797,6 @@ YA YEET
 WAKANDA FOREVER
 OHANA MEANS FAMILY AND FAMILY MEANS NOBODY GETS LEFT BEHIND OR FORGOTTEN
 ```
+---
+
+And that's it :) Now you know some of the fundamental basics of Python :)
