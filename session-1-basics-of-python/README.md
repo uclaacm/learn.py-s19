@@ -641,33 +641,31 @@ This will now execute the code inside `greetingTwo(name)` and output this:
 Hello there Tim Gu! It's nice to meet you!
 ```
 ### Return
-We can see above in our function syntax that there is an optional return value. But what is a return value?
+We can see above in our function syntax that there is an optional `return` value. But what is a return value?
 
-A `return` value is a value that is returned to the code when a function is called. For example, if we defined a very simple function like this:
+Well, when we write functions, we execute a chunk of code. But what if we want to execute some code and then have that code give back a value? `return` allows us to do this.
+
+Consider the function
 ```python
 def addNums(x, y):
   return x + y
 ```
-we can see that we return `x + y`. So what does that mean?  Well, when we call our function, our function call gets replaced by the value that we return.
+In this example, when we call addNums(x, y), not only does the code compute `x + y`, but we also directly get back the computed value and can store that outside of our function.
 
 So if we say
 ```python
 sum = addNums(3, 10)
 ```
-our function `addNums(x, y)` is called. In this case, we pass in **3** and **10** to our parameters `x` and `y`. We then add these two together, which equals **13**. We then return **13** from our function. This value of **13** is then stored in `sum`.
 
-An easy way to picture it is this: Whatever is after the word `return` replaces our initial call to `addNums(3, 10)`.
-
-So under the hood:
+our function adds `3 + 10` to get `13` and then returns that out of the function. We can think of it like this: `addNums(3, 10)` gets replaced with the value `13` (the value that we returned). So under the hood, our code goes from this:
 ```python
 sum = addNums(3, 10)
 ```
-**addNums(3, 10)** gets replaced by `x + y`, which in our example, is `3 + 10`, which equals `13`. `13` then replaces `addNums(3, 10)` so that under the hood our code looks like this:
+to this:
 ```python
 sum = 13
 ```
-Now **13** is stored in sum!
-
+As we can see, by using return, we can directly call a function and store the returned value in a variable or use it in a command like print().
 ---
 # Mini-Projects
 Now that we've learned some of the basics of Python, let's try make something ourselves!
