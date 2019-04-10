@@ -116,7 +116,7 @@ howCoolIsUSC = int(-10000)
 
 For the geeks out there who get bored counting in base 10, you can also specify the base of an integer in python!
 ```python
-fiveInBaseTwo = ('0101', 2)
+fiveInBaseTwo = int('0101', 2)
 ```
 This will store the binary value 0101 (5 in base 10).
 
