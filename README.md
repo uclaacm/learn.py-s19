@@ -1,6 +1,10 @@
 # Learn.<span>py Spring 2019
 ## Welcome to Learn.<span>py
 
+Learn.<span>py is a quarter-long Python course with weekly Wednesday sessions from 6:15 - 8:15 pm 
+in Covel Commons 227. Our goal is to make learning coding, specifically in Python, easy and 
+accessible to everyone and while introducing you to cool Python applications such as data 
+science📊, gaming🎮, web dev💻, and more! No programming/Python background is required.💥
 
 ## Basic Curriculum
 
