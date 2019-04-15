@@ -5,9 +5,9 @@ Functions are parts of code that hold other lines of code, allowing us to call t
 For example:
 ```python
 def calculateGrade(m1, m2, final):
-return m1+m2+final;
+  return m1+m2+final
 
-print(calculateGrade(58,79,99));
+print(calculateGrade(58,79,99))
 ```
 This function takes in three parameters, m1, m2, final and returns their sum. 
 What is return?
@@ -15,10 +15,10 @@ When we calculate the sum, we want to be able to access the result somehow.
 When we say **return**, our function gives the result back to the programme, and we can access it easily by storing it in a variable, like this
 ```python
 def calculateGrade(m1, m2, final):
-return m1+m2+final;
+  return m1+m2+final
 
-total = calculateGrade(58,79,99);
-print(total);
+total = calculateGrade(58,79,99)
+print(total)
 ```
 The variable **total** now holds the sum of the marks calculated by our function calculateGrade.
 
@@ -26,24 +26,24 @@ The variable **total** now holds the sum of the marks calculated by our function
 You may be wondering, why can't we just do the following?
 ```python
 def calculateGrade(m1, m2, final):
-total = m1+m2+final;
+  total = m1+m2+final
 
-print(total);
+print(total)
 ```
 In python, all your variables have a scope. 
 The scope of a variable defines its visibility. If a variable is declared outside any condition or function or loop, like so:
 ```python
-x = 5;
-print(x); #this works
+x = 5
+print(x) #this works
 ```
 it is said to have 'global scope', which means that every part of your code can use this variable. But if I define a variable inside a function, only my function can see that variable. For example, if I do the following
 ```python
 def printNum():
-y = 5;
-print(y); 
+  y = 5
+  print(y)
 
-printNum(); #this works!
-print(y); #this does NOT work!!
+printNum() #this works!
+print(y) #this does NOT work!!
 ```
 The variable 'y' is in the scope of the function printNum. However, its visibility is limited to that function. Nothing outside of that function can access 'y'. So, if I try to print y inside the function, I will get an output saying 5. 
 But if I try to print the variable outside the function, outside its **scope**, I'll get an error, because at this point, my program does NOT know what 'y' is. This variable is essentially invisible to my code outside its scope. 
@@ -53,39 +53,39 @@ So now that we understand how scope works, let's make our function slightly more
 
 ```python
 def convertGrade(totalMarks):
-percent = totalMarks/3;
-if percent >=93:
-return 'A';
-elif percent >=50:
-return 'B';
-else:
-return 'C';
+  percent = totalMarks/3
+  if percent >=93:
+    return 'A'
+  elif percent >=50:
+    return 'B'
+  else:
+    return 'C'
 ```
 So we've made our function. But how do we use it?
 Python lets you call functions in other functions. This makes things efficient because you can make sure every function has its own characteristic. I want my convertGrade function to do just that, only convert the grade, nothing else. Instead of one complex function, I now have two simple functions!
 So to convert my total to grades, I can just do the following:
 ```python
 def convertGrade(totalMarks):
-percent = totalMarks/3;
-if percent >=93:
-return 'A';
-elif percent >=50:
-return 'B';
-else:
-return 'C';
+  percent = totalMarks/3
+  if percent >=93:
+    return 'A'
+  elif percent >=50:
+    return 'B'
+  else:
+    return 'C'
 
 def calculateGrade(m1, m2, final):
-return convertGrade(m1+m2+final);
+  return convertGrade(m1+m2+final)
 
-print(calculateGrade(58,79,99));#calling the function
+print(calculateGrade(58,79,99))#calling the function
 ```
 Let's add some more functionality now. Someone who did not attend their final has no grade for the final. I want to be able to not pass **any** marks for the final and calculate the grade anyway. I can use a '**default parameter**', like this:
 ```python
 def calculateGrade(m1, m2, final = 0):
-return convertGrade(m1+m2+final);
+  return convertGrade(m1+m2+final)
 
-print(calculateGrade(58,79,99));
-print(calculateGrade(58, 79));
+print(calculateGrade(58,79,99))
+print(calculateGrade(58, 79))
 ```
 **Output**
 B
@@ -99,15 +99,15 @@ Lambdas are very simple functions that can be expressed in one line.
 For example, since I'm only using one line in this function:
 ```python
 def calculateGrade(m1, m2, final = 0):
-return convertGrade(m1+m2+final);
+  return convertGrade(m1+m2+final)
 
-calculateGrade(58,79,99);
+calculateGrade(58,79,99)
 ```
 We can represent this as a lambda function like this:
 ```python
-calculateGrade = lambda m1, m2, final: gradeConvert(m1+m2+final);
+calculateGrade = lambda m1, m2, final: gradeConvert(m1+m2+final)
 
-calculateGrade(58,79,99);
+calculateGrade(58,79,99)
 ```
 Lambda functions allow you to condense functionality in **one** line. 
 You can have any number of parameters following the keyword **lambda**, but only one expression after the parameters. Once this expression is evaluated, the function returns the result of the expression. In this case, the expression is the call of another function, gradeConvert, and it returns the result of this evaluation, that is, the letter grade returned by the function gradeConvert. 
@@ -118,57 +118,51 @@ A list is basically just that, a list of elements.
 Let's say I want to keep track of everyone who's in Hack. 
 This is how I can make a list to keep track of them:
 ```python
-hackfam = ['Lea', 'Connie', 'Timothy', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
 ```
 So oldhackfam is a list of strings and I can use it to keep track of people on the board. This can be pretty useful in a lot of ways. I can access any one of these elements using its index. Lists are ordered, meaning, I can index them. In programming, indexing starts from 0. The way I access a single element is through square brackets.
 ```python
-hackfam = ['Lea', 'Connie', 'Timothy', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
-print(oldhackfam[0]);
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+print(fam[0])
 ```
-**Output**: Lea
+**Output**: Rachel
 Another super-useful way to use lists is using for loops. If I want to print out all their names, I don't have to do it individually. I can just do it with a for loop!
 ```python
-
-hackfam = ['Lea', 'Connie', 'Timothy', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
-for name in oldhackfam:
-print(name);
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+for name in fam:
+  print(name)
 ```
 **Output**:
-Lea
-Connie
-Timothy
-Galen
-Kristie
-Dustin
-Kevin
-Prateek
-Jeanette
+Rachel
+Ross
+Joey
+Monica
 
 There are many useful methods that make using lists super effective in coding. Methods are essentially functions that can be called on the list, which are predefined and ready for us to use directly without worrying about the implementation. The way you call these functions is just by using the dot ('.') operator on the list. For example, I can add to the list at some point after the declaration using the append function:
 ```python
-hackfam = ['Lea', 'Connie', 'Timothy', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
-hackfam.append('Jody');
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+fam.append('Phoebe')
 ```
-This will just append Jody to the end of the list. I can do the same for any other list I make; the dot operator is simply to access these inbuilt functions. 
+This will just append Jody to the end of the list. I can do the same for any other list I make: the dot operator is simply to access these inbuilt functions. 
 Another useful function is to look for an element through the list. What if I want to find where Timothy is in the list and change his name to Tim? I can use the 'index()' function that returns the index that holds the name 'Timothy'. (Review: the index represents the position of the element in the list.)
 ```python
-hackfam = ['Lea', 'Connie', 'Timothy', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
-hackfam.append('Jody');
-int x = hackfam.index('Timothy');
-hackfam[x] = 'Tim';
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+fam.append('Phoebe')
+int x = fam.index('Phoebe')
+fam[x] = 'Princess Consuela'
 ```
 It's also very easy to remove elements from a list, simply using the 'remove' function. 
 For example, if I wanted to remove Jody's name because I just want a list of old hack, I'd do this:
 ```python
-hackfam = ['Lea', 'Connie', 'Timothy', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
-hackfam.append('Jody');
-hackfam.remove('Jody');
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+fam.append('Phoebe')
+fam.remove('Phoebe')
 ```
 Another interesting method to use with lists is extend. By using extend, you can append an entire list to another list and 'extend' the list, like so:
 ```python
-hackfam = ['Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette'];
-newhack = [ 'Tim', 'Shirly', 'Furn', 'Sahen', 'Jody', 'Raji']; #another list
-hackfam.extend(newhack);
+fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+fam2 = ['Phoebe', 'Chandler'] #another list
+fam.extend(fam2)
 ```
 The way we use the extend function is by calling the method on the list we want to append to and passing the list we want to append as a parameter. So now you see that hackfam is extended to include the newhack members!
 
@@ -180,15 +174,15 @@ Apart from the inbuilt methods that you can call on lists, there's another very 
 List comprehension is a very concise way of creating a new list from an old list. It's super useful if you want to modify the elements of a list and store the modified elements in the second list. For example, consider a list of numbers. What if I wanted to, say, make another list of the squares of those numbers, but only if they were even numbers, and discard the odd numbers?
 With the concepts we have learnt so far, one way to do this would be:
 ```
-numList = [2,5,6,12,13];
-squareList = []; #creating an empty list to store values in later
+numList = [2,5,6,12,13]
+squareList = [] #creating an empty list to store values in later
 
 for number in numList:
-if number%2 ==0: #checking if it's even
-squareList.append(number);
+  if number%2 ==0: #checking if it's even
+    squareList.append(number)
 
 for number in squareList:
-print(number);
+print(number)
 ```
 **Output**:
 4
@@ -202,11 +196,11 @@ newList = [ **expression(i)** for **i in oldList** if **condition** ]
 It's easier to understand this using an example. Let us use the same example as above, of making a list of even square numbers, but with list comprehension. 
 
 ```
-numList = [2,5,6,12,13];
-squareList = [num*num for num in numList if num%2==0];
+numList = [2,5,6,12,13]
+squareList = [num*num for num in numList if num%2==0]
 
 for number in squareList:
-print(number);
+  print(number)
 ```
 **Output**:
 4
@@ -221,16 +215,16 @@ So you can see how this may be useful: instead of having to write that huge bloc
 **Slicing**
 Slicing is another amazing function that python allows you to use. To understand what slicing is, let's use this example:
 ```python3
-numList = [24,36,45,76,88];
+numList = [24,36,45,76,88]
 ```
 Now what if I want a subset of this list. I only want the three middle numbers (36, 45, 76). I can use slicing to get a list of these three numbers. Notice that this list that I want starts at position 1 (indexing begins at 0) and ends at position 3, **before** position 4. 
 The way we can use slicing is as follows:
 ```python3
-numList = [24,36,45,76,88];
-newList = numList[1:4]; 
+numList = [24,36,45,76,88]
+newList = numList[1:4]
 
 for number in newList:
-print(number);
+  print(number)
 ```
 **Output**:
 36
@@ -241,11 +235,11 @@ The first number in our slicing function, 1, is the starting index and the secon
 
 Another cool function of slicing is that you can also determine the incrementing value of the indices. For example, if I wanted the numbers between indices 1 and 4, but only of every alternate index, I would want to increment my index jump by 2. I can sepcify this as follows:
 ```python3
-numList = [24,36,45,76,88];
-newList = numList[1:4:2]; 
+numList = [24,36,45,76,88]
+newList = numList[1:4:2]
 
 for number in newList:
-print(number);
+  print(number)
 ```
 **Output**:
 36
@@ -255,11 +249,11 @@ Here, in the line numList[1:4:2], 2 the third parameter 2 is the value that we i
 
 Another useful feature of this function is that it has default arguments for the starting and ending index, meaning that if we don't enter any arguments for the starting/ending index, it assumes that the starting index is 0 and the ending index is the index of the last element in the list. For example:
 ```python3
-numList = [24,36,45,76,88];
-newList = numList[:]; #we enter no arguments here!
+numList = [24,36,45,76,88]
+newList = numList[:] #we enter no arguments here!
 
 for number in newList:
-print(number);
+  print(number)
 ```
 **Output**:
 24
@@ -276,27 +270,26 @@ Thus, slicing can be super useful when we want to create new lists based on old 
 Now if I want to make a list of elements that I don't want to change, ever, I can use another way of representing data called **tuples**. Tuples are basically just lists, except, I cannot change any element, add any element, remove any element or change the tuple in any way at all once I declare it. 
 The way I can declare such a tuple is:
 ```python
-hackfam = ('Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek', 'Jeanette');
+fam = ('Rachel', 'Ross', 'Joey', 'Monica')
 ```
 Notice that I used square brackets to declare a list, and round brackets for tuples.
 So if I wanted to access an element in the tuple, 
 ```python
-hackfam = ('Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek');
-
-print(hackfam[4]);
+fam = ('Rachel', 'Ross', 'Joey', 'Monica')
+print(hackfam[3])
 ```
-**Output**: Kristie
+**Output**: Monica
 
 However, if I were to try to add an element into this tuple, 
 ```python
-hackfam = ('Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek');
-oldhackfam.insert('Jody'); #gives me an error!!
+fam = ('Rachel', 'Ross', 'Joey', 'Monica')
+fam.insert('Phoebe') #gives me an error!!
 ```
 I get an error, because the tuple is **unchangeable**, meaning I cannot add to it. Similarly, I cannot remove elements or change any element. For example, 
 ```python
-hackfam = ('Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek');
-hackfam.remove('Kevin'); #gives me an error!! (cause we love Lea)
-hackfam[6] = 'newPerson'; #gives me an error
+fam = ('Rachel', 'Ross', 'Joey', 'Monica')
+fam.remove('Monica') #gives me an error!! 
+fam[2] = 'Joey' #gives me an error
 ```
 So tuples can only be accessed, not modified and should only be used in cases where you don't want anyone changing your data. For those of you familiar with C/C++, this is like using const arrays!
 Tuples also have some valuable methods, like index, which is the same as the index method for the list! You can find a list of these methods here:
@@ -308,48 +301,43 @@ Why would you want to use tuple, given that it's so rigid? When you don't want a
 ## Set
 A set is similar to a list in that it can contain several elements. However, Sets are not ordered or indexed. This means that we cannot access the 'i'th' element of a set. The way sets are declared is similar to the way tuples or lists are declared, except they use **curly** braces. For example:
 ```python
-hackfam = {'Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek'};
-print(oldhackfam[0]);  #gives me an error as this set is not indexed
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+print(oldhackfam[0])  #gives me an error as this set is not indexed
 ```
 Hence, it makes sense for us to use sets when we don't require pulling individual elements out of our lists. However, we can still use loops on sets. For example, I can still do:
 ```python
-hackfam = {'Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek'};
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
 for name in hackfam:
-print(name);  #this works!
+  print(name)  #this works!
 ```
 **Output**:
-Lea
-Connie
-Timothy
-Galen
-Kristie
-Dustin
-Kevin
-Prateek
-Jeanette
+Rachel
+Ross 
+Joey
+Monica
 
 In addition to doing this, you can also check if a particular element is in the set. For example, I can do the following to check if Prateek is in my set hackfam:
 ```python
-hackfam = {'Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek'};
-if "Prateek" in hackfam:
-print("Prateek will always be in hackfam");
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+if "Joey" in fam:
+  print("How you doin")
 ```
 This means that even if we cannot index items in a set, we can use a for loop on it and we can also find out if an element is in the set. We can also add more elements to the set using the add function, like follows:
 ```python
-hackfam = {'Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek'};
-hackfam.add('Jody');
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+fam.add('Phoebe')
 ```
 But then what makes sets useful? Sets have a very unique property:
 **Sets do not allow duplicate elements**. 
 For example, if I try to add the new Tim to our hackfam and print out my hackfam:
 ```python
-hackfam = {'Lea', 'Connie', 'Tim', 'Galen', 'Kristie', 'Dustin', 'Kevin', 'Prateek'};
-hackfam.add('Tim'); 
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+fam.add('Ross')
 
 for name in hackfam:
-print(name);
+  print(name)
 ```
-The output will **not** contain two mentions of Tim, they will only contain one. The computer will ignore that I added another Tim, as sets do not allow duplicates, and hence hackfam will not take the new Tim into account. 
+The output will **not** contain two mentions of Ross, they will only contain one. The computer will ignore that I added another Tim, as sets do not allow duplicates, and hence hackfam will not take the new Tim into account. 
 It's important to notice here that my output for this program is unpredictable because the names can be listed in **any** order. This is because the Set is also **unordered**. If I run this programme twice, I may get two different sets of outputs, each in a different sequence. 
 So where can sets be helpful?
 
@@ -364,76 +352,71 @@ Now, if I want to access the value 'apple', I can use its key 'A' to access the 
 You can think about dictionary like the normal dictionary. We use a key, a word to find the meaning associated with it. Similarly, we use a key here to find the value associated with it. 
 The way I can declare such a dictionary in Python is as follows:
 ```python
-rockstarWomenBirthdays = {
-'Taylor Swift': 'December 13',
-'Priyanka Chopra': 'July 18',
-'Katie Bouman': 'May 9',
-'Sheryl Sandberg': 'August 28'
+grades = {
+  'CS' : 90,
+  'GE' : 74,
+  'Chem' : 56
 }
 ```
 In this dictionary, for every string on the left side, like Taylor Swift, I have a value associated with it that tracks the birthdays of these women. 
 I cannot directly access 'July 18', Priyanka Chopra's birthday, but I can use her name, the key, to find the value, i.e. her birthday, associated with it. 
 ```python
-rockstarWomenBirthdays = {
-'Taylor Swift': 'December 13',
-'Priyanka Chopra': 'July 18',
-'Katie Bouman': 'May 9',
-'Sheryl Sandberg': 'August 28'
-}  
-string PCbday = rockstarWomenBirthdays['Priyanka Chopra'];
-print(PCbday);
+grades = {
+  'CS' : 90,
+  'GE' : 74,
+  'Chem' : 56
+}
+chemGrade = grades['Chem']
+print(chemGrade)
 
 ```
 Notice here, that just like we use the index to access an element in the list, for example, list[3], in dictionaries, we use the keys instead of the index of the position. Thus, in this example, I'm accessing the value associated with the key 'Priyanka Chopra' when I use 
 ```python3
-rockstarWomenBirthdays['Priyanka Chopra'];
+grades['Chem']
 ```
 and hence, the value 'July 18' gets stored in my variable PCbday. 
 
 In addition to accessing elements using the key, I can also use a for loop on the dictionary:
 ```python
-rockstarWomenBirthdays = {
-'Taylor Swift': 'December 13',
-'Priyanka Chopra': 'July 18',
-'Katie Bouman': 'May 9',
-'Sheryl Sandberg': 'August 28'
+grades = {
+  'CS' : 90,
+  'GE' : 74,
+  'Chem' : 56
 }
-for x in rockstarWomenBirthdays:
-print(x); #this will print out all keys
-for x in rockstarWomenBirthdays:
-print(rockstarWomenBirthdays[x]);#this prints values associated with the keys
+for x in num:
+  print(x) #this will print out all keys
+for x in num:
+  print(num[x])#this prints values associated with the keys
 
 ```
 Consider the code block above. 
 The first loop iterates through the list of keys in rockstarWomenBirthdays and so it prints out all the keys. The output for this will be:
-Taylor Swift
-Priyanka Chopra
-Katie Bouman
-Sheryl Sandberg
+one
+two
+three
 
 As against this, in the second loop, we are printing out rockstarWomenBirthdays[x], which is a way to represent the **value** associated with the key x. So for every key x, the programme will print out the value associated with it. The output for this loop will be:
-December 13
-July 18
-May 9
-August 28
+uno
+dos
+
 
 Thus, sets can be used to associate one value to another.
 We can also change what a certain key is associated with. For example, I can do the following:
 ```python3
-rockstarWomenBirthdays = {
-'Taylor Swift': 'December 13',
-'Priyanka Chopra': 'July 18',
-'Katie Bouman': 'May 9',
-'Sheryl Sandberg': 'August 28'
+grades = {
+  'CS' : 90,
+  'GE' : 74,
+  'Chem' : 56
 }
+grades[Chem] = 'fail'
 ```
-rockstarWomenBirthdays['Sheryl Sandberg'] = '08/28'; #changes the value associated with Sheryl Sandberg from 'August 28' to '08/28'.
+grades['Chem'] = 'fail' #changes the value associated with two from 56 to 'fail'.
 So why are dictionaries useful?
 Sometimes, you need to associate one value to another, like in a function, every X value has a y value. 
 Consider this: if I want to store the grades that students received in a class, I could use names as the keys and the grades as values assoicated to these keys. 
 Thus, to find out how Shirly did in the class, I could say
 ```
-print(grades['Shirly']); #grades is a dictionary as described above
+print(grades['CS']) #grades is a dictionary as described above
 ```
 where grades is a dictionary as described. But what if I have two students named Shirly in my class? Whose grade will my program return?
 Thus, it is very important to realise, that in a dictionary, every key needs to be unique. If the keys aren't unique, the values cannot be associated with them correctly. 
@@ -446,24 +429,24 @@ https://www.w3schools.com/python/python_dictionaries.asp
 Now that we know enough about basic data structures and functions, let's see how we can combine the two to make our even more efficient!
 Let's go back to our grade calculator. So far, the calculator only finds the grades for one subject. If I wanted grades for all subjects, I would have to call the calculateGrade function on all my subject scores individually. Maybe, I could use a for loop for this:
 ```python3
-scoreList = [35,99,78,90];
+scoreList = [35,99,78,90]
 
 #consider the function calculateGrade takes in a score as its parameter
 def calculateGrade (score):
-if score >=93:
-return 'A';
-elif score >=50:
-return 'B';
-else:
-return 'C';
+  if score >=93:
+    return 'A'
+  elif score >=50:
+    return 'B'
+  else:
+    return 'C'
 
-gradeLIst = []; #create an empty list to store the results in later
+gradeLIst = [] #create an empty list to store the results in later
 for score in scoreList:
-grade = calculateGrade(score);
-gradeList.append(grade);
+  grade = calculateGrade(score)
+  gradeList.append(grade)
 
 for grade in gradeList:
-print(grade)
+  print(grade)
 
 ```
 **Output**:
@@ -475,33 +458,33 @@ B
 But this seems a little lengthy. Lists are convenient in so many ways, but do we have to do all of this to just call a functino on each of its elements? Is there a better way to do this?
 There is! In python, there is a very useful function - the map function - that calls the function you input on every element of the list and returns another list of all the values returned by each call to the function on each element. For example:
 ```python3
-scoreList = [35,99,78,90];
+scoreList = [35,99,78,90]
 
 #consider the function calculateGrade takes in a score as its parameter
 def calculateGrade (score):
-if score >=93:
-return 'A';
-elif score >=50:
-return 'B';
-else:
-return 'C';
+  if score >=93:
+    return 'A'
+  elif score >=50:
+     return 'B'
+  else:
+    return 'C'
 
 ```
 Notice that the calculateGrade function we have written takes only one score. It is similar to the function we wrote for only one subject. We are **not** passing in the entire list as a parameter. However, we can pass the list as a parameter to the map function, and hence call calculateGrade on every individual element of our list. The map function thus takes two parameters: the function to be called on every element of the list, and the list itself. So we can do the following:
 ```python3
-scoreList = [35,99,78,90];
+scoreList = [35,99,78,90]
 #consider the function calculateGrade takes in a score as its parameter
 def calculateGrade (score):
-if score >=93:
-return 'A';
-elif score >=50:
-return 'B';
-else:
-return 'C';
-gradeList = map(calculateGrade, scoreList); #storing what is returned in a variable
+  if score >=93:
+    return 'A'
+  elif score >=50:
+     return 'B'
+  else:
+    return 'C'
+    
+gradeList = map(calculateGrade, scoreList) #storing what is returned in a variable
 #printing out the elements in gradeList
-for grade in gradeList:
-print(grade);
+print(gradeList)
 ```
 **Output**
 C
