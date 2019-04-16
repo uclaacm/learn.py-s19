@@ -375,14 +375,14 @@ Why would you want to use tuple, given that it's so rigid? When you don't want a
 ## Dictionary
 
 
-<img src="images/dictmeme.png">
+<img src="images/dictmeme.png" height =300 >
 
 
 Lastly, we have another way to represent data, called dictionary. A dictionary is a collection of key-value pairs. Now what does that mean? 
 A dictionary, just like sets, is not indexed by a position number, and is not ordered in any specific way. The way to access **values** in a dictionary is through the **keys** associated with them. For example, let's say the values I store in my dictionary are 'apple', 'banana', and 'cherry'. I will associate keys with these values: 'A' will be the key to the value 'apple', 'B' will be the key to the value 'banana' and 'C' will be the key to the value 'cherry'. 
 Now, if I want to access the value 'apple', I can use its key 'A' to access the value 'apple'!
 
-<img src="images/dict.png" height 400>
+<img src="images/dict.png" heigh= 300>
 
 You can think about dictionary like the normal dictionary. We use a key, a word to find the meaning associated with it. Similarly, we use a key here to find the value associated with it. 
 The way I can declare such a dictionary in Python is as follows:
