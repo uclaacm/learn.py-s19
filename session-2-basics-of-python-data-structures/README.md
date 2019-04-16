@@ -16,8 +16,8 @@
 * [Portal](https://members.uclaacm.com/login)
 
 ## What we'll be learning today
-* Review of Functions
-* Review of Conditionals
+* Functions: review
+* Conditionals: review
 * Default parameters
 * Lists
 * Tuples
@@ -35,10 +35,12 @@ def calculateGrade(m1, m2, final):
 
 print(calculateGrade(58,79,99))
 ```
+
 This function takes in three parameters, m1, m2, final and returns their sum. 
 What is return?
 When we calculate the sum, we want to be able to access the result somehow.
 When we say **return**, our function gives the result back to the programme, and we can access it easily by storing it in a variable, like this
+
 ```python
 def calculateGrade(m1, m2, final):
   return m1+m2+final
@@ -46,10 +48,12 @@ def calculateGrade(m1, m2, final):
 total = calculateGrade(58,79,99)
 print(total)
 ```
+
 The variable **total** now holds the sum of the marks calculated by our function calculateGrade.
 
-### Scope
+#### Scope
 You may be wondering, why can't we just do the following?
+
 ```python
 def calculateGrade(m1, m2, final):
   total = m1+m2+final
@@ -88,8 +92,11 @@ def convertGrade(totalMarks):
     return 'C'
 ```
 So we've made our function. But how do we use it?
+
 Python lets you call functions in other functions. This makes things efficient because you can make sure every function has its own characteristic. I want my convertGrade function to do just that, only convert the grade, nothing else. Instead of one complex function, I now have two simple functions!
+
 So to convert my total to grades, I can just do the following:
+
 ```python
 def convertGrade(totalMarks):
   percent = totalMarks/3
@@ -105,7 +112,9 @@ def calculateGrade(m1, m2, final):
 
 print(calculateGrade(58,79,99))#calling the function
 ```
+
 Let's add some more functionality now. Someone who did not attend their final has no grade for the final. I want to be able to not pass **any** marks for the final and calculate the grade anyway. I can use a '**default parameter**', like this:
+
 ```python
 def calculateGrade(m1, m2, final = 0):
   return convertGrade(m1+m2+final)
@@ -113,6 +122,7 @@ def calculateGrade(m1, m2, final = 0):
 print(calculateGrade(58,79,99))
 print(calculateGrade(58, 79))
 ```
+
 **Output**<br>
 B<br>
 C
@@ -139,58 +149,96 @@ Lambda functions allow you to condense functionality in **one** line.
 You can have any number of parameters following the keyword **lambda**, but only one expression after the parameters. Once this expression is evaluated, the function returns the result of the expression. In this case, the expression is the call of another function, gradeConvert, and it returns the result of this evaluation, that is, the letter grade returned by the function gradeConvert. 
 
 Now that we're comfortable enough with functions, we can move forward to some more complex ways of representing data. 
+
 ## List
+
 A list is basically just that, a list of elements. 
-Let's say I want to keep track of everyone who's in Hack. 
-This is how I can make a list to keep track of them:
+The way I declare a list is with square brackets like this:
 ```python
-fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+myList = [2,4,'abc']
 ```
-So oldhackfam is a list of strings and I can use it to keep track of people on the board. This can be pretty useful in a lot of ways. I can access any one of these elements using its index. Lists are ordered, meaning, I can index them. In programming, indexing starts from 0. The way I access a single element is through square brackets.
+Python allows you to use multiple types inside the same list. You can make a list consisting of integers, strings, whatever you want! Let's explore what you can do with these structues. 
+What if I want to make a list of the characters from friends? I'd do this:
 ```python
-fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
+```
+So fam is a list of strings and I can use it to keep track of people. This can be pretty useful in a lot of ways. I can access any one of these elements using its index. Lists are ordered, meaning, I can index them. Note that ordered does NOT mean they are ordered alphabetically, it means the list can be indexed. In python, indexing starts from 0, at the position of the first element, and then goes on as 1, 2, 3... and so on. I can access a single element using its index and square brackets like this:
+
+```python
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
 print(fam[0])
 ```
 **Output**:<br> Rachel
+
+Just like I can access the 0th element using these square brackets, I can also edit the elements, like this:
+
+```python
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
+fam[2] = 'Princess Consuela'
+```
+
 Another super-useful way to use lists is using for loops. If I want to print out all their names, I don't have to do it individually. I can just do it with a for loop!
+
 ```python
 fam = ['Rachel', 'Ross', 'Joey', 'Monica']
+
 for name in fam:
   print(name)
 ```
+
 **Output**:<br>
 Rachel<br>
 Ross<br>
-Joey<br>
+Phoebe<br>
 Monica
 
 There are many useful methods that make using lists super effective in coding. Methods are essentially functions that can be called on the list, which are predefined and ready for us to use directly without worrying about the implementation. The way you call these functions is just by using the dot ('.') operator on the list. For example, I can add to the list at some point after the declaration using the append function:
+
 ```python
-fam = ['Rachel', 'Ross', 'Joey', 'Monica']
-fam.append('Phoebe')
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
+fam.append('Joey')
+
+print(fam)
 ```
-This will just append Jody to the end of the list. I can do the same for any other list I make: the dot operator is simply to access these inbuilt functions. 
-Another useful function is to look for an element through the list. What if I want to find where Timothy is in the list and change his name to Tim? I can use the 'index()' function that returns the index that holds the name 'Timothy'. (Review: the index represents the position of the element in the list.)
-```python
-fam = ['Rachel', 'Ross', 'Joey', 'Monica']
-fam.append('Phoebe')
-int x = fam.index('Phoebe')
-fam[x] = 'Princess Consuela'
-```
+**Output**:<br>
+Rachel <br>
+Ross<br>
+Phoebe <br>
+Monica<br>
+Joey
+
+This will just append Joey to the end of the list. I can do the same for any other list I make: the dot operator is simply to access these inbuilt functions. Also notice that I used a new way of printing out a list here. Although intuitively, it makes sense to use a for loop and print each name, python doesn't make you do that for a list. It allows you to call print on the list directly and prints out every present element. 
+
 It's also very easy to remove elements from a list, simply using the 'remove' function. 
-For example, if I wanted to remove Jody's name because I just want a list of old hack, I'd do this:
+For example, if I wanted to remove Rachel's name, I'd just do
 ```python
-fam = ['Rachel', 'Ross', 'Joey', 'Monica']
-fam.append('Phoebe')
-fam.remove('Phoebe')
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
+fam.remove('Rachel')
+print(fam)
 ```
+**Output**:<br>
+Ross<br>
+Phoebe <br>
+Monica<br>
+
 Another interesting method to use with lists is extend. By using extend, you can append an entire list to another list and 'extend' the list, like so:
+
 ```python
-fam = ['Rachel', 'Ross', 'Joey', 'Monica']
-fam2 = ['Phoebe', 'Chandler'] #another list
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
+fam2 = ['Joey', 'Chandler'] #another list
 fam.extend(fam2)
+
+print(fam)
 ```
-The way we use the extend function is by calling the method on the list we want to append to and passing the list we want to append as a parameter. So now you see that hackfam is extended to include the newhack members!
+**Output**:<br>
+Rachel <br>
+Ross<br>
+Phoebe <br>
+Monica<br>
+Joey<br>
+Chandler
+
+The way we use the extend function is by calling the method on the list we want to append to and passing the list we want to append as a parameter. So now you see that fam is extended to include the fam2 members. 
 
 In addition to these, there are several other useful functions that you can check out at:
 https://www.w3schools.com/python/python_ref_list.asp
@@ -218,7 +266,7 @@ print(number)
 But these seems like a fairly large chunk of code. There is a way I can make this more concise, using **list comprehension**. 
 
 To use list comprehension, you use the following syntax:
-newList = [ **expression(i)** for **i in oldList** if **condition** ]
+newList = [ **expression** for **i in oldList** if **condition** ]
 It's easier to understand this using an example. Let us use the same example as above, of making a list of even square numbers, but with list comprehension. 
 
 ```
@@ -273,17 +321,15 @@ for number in newList:
 
 Here, in the line numList[1:4:2], 2 the third parameter 2 is the value that we increment when we 'slice' the list. So, the number 36 at position 1 is added. The next number added is at position 1+2 = 3, which is 76. At this point, we stop because index 3 is the last index we want to have. Thus, newList contains 36 and 76, and skips 45. 
 
-Another useful feature of this function is that it has default arguments for the starting and ending index, meaning that if we don't enter any arguments for the starting/ending index, it assumes that the starting index is 0 and the ending index is the index of the last element in the list. For example:
+Another useful feature of this function is that it has default arguments for the starting and ending index, meaning that if we don't enter any arguments for the starting/ending index, it assumes that the starting index is 0 and the ending index is the index of the last element in the list. For example, if I wanted to get all elements from position 2 to the end, I would do:
 ```python3
 numList = [24,36,45,76,88]
-newList = numList[:] #we enter no arguments here!
+newList = numList[2:] #we enter no arguments here!
 
 for number in newList:
   print(number)
 ```
 **Output**:<br>
-24<br>
-36<br>
 45<br>
 76<br>
 88
@@ -302,7 +348,7 @@ Notice that I used square brackets to declare a list, and round brackets for tup
 So if I wanted to access an element in the tuple, 
 ```python
 fam = ('Rachel', 'Ross', 'Joey', 'Monica')
-print(hackfam[3])
+print(fam[3])
 ```
 **Output**: <br>Monica
 
@@ -324,53 +370,6 @@ https://www.w3schools.com/python/python_tuples.asp
 
 Why would you want to use tuple, given that it's so rigid? When you don't want anyone touching the data you store, and you don't want any of your other functions to accidentally modify your data because it's important data, you would use tuple because this would prevent the programme from modifying the values stored in the tuple. 
 
-## Set
-A set is similar to a list in that it can contain several elements. However, Sets are not ordered or indexed. This means that we cannot access the 'i'th' element of a set. The way sets are declared is similar to the way tuples or lists are declared, except they use **curly** braces. For example:
-```python
-fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
-print(oldhackfam[0])  #gives me an error as this set is not indexed
-```
-Hence, it makes sense for us to use sets when we don't require pulling individual elements out of our lists. However, we can still use loops on sets. For example, I can still do:
-```python
-fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
-for name in hackfam:
-  print(name)  #this works!
-```
-**Output**:<br>
-Rachel<br>
-Ross <br>
-Joey<br>
-Monica
-
-In addition to doing this, you can also check if a particular element is in the set. For example, I can do the following to check if Prateek is in my set hackfam:
-```python
-fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
-if "Joey" in fam:
-  print("How you doin")
-```
-This means that even if we cannot index items in a set, we can use a for loop on it and we can also find out if an element is in the set. We can also add more elements to the set using the add function, like follows:
-```python
-fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
-fam.add('Phoebe')
-```
-But then what makes sets useful? Sets have a very unique property:
-**Sets do not allow duplicate elements**. 
-For example, if I try to add the new Tim to our hackfam and print out my hackfam:
-```python
-fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
-fam.add('Ross')
-
-for name in hackfam:
-  print(name)
-```
-The output will **not** contain two mentions of Ross, they will only contain one. The computer will ignore that I added another Tim, as sets do not allow duplicates, and hence hackfam will not take the new Tim into account. 
-It's important to notice here that my output for this program is unpredictable because the names can be listed in **any** order. This is because the Set is also **unordered**. If I run this programme twice, I may get two different sets of outputs, each in a different sequence. 
-So where can sets be helpful?
-
-We can take advantage of the fact that sets have unique elements, and use them when we want to ignore repetitions, in order to get a completely unique set!
-Find out more about Sets and their methods here:
-https://www.w3schools.com/python/python_sets.asp
-
 ## Dictionary
 Lastly, we have another way to represent data, called dictionary. A dictionary is a collection of key-value pairs. Now what does that mean? 
 A dictionary, just like sets, is not indexed by a position number, and is not ordered in any specific way. The way to access **values** in a dictionary is through the **keys** associated with them. For example, let's say the values I store in my dictionary are 'apple', 'banana', and 'cherry'. I will associate keys with these values: 'A' will be the key to the value 'apple', 'B' will be the key to the value 'banana' and 'C' will be the key to the value 'cherry'. 
@@ -384,8 +383,8 @@ grades = {
   'Chem' : 56
 }
 ```
-In this dictionary, for every string on the left side, like Taylor Swift, I have a value associated with it that tracks the birthdays of these women. 
-I cannot directly access 'July 18', Priyanka Chopra's birthday, but I can use her name, the key, to find the value, i.e. her birthday, associated with it. 
+In this dictionary, for every string on the left side, like Chem, I have a value associated with it that tracks the birthdays of these women. 
+I cannot directly access 56, the Chem score, but I can use Chem, the key, to find the value, i.e. the score, associated with it. 
 ```python
 grades = {
   'CS' : 90,
@@ -396,11 +395,11 @@ chemGrade = grades['Chem']
 print(chemGrade)
 
 ```
-Notice here, that just like we use the index to access an element in the list, for example, list[3], in dictionaries, we use the keys instead of the index of the position. Thus, in this example, I'm accessing the value associated with the key 'Priyanka Chopra' when I use 
+Notice here, that just like we use the index to access an element in the list, for example, ```list[3]```, in dictionaries, we use the keys instead of the index of the position. Thus, in this example, I'm accessing the value associated with the key 'Chem' when I use 
 ```python3
 grades['Chem']
 ```
-and hence, the value 'July 18' gets stored in my variable PCbday. 
+and hence, the value 56 gets stored in my chemGrade variable.
 
 In addition to accessing elements using the key, I can also use a for loop on the dictionary:
 ```python
@@ -416,17 +415,17 @@ for x in num:
 
 ```
 Consider the code block above. 
-The first loop iterates through the list of keys in rockstarWomenBirthdays and so it prints out all the keys. The output for this will be:
-one
-two
-three
+The first loop iterates through the list of keys in grades and so it prints out all the keys. The output for this will be:
+CS
+GE
+Chem
 
-As against this, in the second loop, we are printing out rockstarWomenBirthdays[x], which is a way to represent the **value** associated with the key x. So for every key x, the programme will print out the value associated with it. The output for this loop will be:
-uno
-dos
+As against this, in the second loop, we are printing out grades[x], which is a way to represent the **value** associated with the key x. So for every key x, the programme will print out the value associated with it. The output for this loop will be:
+90
+74
+56
 
-
-Thus, sets can be used to associate one value to another.
+Thus, dictionaries can be used to associate one value to another.
 We can also change what a certain key is associated with. For example, I can do the following:
 ```python3
 grades = {
@@ -436,20 +435,69 @@ grades = {
 }
 grades[Chem] = 'fail'
 ```
-grades['Chem'] = 'fail' #changes the value associated with two from 56 to 'fail'.
-So why are dictionaries useful?
-Sometimes, you need to associate one value to another, like in a function, every X value has a y value. 
-Consider this: if I want to store the grades that students received in a class, I could use names as the keys and the grades as values assoicated to these keys. 
-Thus, to find out how Shirly did in the class, I could say
-```
-print(grades['CS']) #grades is a dictionary as described above
-```
-where grades is a dictionary as described. But what if I have two students named Shirly in my class? Whose grade will my program return?
-Thus, it is very important to realise, that in a dictionary, every key needs to be unique. If the keys aren't unique, the values cannot be associated with them correctly. 
-Hence, it's important to figure out what to use as keys. One possible solution to this would be to use the student ID number as the key, as this is unique. 
+grades['Chem'] = 'fail' changes the value associated with two from 56 to 'fail'.
+
+Notice that it is very important to realise, that in a dictionary, every key needs to be unique. If the keys aren't unique, there could be two values associated with the same key, and the computer won't know which one to return. This is why the key must be unique. 
 
 Dictionaries have many such interesting functions. You can find out more about them at:
 https://www.w3schools.com/python/python_dictionaries.asp
+
+But what if now I want something that has this attribute of unique keys, but is only a collection of unique keys, not associated values? The set is a data structure that has this property!
+
+## Set
+A set is similar to a list in that it can contain several elements. However, Sets are not ordered or indexed. This means that we cannot access the '0th or 4th' element of a set. The way sets are declared is similar to the way tuples or lists are declared, except they use **curly** braces. For example:
+```python
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+print(fam[0])  #gives me an error as this set is not indexed
+```
+Hence, it makes sense for us to use sets when we don't require pulling individual elements out of our lists. However, we can still use loops on sets. For example, I can still do:
+```python
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+for name in fam:
+  print(name)  #this works!
+```
+**Output**:<br>
+Rachel<br>
+Ross <br>
+Joey<br>
+Monica
+
+In addition to doing this, you can also check if a particular element is in the set. For example, I can do the following to check if Joey is in my set fam:
+```python
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+if "Joey" in fam:
+  print("How you doin")
+```
+**Output**:
+How you doin
+
+This means that even if we cannot index items in a set, we can use a for loop on it and we can also find out if an element is in the set. We can also add more elements to the set using the add function, like this:
+```python
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+fam.add('Phoebe')
+```
+But then what makes sets useful? Sets have a very unique property:
+**Sets do not allow duplicate elements**. 
+For example, if I try to add another Ross to our fam, and print out fam
+```python
+fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
+fam.add('Ross')
+
+print(fam)
+```
+**Output**:<br>
+Rachel<br>
+Ross<br>
+Joey<br>
+Monica
+
+The output will **not** contain two mentions of Ross, they will only contain one. The computer will ignore that I added another Ross, as sets do not allow duplicates, and hence fam will not take the new Ross into account. 
+It's important to notice here that my output for this program is unpredictable because the names can be listed in **any** order. This is because the Set is also **unordered**. If I run this programme twice, I may get two different sets of outputs, each in a different sequence. 
+So where can sets be helpful?
+
+We can take advantage of the fact that sets have unique elements, and use them when we want to ignore repetitions, in order to get a completely unique set!
+Find out more about Sets and their methods here:
+https://www.w3schools.com/python/python_sets.asp
 
 ## Map
 Now that we know enough about basic data structures and functions, let's see how we can combine the two to make our even more efficient!
@@ -486,7 +534,6 @@ There is! In python, there is a very useful function - the map function - that c
 ```python3
 scoreList = [35,99,78,90]
 
-#consider the function calculateGrade takes in a score as its parameter
 def calculateGrade (score):
   if score >=93:
     return 'A'
@@ -499,7 +546,7 @@ def calculateGrade (score):
 Notice that the calculateGrade function we have written takes only one score. It is similar to the function we wrote for only one subject. We are **not** passing in the entire list as a parameter. However, we can pass the list as a parameter to the map function, and hence call calculateGrade on every individual element of our list. The map function thus takes two parameters: the function to be called on every element of the list, and the list itself. So we can do the following:
 ```python3
 scoreList = [35,99,78,90]
-#consider the function calculateGrade takes in a score as its parameter
+
 def calculateGrade (score):
   if score >=93:
     return 'A'
@@ -508,8 +555,8 @@ def calculateGrade (score):
   else:
     return 'C'
     
-gradeList = map(calculateGrade, scoreList) #storing what is returned in a variable
-#printing out the elements in gradeList
+gradeList = map(calculateGrade, scoreList) #storing what is returned by map in a variable gradeList
+
 print(gradeList)
 ```
 **Output**<br>
