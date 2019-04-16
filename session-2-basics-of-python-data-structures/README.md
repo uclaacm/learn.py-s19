@@ -1,7 +1,33 @@
 
+# Learn.py Session 2: Basics of Python - Functions and Data Structures
+
+**Location**: Covel 227
+
+**Time**: 6:15pm - 8:15pm, 17 April 2019
+
+**Teacher**: Rajeshwari Jadhav
+
+## Resources
+**Slides**
+* [Slides](https://docs.google.com/presentation/d/1Iq14IWk3ujO-NG1wfxyfph5ZCoHCmS0BkvXyi8AZ3Is/edit?usp=sharing)
+
+**ACM Membership Attendance Portal**
+
+* [Portal](https://members.uclaacm.com/login)
+
+## What we'll be learning today
+* Review of Functions
+* Review of Conditionals
+* Default parameters
+* Lists
+* Tuples
+* Dictionaries
+* Sets
+* The map function
 
 ### Functions
-Functions are parts of code that hold other lines of code, allowing us to call them with a simple call to the function, rather than repeatedly typing out the code inside.
+Functions are parts of code that hold other lines of code, allowing us to call them with a simple call to the function, rather than repeatedly typing out the code inside. 
+
 For example:
 ```python
 def calculateGrade(m1, m2, final):
@@ -87,8 +113,8 @@ def calculateGrade(m1, m2, final = 0):
 print(calculateGrade(58,79,99))
 print(calculateGrade(58, 79))
 ```
-**Output**
-B
+**Output**<br>
+B<br>
 C
 
 What's happening here?
@@ -125,17 +151,17 @@ So oldhackfam is a list of strings and I can use it to keep track of people on t
 fam = ['Rachel', 'Ross', 'Joey', 'Monica']
 print(fam[0])
 ```
-**Output**: Rachel
+**Output**:<br> Rachel
 Another super-useful way to use lists is using for loops. If I want to print out all their names, I don't have to do it individually. I can just do it with a for loop!
 ```python
 fam = ['Rachel', 'Ross', 'Joey', 'Monica']
 for name in fam:
   print(name)
 ```
-**Output**:
-Rachel
-Ross
-Joey
+**Output**:<br>
+Rachel<br>
+Ross<br>
+Joey<br>
 Monica
 
 There are many useful methods that make using lists super effective in coding. Methods are essentially functions that can be called on the list, which are predefined and ready for us to use directly without worrying about the implementation. The way you call these functions is just by using the dot ('.') operator on the list. For example, I can add to the list at some point after the declaration using the append function:
@@ -184,9 +210,9 @@ for number in numList:
 for number in squareList:
 print(number)
 ```
-**Output**:
-4
-36
+**Output**:<br>
+4<br>
+36<br>
 144
 
 But these seems like a fairly large chunk of code. There is a way I can make this more concise, using **list comprehension**. 
@@ -202,9 +228,9 @@ squareList = [num*num for num in numList if num%2==0]
 for number in squareList:
   print(number)
 ```
-**Output**:
-4
-36
+**Output**:<br>
+4<br>
+36<br>
 144
 
 Let us divide the list comprehension statement into three parts: the expression, the for loop, and the condition.
@@ -226,9 +252,9 @@ newList = numList[1:4]
 for number in newList:
   print(number)
 ```
-**Output**:
-36
-45
+**Output**:<br>
+36<br>
+45<br>
 76
 
 The first number in our slicing function, 1, is the starting index and the second number, is the ending index. These two are separated by a colon to let the computer know that they are separate indices. **The ending index is NOT included in the newList**. This means, that values indexed 1, 2, 3 are included, which means, (36, 45, 76) are included in newList.
@@ -241,8 +267,8 @@ newList = numList[1:4:2]
 for number in newList:
   print(number)
 ```
-**Output**:
-36
+**Output**:<br>
+36<br>
 76
 
 Here, in the line numList[1:4:2], 2 the third parameter 2 is the value that we increment when we 'slice' the list. So, the number 36 at position 1 is added. The next number added is at position 1+2 = 3, which is 76. At this point, we stop because index 3 is the last index we want to have. Thus, newList contains 36 and 76, and skips 45. 
@@ -255,11 +281,11 @@ newList = numList[:] #we enter no arguments here!
 for number in newList:
   print(number)
 ```
-**Output**:
-24
-36
-45
-76
+**Output**:<br>
+24<br>
+36<br>
+45<br>
+76<br>
 88
 
 It is important to note that although we don't include arguments, we do include the : to separate the two arguments. I could also change the starting index and keep the ending index the default end by saying numList[2:].
@@ -278,7 +304,7 @@ So if I wanted to access an element in the tuple,
 fam = ('Rachel', 'Ross', 'Joey', 'Monica')
 print(hackfam[3])
 ```
-**Output**: Monica
+**Output**: <br>Monica
 
 However, if I were to try to add an element into this tuple, 
 ```python
@@ -310,10 +336,10 @@ fam = {'Rachel', 'Ross', 'Joey', 'Monica'}
 for name in hackfam:
   print(name)  #this works!
 ```
-**Output**:
-Rachel
-Ross 
-Joey
+**Output**:<br>
+Rachel<br>
+Ross <br>
+Joey<br>
 Monica
 
 In addition to doing this, you can also check if a particular element is in the set. For example, I can do the following to check if Prateek is in my set hackfam:
@@ -449,10 +475,10 @@ for grade in gradeList:
   print(grade)
 
 ```
-**Output**:
-C
-A
-B
+**Output**:<br>
+C<br>
+A<br>
+B<br>
 B
 
 But this seems a little lengthy. Lists are convenient in so many ways, but do we have to do all of this to just call a functino on each of its elements? Is there a better way to do this?
@@ -486,10 +512,10 @@ gradeList = map(calculateGrade, scoreList) #storing what is returned in a variab
 #printing out the elements in gradeList
 print(gradeList)
 ```
-**Output**
-C
-A
-B 
+**Output**<br>
+C<br>
+A<br>
+B <br>
 B
 
 
