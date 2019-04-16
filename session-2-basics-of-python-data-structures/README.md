@@ -305,7 +305,7 @@ for number in newList:
 45<br>
 76
 
-<img src="images/slice.png" height = 200>
+<img src="images/slice.png" height = 300>
 
 The first number in our slicing function, 1, is the starting index and the second number, is the ending index. These two are separated by a colon to let the computer know that they are separate indices. **The ending index is NOT included in the newList**. This means, that values indexed 1, 2, 3 are included, which means, (36, 45, 76) are included in newList.
 
@@ -382,7 +382,7 @@ Lastly, we have another way to represent data, called dictionary. A dictionary i
 A dictionary, just like sets, is not indexed by a position number, and is not ordered in any specific way. The way to access **values** in a dictionary is through the **keys** associated with them. For example, let's say the values I store in my dictionary are 'apple', 'banana', and 'cherry'. I will associate keys with these values: 'A' will be the key to the value 'apple', 'B' will be the key to the value 'banana' and 'C' will be the key to the value 'cherry'. 
 Now, if I want to access the value 'apple', I can use its key 'A' to access the value 'apple'!
 
-<img src="images/dict.png">
+<img src="images/dict.png" height 400>
 
 You can think about dictionary like the normal dictionary. We use a key, a word to find the meaning associated with it. Similarly, we use a key here to find the value associated with it. 
 The way I can declare such a dictionary in Python is as follows:
@@ -575,7 +575,7 @@ A<br>
 B <br>
 B
 
-<img src="images/map.png" height = 200>
+<img src="images/map.png" height = 400>
 
 As discussed, the map function also returns another list that stores the values returned by the call to calculateGrade on each element. Let's call this list that it returns, the result list. The map function iterates through the list. For the 0th element, i.e. 35, it calls the calculateGrade function passing 35 as a parameter and gets the result 'C'. It then stores this result as the 0th element of the result list. For the next element, i.e. 99, it calls calculateGrade by passing 99 as the parameter, and appends the result 'A' to the result list. This goes on until you reach the end of the  scoreList, and then result list is returned by the map function. The variable gradeList is then set to the result list, so that the value returned by map can be stored and used in the programme. 
 Notice that this produces the same result as the for loop we tried, and so you can think about the map function as a function that is called in a loop on every element of a list. 
