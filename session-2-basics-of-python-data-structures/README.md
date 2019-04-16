@@ -305,7 +305,7 @@ for number in newList:
 45<br>
 76
 
-<img src="images/slice.png">
+<img src="images/slice.png" height = 200>
 
 The first number in our slicing function, 1, is the starting index and the second number, is the ending index. These two are separated by a colon to let the computer know that they are separate indices. **The ending index is NOT included in the newList**. This means, that values indexed 1, 2, 3 are included, which means, (36, 45, 76) are included in newList.
 
