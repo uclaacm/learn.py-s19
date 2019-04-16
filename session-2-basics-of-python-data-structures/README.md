@@ -575,7 +575,7 @@ A<br>
 B <br>
 B
 
-<img src="images/map.png">
+<img src="images/map.png" height = 200>
 
 As discussed, the map function also returns another list that stores the values returned by the call to calculateGrade on each element. Let's call this list that it returns, the result list. The map function iterates through the list. For the 0th element, i.e. 35, it calls the calculateGrade function passing 35 as a parameter and gets the result 'C'. It then stores this result as the 0th element of the result list. For the next element, i.e. 99, it calls calculateGrade by passing 99 as the parameter, and appends the result 'A' to the result list. This goes on until you reach the end of the  scoreList, and then result list is returned by the map function. The variable gradeList is then set to the result list, so that the value returned by map can be stored and used in the programme. 
 Notice that this produces the same result as the for loop we tried, and so you can think about the map function as a function that is called in a loop on every element of a list. 
