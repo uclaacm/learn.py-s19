@@ -583,6 +583,76 @@ Notice that this produces the same result as the for loop we tried, and so you c
 In addition to lists, we can also call map functions on tuples, sets, and dictionaries in a similar way! To find out more about the map function, visit:
 https://www.geeksforgeeks.org/python-map-function/
 
+Now you know enough about Python to take a shot at these fun challenges!
+
+## Challenges:
+
+### Level 1: Jace's Spells!
+
+## Story
+[Jace Beleren](http://media.wizards.com/2016/images/daily/cardart_OGW_Oath-of-Jace.jpg), a powerful mind mage is doing his thing on the mystical plane of Zendicar.  While he's doing his Jace things, he is confronted by a mysterious and threatening creature called a [Void Winnower](https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=402093&type=card). Oh no! What shall Jace do?! He **can't cast any of his his spells with even mana costs**! 
+
+Jace constructs an elaborate plan to defeat the creature, but he needs your help to make sure none of the spells in his plan have even mana costs.  He can give you all of the costs in the form of a **list of integers**.  Your task is to **verify that everything in the list is even**.  Now, wip out your laptop and [defeat the Eldrazi menace](http://www.artofmtg.com/wp-content/uploads/2016/01/Bonds-of-Mortality-+-Fall-of-the-Titans-MtG-Art-Oath-of-the-Gatewatch-.jpg)!
+
+## tdlr: The Actual Problem
+Write a function called `iCantEven()`
+* Parameters: One list of integers
+* Return: A Boolean
+    * `True` if there are **no even numbers** in the list
+    * `False` in **every other case**
+
+## Test Cases
+
+| Test                     | Result  |
+| :----------------------- | ------: |
+| `iCantEven([])`          | `True`  |
+| `iCantEven([0])`         | `False` |
+| `iCantEven([1])`         | `True`  |
+| `iCantEven([0,2])`       | `False` |
+| `iCantEven([0,1,2,3])`   | `False` |
+| `iCantEven([1,9,7,5,3])` | `True` |
+
+
+## Level 3: Shakespearean Dictionary
+## Overview
+Now that you have had some practice with dictionary in Level 2, let's actually create a dictionary from scratch! Suppose you are in an English literature class and are studying a collection of Shakespeare's plays. As part of your assignment, you have to translate a few sentences from the plays into modern-day language. Your friends are struggling to complete the assignment but you came to Learn.py so you say "Ah ha! Why don't I use my knowledge from Learn.py lesson to help me and my friends out!" You want to create a dictionary mapping Shakespearean words into modern words using some vocabulary you noted down from class.
+
+## Task
+Implement a program that takes in a Shakespearean string from standard input and translates the string into modern-day language. 
+
+You will have to implement a dictionary called **ShakespeareDict** from the following list of words that you found in your textbook from your English literature class. You will then use this dictionary to translate the provided strings in the assignment into modern-day language.
+
+Your program should:
+1. Input five strings from the assignment into your program.
+1. Translate the strings using **ShakespeareDict** into modern-day language sentences.
+1. Output the translated strings to the console.
+
+Here is the list of words from your notebook, where the first represents the Shakespearean word and the second represents the modern translation of the word.
+
+* art --> are
+* ay --> yes
+* doth --> does
+* morrow --> tomorrow
+* oft --> often
+* till --> until
+* wilt --> will
+* thou --> you
+* Thou --> You
+* thine --> your
+
+Here are the sentences in your assignment that you need to translate.
+
+1. "Parting is such sweet sorrow, That I shall say good night till it be morrow.” 
+1. "The fool doth think he is wise, but the wise man knows himself to be a fool."
+1. "Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude"
+1. "This above all: to thine own self be true"
+1. "Our doubts are traitors, and make us lose the good we oft might win, by fearing to attempt"
+
+### Note
+For the simplicity of this assignment, we will assume that users will put in valid strings only. If your program passes the fives sentences provided in this spec, you are considered to have completed this project!
+### Hint
+Use replace() to help in your implementation :)
+
 
 
 
