@@ -36,7 +36,8 @@ def calculateGrade(m1, m2, final):
 print(calculateGrade(58,79,99))
 ```
 
-This function takes in three parameters, m1, m2, final and returns their sum. 
+This function takes in three parameters, m1, m2, final and returns their sum. It prevents us from having to constantly type m1+m2+final for different values. 
+
 What is return?
 When we calculate the sum, we want to be able to access the result somehow.
 When we say **return**, our function gives the result back to the programme, and we can access it easily by storing it in a variable, like this
@@ -79,7 +80,7 @@ The variable 'y' is in the scope of the function printNum. However, its visibili
 But if I try to print the variable outside the function, outside its **scope**, I'll get an error, because at this point, my program does NOT know what 'y' is. This variable is essentially invisible to my code outside its scope. 
 Syntactically, scope is defined by indentation in python. If you're familiar with C/C++, this is similar to using curly braces around functions or loops. 
 
-So now that we understand how scope works, let's make our function slightly more useful, and get a quick review of conditional statements! So far our function only totals our marks and gives a score out of 300, but we want it to convert our scores to a grade. So let's make a function that converts scores out of 300 to a letter grade:
+So now that we understand how scope works, let's make our function slightly more useful, and get a quick review of conditional statements! So far our function only totals our marks and gives a score out of 300, but we want it to convert our scores to a grade. In this function, we will divide the totalMarks by 3 in order to find the average of the three marks. So let's make a function that converts scores out of 300 to a letter grade:
 
 ```python
 def convertGrade(totalMarks):
@@ -141,12 +142,12 @@ calculateGrade(58,79,99)
 ```
 We can represent this as a lambda function like this:
 ```python
-calculateGrade = lambda m1, m2, final: gradeConvert(m1+m2+final)
+calculateGrade = lambda m1, m2, final: convertGrade(m1+m2+final)
 
 calculateGrade(58,79,99)
 ```
 Lambda functions allow you to condense functionality in **one** line. 
-You can have any number of parameters following the keyword **lambda**, but only one expression after the parameters. Once this expression is evaluated, the function returns the result of the expression. In this case, the expression is the call of another function, gradeConvert, and it returns the result of this evaluation, that is, the letter grade returned by the function gradeConvert. 
+You can have any number of parameters following the keyword **lambda**, but only one expression after the parameters. Once this expression is evaluated, the function returns the result of the expression. In this case, the expression is the call of another function, convertGrade, and it returns the result of this evaluation, that is, the letter grade returned by the function convertGrade. 
 
 Now that we're comfortable enough with functions, we can move forward to some more complex ways of representing data. 
 
@@ -192,7 +193,7 @@ Ross<br>
 Phoebe<br>
 Monica
 
-There are many useful methods that make using lists super effective in coding. Methods are essentially functions that can be called on the list, which are predefined and ready for us to use directly without worrying about the implementation. The way you call these functions is just by using the dot ('.') operator on the list. For example, I can add to the list at some point after the declaration using the append function:
+There are many useful methods that make using lists super effective in coding. Methods are essentially functions that can be called on the list, which are predefined and ready for us to use directly without worrying about the implementation. The way you call these functions is just by using the dot ('.') operator on the list. For example, I can add to the list after the initial declaration of the list by using the append function:
 
 ```python
 fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
@@ -253,10 +254,10 @@ squareList = [] #creating an empty list to store values in later
 
 for number in numList:
   if number%2 ==0: #checking if it's even
-    squareList.append(number)
+    squareList.append(number*number)
 
 for number in squareList:
-print(number)
+  print(number)
 ```
 **Output**:<br>
 4<br>
@@ -321,7 +322,7 @@ for number in newList:
 36<br>
 76
 
-Here, in the line numList[1:4:2], 2 the third parameter 2 is the value that we increment when we 'slice' the list. So, the number 36 at position 1 is added. The next number added is at position 1+2 = 3, which is 76. At this point, we stop because index 3 is the last index we want to have. Thus, newList contains 36 and 76, and skips 45. 
+Here, in the line numList[1:4:2], the third parameter 2 is the value that we increment when we 'slice' the list. So, the number 36 at position 1 is added. The next number added is at position 1+2 = 3, which is 76. At this point, we stop because index 3 is the last index we want to have. Thus, newList contains 36 and 76, and skips 45. 
 
 Another useful feature of this function is that it has default arguments for the starting and ending index, meaning that if we don't enter any arguments for the starting/ending index, it assumes that the starting index is 0 and the ending index is the index of the last element in the list. For example, if I wanted to get all elements from position 2 to the end, I would do:
 ```python3
@@ -524,7 +525,7 @@ def calculateGrade (score):
   else:
     return 'C'
 
-gradeLIst = [] #create an empty list to store the results in later
+gradeList = [] #create an empty list to store the results in later
 for score in scoreList:
   grade = calculateGrade(score)
   gradeList.append(grade)
@@ -539,7 +540,7 @@ A<br>
 B<br>
 B
 
-But this seems a little lengthy. Lists are convenient in so many ways, but do we have to do all of this to just call a functino on each of its elements? Is there a better way to do this?
+But this seems a little lengthy. Lists are convenient in so many ways, but do we have to do all of this to just call a function on each of its elements? Is there a better way to do this?
 There is! In python, there is a very useful function - the map function - that calls the function you input on every element of the list and returns another list of all the values returned by each call to the function on each element. For example:
 ```python3
 scoreList = [35,99,78,90]
