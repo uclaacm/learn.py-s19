@@ -25,7 +25,7 @@
 * Sets
 * The map function
 
-### Functions
+## Functions
 Functions are parts of code that hold other lines of code, allowing us to call them with a simple call to the function, rather than repeatedly typing out the code inside. 
 
 For example:
