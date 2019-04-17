@@ -587,7 +587,7 @@ Now you know enough about Python to take a shot at these fun challenges!
 
 ## Challenges:
 
-### Level 1: Jace's Spells!
+## Level 1: Jace's Spells!
 
 ## Story
 [Jace Beleren](http://media.wizards.com/2016/images/daily/cardart_OGW_Oath-of-Jace.jpg), a powerful mind mage is doing his thing on the mystical plane of Zendicar.  While he's doing his Jace things, he is confronted by a mysterious and threatening creature called a [Void Winnower](https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=402093&type=card). Oh no! What shall Jace do?! He **can't cast any of his his spells with even mana costs**! 
@@ -613,9 +613,106 @@ Write a function called `iCantEven()`
 | `iCantEven([1,9,7,5,3])` | `True` |
 
 
+## Level 2: List to Dict
+
+### Part 1
+Given 2 lists of the __same length__. 
+Write a function `lists_to_tuples` that 
+takes 2 lists `a` and `b` as arguments and
+return a __list of tuples__ such that
+each tuple is `(element from list a, element from list b)`.
+
+**You have to use the `map` function
+or use list comprehension.**
+
+<details> <summary>Hint</summary>
+
+Instead of using list comphresion on the inputs,  what if you use list comphresion on something like `len(a)`?
+
+</details>
+
+Example:
+```python
+a = ['name', 'age', 'food']
+b = ['Galen', 19, 'Ramen']
+
+result = lists_to_tuples(a, b)
+print(result)
+# should output:
+# [('name', 'Galen'), ('age', 19), ('food', 'Ramen')]
+```
+
+### Part 2
+Given a list of tuples.
+Write a function `tuples_to_dict` that 
+takes 1 list as argument and 
+return a dictionary such that 
+the first element of each tuple is the key
+and the second element of each tuple is the corresponding value.
+
+_You can use a loop for this one._
+
+Example:
+```python
+t = [('name', 'Galen'), ('age', 19), ('food', 'Ramen')]
+
+result = tuples_to_dict(t)
+print(result)
+# should output (order does not matter):
+# {'name': 'Galen', 'age': 19, 'food': 'Ramen'}
+```
+
+### Part 3:
+Write a function `lists_to_dict` 
+that takes 2 lists of the same length and 
+return a dictionary such that 
+each entry in the first list is the key and
+each entry in the second list is the corresponding value.
+
+Example:
+```python
+a = ['name', 'age', 'food']
+b = ['Galen', 19, 'Ramen']
+
+result = lists_to_dict(a, b)
+print(result)
+# should output (order does not matter):
+# {'name': 'Galen', 'age': 19, 'food': 'Ramen'}
+```
+
+You might use the result for the previous part on this one.
+
+### Part 4 (Optional and Challenging):
+Can you implement Part 2 without using a loop?
+
+<details> <summary>Hint 1</summary>
+
+Google `map`? 
+Not the thing you use to navigate.
+But a built in function called `map`.
+Go Google it.
+
+</details>
+
+<details> <summary>Hint 2</summary>
+
+In Python, you can define a function within a function.
+
+</details>
+
+<details> <summary>Hint 3</summary>
+
+`map` does not execute right away. 
+It returns an iterable and you need to do something with it.
+
+</details>
+
+
 ## Level 3: Shakespearean Dictionary
 ## Overview
 Now that you have had some practice with dictionary in Level 2, let's actually create a dictionary from scratch! Suppose you are in an English literature class and are studying a collection of Shakespeare's plays. As part of your assignment, you have to translate a few sentences from the plays into modern-day language. Your friends are struggling to complete the assignment but you came to Learn.py so you say "Ah ha! Why don't I use my knowledge from Learn.py lesson to help me and my friends out!" You want to create a dictionary mapping Shakespearean words into modern words using some vocabulary you noted down from class.
+
+![alt text](http://www.nosweatshakespeare.com/wp-content/uploads/2012/08/talk-normally.png "Shakespeare Meme") 
 
 ## Task
 Implement a program that takes in a Shakespearean string from standard input and translates the string into modern-day language. 
@@ -631,6 +728,7 @@ Here is the list of words from your notebook, where the first represents the Sha
 
 * art --> are
 * ay --> yes
+* be --> is
 * doth --> does
 * morrow --> tomorrow
 * oft --> often
@@ -642,8 +740,8 @@ Here is the list of words from your notebook, where the first represents the Sha
 
 Here are the sentences in your assignment that you need to translate.
 
-1. "Parting is such sweet sorrow, That I shall say good night till it be morrow.” 
-1. "The fool doth think he is wise, but the wise man knows himself to be a fool."
+1. "Parting is such sweet sorrow, That I shall say good night till it be morrow” 
+1. "The fool doth think he is wise, but the wise man knows himself to be a fool"
 1. "Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude"
 1. "This above all: to thine own self be true"
 1. "Our doubts are traitors, and make us lose the good we oft might win, by fearing to attempt"
@@ -651,7 +749,13 @@ Here are the sentences in your assignment that you need to translate.
 ### Note
 For the simplicity of this assignment, we will assume that users will put in valid strings only. If your program passes the fives sentences provided in this spec, you are considered to have completed this project!
 ### Hint
-Use replace() to help in your implementation :)
+Use replace() to help your implementation :)
+
+
+
+
+
+
 
 
 
