@@ -570,7 +570,8 @@ def calculateGrade (score):
     
 gradeList = map(calculateGrade, scoreList) #storing what is returned by map in a variable gradeList
 
-print(gradeList)
+for x in gradeList:
+  print(x)
 ```
 **Output**<br>
 C<br>
