@@ -422,7 +422,7 @@ grades = {
 for x in grades:
   print(x) #this will print out all keys
 for x in grades:
-  print(num[x])#this prints values associated with the keys
+  print(grades[x])#this prints values associated with the keys
 for x in grades.values():
   print(x)#this prints values associated with the keys
 
