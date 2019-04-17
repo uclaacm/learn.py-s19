@@ -444,7 +444,7 @@ grades = {
   'GE' : 74,
   'Chem' : 56
 }
-grades[Chem] = 'fail'
+grades['Chem'] = 'fail'
 ```
 grades['Chem'] = 'fail' changes the value associated with two from 56 to 'fail'.
 
