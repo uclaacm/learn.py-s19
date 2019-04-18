@@ -131,6 +131,11 @@ C
 What's happening here?
 In the first case, with 3 parameters, the function uses 99 as the final marks. But in the second case, we never pass the final scores. So the function notices this and uses the **default** marks we supplied, i.e., 0. So when the function calculates the total, the final marks are replaced by 99 in the first case, and 0 in the second case. 
 
+## Boolean Operators:
+
+![alt text](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwii47azrNjhAhUJxFQKHQByDawQjRx6BAgBEAU&url=http%3A%2F%2Fecomputernotes.com%2Fwhat-is-c%2Foperator%2Fboolean-operators&psig=AOvVaw3kcxTMWl5A_vH2GlwnhBU3&ust=1555632377191204 "Truth table") 
+
+
 ## Lambdas
 Lambdas are very simple functions that can be expressed in one line. 
 For example, since I'm only using one line in this function:
