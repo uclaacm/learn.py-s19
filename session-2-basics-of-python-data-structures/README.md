@@ -16,6 +16,7 @@
 * [Portal](https://members.uclaacm.com/login)
 
 ## What we'll be learning today
+* Conditionals: Boolean operators
 * Functions: review
 * Conditionals: review
 * Default parameters
@@ -24,6 +25,27 @@
 * Dictionaries
 * Sets
 * The map function
+
+## Boolean Operators:
+
+When you use boolean operators on two elements, the result evaluates to true or false.
+
+<img src="images/Truth-table-for-OR--AND-and-NOT-operations.jpeg" height = 300>
+
+
+```python
+x = 1
+y = 0
+
+if x and y:
+  print('both are true')
+if x or y:
+  print('one of them is true')
+if not x:
+  print('x is false')
+```
+
+You can use these in conditionals!
 
 ## Functions
 Functions are parts of code that hold other lines of code, allowing us to call them with a simple call to the function, rather than repeatedly typing out the code inside. 
@@ -130,27 +152,6 @@ C
 
 What's happening here?
 In the first case, with 3 parameters, the function uses 99 as the final marks. But in the second case, we never pass the final scores. So the function notices this and uses the **default** marks we supplied, i.e., 0. So when the function calculates the total, the final marks are replaced by 99 in the first case, and 0 in the second case. 
-
-## Boolean Operators:
-
-When you use boolean operators on two elements, the result evaluates to true or false.
-
-<img src="images/Truth-table-for-OR--AND-and-NOT-operations.jpeg" height = 300>
-
-
-```python
-x = 1
-y = 0
-
-if x and y:
-  print('both are true')
-if x or y:
-  print('one of them is true')
-if not x:
-  print('x is false')
-```
-
-You can use these in conditionals!
 
 ## Lambdas
 Lambdas are very simple functions that can be expressed in one line. 
