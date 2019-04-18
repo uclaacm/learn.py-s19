@@ -133,8 +133,24 @@ In the first case, with 3 parameters, the function uses 99 as the final marks. B
 
 ## Boolean Operators:
 
-![alt text](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwii47azrNjhAhUJxFQKHQByDawQjRx6BAgBEAU&url=http%3A%2F%2Fecomputernotes.com%2Fwhat-is-c%2Foperator%2Fboolean-operators&psig=AOvVaw3kcxTMWl5A_vH2GlwnhBU3&ust=1555632377191204 "Truth table") 
+When you use boolean operators on two elements, the result evaluates to true or false.
 
+<img src="images/Truth-table-for-OR--AND-and-NOT-operations.jpeg" height = 300>
+
+
+```python
+x = 1
+y = 0
+
+if x and y:
+  print('both are true')
+if x or y:
+  print('one of them is true')
+if not x:
+  print('x is false')
+```
+
+You can use these in conditionals!
 
 ## Lambdas
 Lambdas are very simple functions that can be expressed in one line. 
@@ -245,6 +261,15 @@ Joey<br>
 Chandler
 
 The way we use the extend function is by calling the method on the list we want to append to and passing the list we want to append as a parameter. So now you see that fam is extended to include the fam2 members. 
+
+One really important attribute of a list is its length, and you can find the length by using the following len() function:
+```python
+fam = ['Rachel', 'Ross', 'Phoebe', 'Monica']
+
+print(len(fam))
+```
+**Output**:
+4
 
 In addition to these, there are several other useful functions that you can check out at:
 https://www.w3schools.com/python/python_ref_list.asp
