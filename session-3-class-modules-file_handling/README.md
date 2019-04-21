@@ -479,7 +479,7 @@ I know, very meta isn't it?
 [MC Hammer - U Can't Touch This](https://www.youtube.com/watch?v=otCpCn0l4Wo)
 
 We learned about list in our previous sessions. 
-If you access list passes its length, Python will through an error.
+If you access list passes its length, Python will throw an error.
 
 ```python
 myList = [1, 2, 3]
@@ -506,6 +506,8 @@ senpaisCode([1,2,3]) # this will throw an error
 Use a `try-except` block for `senpaisCode`,
 but catching the error and prints `"Senpai, u can't touch this"`,
 when `senpaisCode` is called.
+
+> senpai: A japanese words which describe an informal hierarchical interpersonal relationship found in organizations, associations, clubs, businesses, and schools in Japan.
 
 ## Challenge 3: MATH 33A?
 
