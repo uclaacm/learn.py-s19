@@ -22,7 +22,7 @@
 ### Why do we need a class?
 Suppose you want to create a variable type that stroes name, age, and favorite food of a person. With what you know right now, you can create three separate variables like this:
 
-```
+```python
 p1_name = "Furn"
 p1_age = 20
 p1_fav_food = "Kbbq"
@@ -36,7 +36,7 @@ However, we can see that the variables describing a single person `p1` are store
 
 We can use a **class** to store all these **attributes** (name, age, favorite food) within a single variable called an **object**. These are a lot of technical words but do not be scared! Let's look at an example of how to construct a `Person` class:
 
-```
+```python
 class Person:
     name = "blah"
     age = 12
@@ -44,12 +44,12 @@ class Person:
 ```
 Now we can create a `Person` **object** called `p1`. 
 
-```
+```python
 p1 = Person()
 ```
 
 We can referencing the attributres of a `Person` object by using the syntax object.attribute_name
-```
+```python
 print(p1.name)
 print(p1.age)
 print(p1.fav_food)
@@ -58,7 +58,7 @@ We can see that our `Person` object, by default, has a name "blah", age 12, and 
 
 However, this is bad practice because everyone is not called "blah" or is 12 years old. Why don't we just declare our `Person` class like this?
 
-```
+```python
 class Person:
     name
     age
@@ -66,7 +66,7 @@ class Person:
 ```
 
 This will throw an error 
-```
+```python
 NameError: name 'name' is not defined
 ```
 because Python does not allow a user-defined class to have attributes without a value.
@@ -74,7 +74,7 @@ because Python does not allow a user-defined class to have attributes without a 
 ### __init__() function
 A way to get around this is to use a built-in `__init__()` function. It is always executed when the class is being initiated (right at the beginning). `__init__()` is used to assign values to object properties.
 
-``` 
+```python 
 class Person:
         def __init__(self, name, age, fav_food):
             self.name = name
@@ -87,7 +87,7 @@ Now if we print attributes in `p1`, we will get "Furn", 20, and "KBBQ"!
 
 We can also create methods in our class. Let's create a method called `birthday()` in our `Person` class where we will increment the age of the person by one.
 
-```
+```python
 class Person:
     def __init__(self,namee,age,fav_food):
         self.name = name
@@ -101,13 +101,13 @@ p1.birthday()
 print(p1.age)
 ```
 Here we can see that after calling `birthday()`, the age of `p1` increases from 20 to 21. So we can declare methods to modify attributes of a class. Our methods can also take in argument. Inside our `Person` class, let's declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and change the current fav_food of the person.
-```
+```python
     def change_of_heart(self, new_fav_food)
         self.fav_food = new_fav_food
         print('Yum!') 
 ```
 Note that when we call this method with our `Person` object, we have to pass in one argument or we will get an error.
-```
+```python
 p1.change_of_heart('Avocado toast')
 ```
 Try this and see what happens!
@@ -115,7 +115,7 @@ Try this and see what happens!
 The built-in data structures that we learned from the previous session such as list, set, and dictionary are also examples of a class. They also have built-in methods like `list.append()` or `set.add()`.
 
 __Side note__: Notice that when we declare a method in a class, it takes in at least one argument, `self`. The `self` parameter is only a reference to the current instance of the class. It does not have to be named self and you can call it whatever you like but it has to be the first parameter of any function in a class. This will work just fine!
-```
+```python
 class Person:
     def __init__(me, name, age, fav_food):
         me.name = name
@@ -135,7 +135,7 @@ Returns a **file object**, also called a handle.
 A file object is another variable type that is specific to file handling.
 You must open a file before doing anything else with it!
 Example:
-```
+```python
 f = open('workfile', 'w')
 print f
 ```
@@ -152,17 +152,17 @@ bi
  Note that if we use `'r+w'` we must create a file first because this mode will return error if the file does not exist.
 
  To create a file in command line:
- ```
+ ```python
  $ touch file.txt
  ```
  Then in our Python code:
- ```
+ ```python
  f = open('file.txt', 'r+w')
  f.write('Hello world\n')
  f.write('This is our new text file')
  ```
 We can see that a `file.txt` file is created in our current directory and we can read the content of the file as well.
-```
+```python
 $ ls
 $ cat file.txt
 ```
@@ -177,7 +177,7 @@ If file.txt exists and is not empty, the `write` function will truncate the file
  If the end of file has been reached, `read()` returns an empty string.
 
 Let's now try reading from a file we just created and write to.
-```
+```python
 s = f.read()
 print(s)
 ```
@@ -197,7 +197,7 @@ The default reference point is 0.
 We often use `seek()` when we want to read or modify a single file multiple times. We can see that whenever we `read()` or `write()` to the file, the file object is moved along its content.
 
 So continuing from our example above, we can start reading from the beginning of the file by
-```
+```python
 f.seek(0)
 print(f.read(6))        # Returns 'Hello '
 print(f.read())         # Returns 'world\n This is our new text file
@@ -208,7 +208,7 @@ We must close every file object we opened when we're done operating on a file to
 
 It is good practice to use the `with` keyword when dealing with file objects to ensure that the file is properly closed after the user finishes using it.
 
-```
+```python
 with open('file.txt', 'r+w') as f:
     read_data = f.read()
 f.close()
@@ -216,7 +216,7 @@ f.close()
 
 ## TryPy: try and except statements
 Syntax error is the most common cause of error which occurs before the program is executed. For example, if we execute our code
-```
+```python
 while True
     print('Hello world')
 ```
@@ -231,7 +231,7 @@ We can see that from this example, our program asks the user to input a number. 
 
 However, we can handle these exception ourselves by using the `try` keyword. For example, instead of quitting the program, we can handle this exception by printing an error message and ask the user to input a number again.
 
-```
+```python
 while True:
     try:
         x = int(input("Please enter a number: "))
@@ -247,12 +247,12 @@ Not only this is so much nicer than the default message, we can customize our pr
 
 Exception handling allows you to do other things:
 * We can ignore certain errors as long as they do not affect the correctness of your program with a `pass` keyword.
-```
+```python
 except NameError:
     pass
 ```
 * We can raise the exception message using the `raise` statement. When used with `except`, we can modify some data before exception occurs.
-```
+```python
 except NameError:
     print('Oops! That was not a valid number. Try again...')
     raise
@@ -265,7 +265,7 @@ However, `raise` must be used with caution because it is easy to mask a real pro
 
 * A logic `try, except, else` is useful for code that must be executed if the `try` clause does not raise an exception. It is better than adding code to the `try` clause directly because it avoids accidentally catching an exception that wasn't raised by the code. The code will look something like this.
 
-```
+```python
 try:
     ...
 except:
@@ -291,7 +291,7 @@ We can import from a standard module or create your own module. To import a modu
 Let's create our own `example` module in a file called `example.py` which contains simple `add`, `subtract`, and `multiply` functions. We will then import this `example` module into a separate file called `import.py`. Make sure that the two files are in the same directory!
 
 *example.py*
-```
+```python
 # Python Module example
 def add(a, b):
     return a+b
@@ -303,14 +303,14 @@ def multiply(a, b):
     return a*b
 ```
 *import.py*
-```
+```python
 import example
 print(example.add(4,5.5))
 print(example.multiply(4,5.5))
 ```
 We can also choose to import some functions but not all functions in a module.
 *import.py*
-```
+```python
 from example import subtract
 
 print(subtract(4,5.5))
@@ -318,7 +318,7 @@ print(subtract(4,5.5))
 Note that we now do not have to reference the `subtract` function. In fact, using `example.subtract()` will throw an error because `example` is not defined in our program. Keep in mind that in this case, we cannot use `add` and `multiply` functions from our `example` module.
 
 We can also use the clause `import ... as ...` to change the name of our module for referencing later on in our program.
-```
+```python
 import example as x
 print(x.add(4,5.5))
 ```
@@ -331,7 +331,7 @@ if you are interested in Python standard modules, check this [link](https://docs
 Now I want to go over one module which you will use in your project for this session.
 
 `NumPy` is a widely-used module. It's main purpose is to perform operations on multidimensional array (think matrices!). We can represent a 2x3 array in `NumPy` by
-```
+```python
 [[1, 2, 3],
  [2, 2, 3]]
 ```
@@ -342,7 +342,7 @@ Functions are objects in Python which means that they can be passed as argument 
 
 Let's look at a simeple `introduce` function. Suppose we want to write a decorator for this function called `introduce_decorator`.
 
-```
+```python
 # Function decorator
 def introduce_decorator(func):
     print("Hi!")
@@ -355,12 +355,12 @@ def introduce():
 introduce()     # print "Nice to meet you."
 ```
 To use a decorator, we must use the following syntax.
-```
+```python
 introduce = introduce_decorator(introduce)
 introduce()     # print "Hi!\nNice to meet you."
 ```
 What if our actual function wants to take in argument(s)?
-```
+```python
 def introduce_decorator(func):
     def inner(*args, **kwargs):
         print("Hi!")
@@ -377,7 +377,7 @@ __Side note__: `*args` and `kwargs` are special syntaxes in function definitions
 `**kwargs` is used to pass a keyworded, variable-length argument list. A way to look at `kwargs` is that it is a dictionary that maps each keyword (argument) to the value that we pass with it.
 
 Here is an example of a more complicated decorator example. We declare a decorator to time the time taken by any function passed into it. In this case, we are timing the factorial function.
-```
+```python
 # Importing libraries
 import time
 import math
@@ -486,7 +486,7 @@ package and do matrix multiplication in it.
 
 Please solve the following problem with numpy.
 
-<img src="matrix.png" width="300px">
+<img src="./Session3_solutions/matrix.png" width="300px">
 
 
 
