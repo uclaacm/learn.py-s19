@@ -454,22 +454,31 @@ I know, very meta isn't it?
 [MC Hammer - U Can't Touch This](https://www.youtube.com/watch?v=otCpCn0l4Wo)
 
 We learned about list in our previous sessions. 
+If you access list passes its length, Python will through an error.
+
+```python
+myList = [1, 2, 3]
+print(myList[4])  # This will throw an error!!!
+```
+
 If senpai's code tries to access the list passes its length,
-Python san will not be happy and it will yell at you.
-However, you can `catch` senpai doing nasty operation 
-like touching part of list that senpai is not supposed to 
-touch.
+Python will not be happy and it will yell at you.
+However, you can catch senpai doing nasty operation 
+like accessing part of list that senpai is not supposed to 
+access.
 
 Given senpai's code, try to use a decorator 
-`try-catch` to catch senpai accessing the list out of index.
+`try-except` to catch senpai accessing the list out of index.
 
 ```python
 def senpaisCode(somelist):
     # senpai got a bit too curious
     print('what is here at index 300000000?', somelist[300000000])
+
+senpaisCode([1,2,3]) # this will throw an error
 ```
 
-Write a decorator named `uCantTouchThis` for `senpaisCode`,
+Use a `try-except` block for `senpaisCode`,
 but catching the error and prints `"Senpai, u can't touch this"`,
 when `senpaisCode` is called.
 
