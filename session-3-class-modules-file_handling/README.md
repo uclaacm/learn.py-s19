@@ -400,6 +400,10 @@ factorial(10)
 ```
 
 ## pip
+Suppose you write a very large application that includes many modules. As the number of modules grows, it becomes difficult to keep track of them, especially if they have similar names or functionality. You might wish for a means of grouping and organizing them.
+
+**Packages** allow for a  hierarchical structuring of the module namespace using **dot notation**. They help avoid collisions between module names.
+
 pip is a way of installing Python packages. Make sure that you can run `pip` from your command line by running
 ```
 $ pip --version
@@ -421,6 +425,68 @@ To install some packages, we type
 ```
 $ pip install <package_name>
 ```
+
+# Challenges:
+## Challenge 1: Philosopher thinking about himself?
+
+Philosopher like to think about the world that they are in
+and the meaning of being itself and other non-sense.
+We want to simulate this behavior with Python.
+
+Define a class named `Philosopher`.
+Give it a name. Give it a function named `ponder`.
+`ponder` should allow the philosopher to think about
+the world it is in. 
+The philosopher is very good and is able to see the 
+world as a whole and annotate it. 
+Therefore, `ponder` should print out the code that defines the `Philosopher` class and the `ponder` function. 
+
+After the philosopher finish annotating this world,
+he should print __its own name__ and `"If I annotated this world that I am in, then what am I? The maker of the world?"`
+
+__TLDR__: In short, write a piece of code that prints itself.
+
+I know, very meta isn't it?
+
+
+## Challenge 2: U Can't Touch This.
+
+[MC Hammer - U Can't Touch This](https://www.youtube.com/watch?v=otCpCn0l4Wo)
+
+We learned about list in our previous sessions. 
+If senpai's code tries to access the list passes its length,
+Python san will not be happy and it will yell at you.
+However, you can `catch` senpai doing nasty operation 
+like touching part of list that senpai is not supposed to 
+touch.
+
+Given senpai's code, try to use a decorator 
+`try-catch` to catch senpai accessing the list out of index.
+
+```python
+def senpaisCode(somelist):
+    # senpai got a bit too curious
+    print('what is here at index 300000000?', somelist[300000000])
+```
+
+Write a decorator named `uCantTouchThis` for `senpaisCode`,
+but catching the error and prints `"Senpai, u can't touch this"`,
+when `senpaisCode` is called.
+
+## Challenge 3: MATH 33A?
+
+Well, you are in this linear algebra class and the 
+professor assigned you some matrix multiplication 
+problem that you have to do by hand. You are lazy.
+You heard that you can use some python package named
+"numpy" to help you do those tedious Math.
+
+Use the power of Google and learn how to use the numpy
+package and do matrix multiplication in it.
+
+Please solve the following problem with numpy.
+
+<img src="matrix.png" width="300px">
 
 
 
