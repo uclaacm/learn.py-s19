@@ -446,6 +446,31 @@ he should print __its own name__ and `"If I annotated this world that I am in, t
 
 __TLDR__: In short, write a piece of code that prints itself.
 
+Here is a skeleton for your code.
+```python
+class Philosopher:
+    def __init__(self, name):
+           # Your code here
+    def ponder(self, name):
+           # Your code here
+
+aristotle = Philosopher('aristotle')
+aristotle.ponder()
+```
+
+__The above code should print the following__
+```
+class Philosopher:
+    def __init__(self, name):
+           # Your code here
+    def ponder(self, name):
+           # Your code here
+
+aristotle = Philosopher('aristotle')
+aristotle.ponder()
+aristotle
+If I annotated this world that I am in, then what am I? The maker of the world?
+```
 I know, very meta isn't it?
 
 
