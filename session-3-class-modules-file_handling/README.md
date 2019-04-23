@@ -4,7 +4,7 @@
 
 **Time**: 6:15pm - 8:15pm, April 24, 2019
 
-**Teacher**: Chayanis Techalertumpai
+**Teacher**: Furn Techalertumpai
 
 ## Resources
 **Slides**
