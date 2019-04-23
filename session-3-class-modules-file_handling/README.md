@@ -74,7 +74,7 @@ NameError: name 'name' is not defined
 ```
 because Python does not allow a user-defined class to have attributes without a value.
 
-### "__init__()" function
+### `__init__()` function
 A way to get around this is to use a built-in `__init__()` function. It is always executed when the class is being initiated (right at the beginning). `__init__()` is used to assign values to object properties.
 
 ```python 
