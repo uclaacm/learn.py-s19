@@ -645,4 +645,4 @@ package and do matrix multiplication in it.
 
 Please solve the following problem with numpy.
 
-<img src="./Session3_solutions/matrix.png" width="300px">
+<img src="./images/matrix.png" width="300px">
