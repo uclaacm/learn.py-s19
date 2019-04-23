@@ -157,7 +157,7 @@ There are four modes for opening a file:
  Note that if we use `'r+w'` we must create a file first because this mode will return error if the file does not exist.
 
  To create a file in command line:
- ```python
+ ```
  $ touch file.txt
  ```
  Then in our Python code:
@@ -259,35 +259,6 @@ Now if we input a letter, we will no longer get the error and program will keep 
 <img src="./images/try2.png" alt="try_statement" width=400>
 
 Not only this is so much nicer than the default message, we can customize our program to behave like what we want even in the case where exceptions occur.
-
-Exception handling allows you to do other things:
-* We can ignore certain errors as long as they do not affect the correctness of your program with a `pass` keyword.
-```python
-except NameError:
-    pass
-```
-* We can raise the exception message using the `raise` statement. When used with `except`, we can modify some data before exception occurs.
-```python
-except NameError:
-    print('Oops! That was not a valid number. Try again...')
-    raise
-```
-This is useful when you want to modify some variables or output some statements before the program exists with an exception.
-
-<img src="./images/try3.png" alt="raise_statement" width=400>
-
-However, `raise` must be used with caution because it is easy to mask a real programming error when it is used!
-
-* A logic `try, except, else` is useful for code that must be executed if the `try` clause does not raise an exception. It is better than adding code to the `try` clause directly because it avoids accidentally catching an exception that wasn't raised by the code. The code will look something like this.
-
-```python
-try:
-    ...
-except:
-    ...
-else:
-    ...
-```
 
 ## Modules and import
 Imagine writing a very large program. As a (good) programmer, you want to store your code into multiple files so your program is more readable and is easier to debug. Generally, we would have some file containing definitions of functions, classes, or variables to be used in the main program and one file containing the main program stating the logics of what to be done next. Those multiple files are called **modules**. They are called libraries in other languages like C, C++, Java.
@@ -419,7 +390,7 @@ Suppose you write a very large application that includes many modules. As the nu
 **Packages** allow for a  hierarchical structuring of the module namespace using **dot notation**. They help avoid collisions between module names.
 
 pip is a way of installing Python packages. Make sure that you can run `pip` from your command line by running
-```bash
+```
 $ pip --version
 ```
 If you installed Python from source (python.org) or Homebrew (for Mac users), you should already have `pip`. If `pip` isn't installed, first try to bootstrap it from the standard library by running
