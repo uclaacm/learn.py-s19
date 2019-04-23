@@ -377,6 +377,7 @@ import math
 print(math.pi)
 print(math.pow(5,5))
 ```
+------ Topics below are not covered in learn.py session 3 but are in the README for those who are interested in learning more
 
 ### Decorators
 Functions are objects in Python which means that they can be passed as argument to another function or defined inside another function. A **decorator** is like a wrapper of a function. It is useful because we can add certain behaviors to a function without permanently modifying it.
