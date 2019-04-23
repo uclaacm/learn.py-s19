@@ -11,31 +11,30 @@
 
 **ACM Membership Attendance**
 
-This is our third session of learn.py and today we will be talking about
+This is our third session of Learn.py and today we will be talking about
 * Classes/Objects
 * File handling
-* TryPy: try and except statements
-* Modules and import
-* How to install packages: pip
+* Exception handling: try statement
+* Modules and import statement
 
 ## Class/Objects
-### Why do we need a class?
-Suppose you want to create a variable type that stores name, age, and favorite food of a person. With what you know right now, you can create three separate variables like this:
-
+### Motivation:
+Suppose we want to create a person variable who has a name, an age, and a favorite food. With what we know from the last two sessions of Learn.py, we can write a code like this:
 ```python
-p1_name = "Furn"
-p1_age = 20
-p1_fav_food = "Kbbq"
-
+p1_name = "Iron man"
+p1_age = 45
+p1_fav_food = "cheese burger"
 ```
 
-However, we can see that the variables describing a single person `p1` are stored separately. Imagine having 10 people, we will have 30 lines of code just to describe them. Not too bad right? What if we have 100 people, we will need 300 lines of code just to store properties of every person. That's very repetitive and inefficient!
+However, we can see that the variables describing a single person `p1` are stored separately. Imagine if you want to create 10 people in your program, you have to write 30 lines of code just to store their properties. What if you want to have 100 people? Your code is going to be very messy and inefficient. As a programmer, we care a lot about writing readable and scalable code.
+
+A way to overcome this is to use a class.
 
 ### What is a class?
+
 <img src="./images/classmeme.jpg" alt="classmeme" width=500>
 
-Instead of having 300 lines of code, we can use a **class** to store all these **attributes** within a single variable called an **object**. 
-So let's make sure we all understand these big words. Here we have a Person class which has three attributes: name, age, and favorite food. We can use this Person class to create Person objects. We can create as many objects as they want, and each of them will contain the three attributes define in our Person class. We can see that our object p2 has a name "thanos", an age of 110, and infinity stones as his favorite food. 
+A class is simply a logical grouping of data and functions. Think of it as a "blue-print". A class is not something in itself. It simply describes how to make something. We establish that we can customize variable types stored in a class. Variables in a class are called **attributes**. We can also define functions within a class, called **methods**. Once we define our class, we can create a variable from the class, called an **object**. An object of a class contains properties and methods defined within that class. Each object is independent of each other.
 
 So now that we have a clearer idea of what these terms are, let's dive down to see what the actual code looks like.
 Here is the simplest way we can do to declare our Person class.
@@ -43,7 +42,7 @@ Here is the simplest way we can do to declare our Person class.
 class Person:
     name = "blah"
     age = 12
-    fav_food = "burger"
+    fav_food = "ramen"
 ```
 Now we can create a `Person` **object** called `p1`. 
 
@@ -51,32 +50,28 @@ Now we can create a `Person` **object** called `p1`.
 p1 = Person()
 ```
 
-We can referencing the attributres of a `Person` object by using the syntax object.attribute_name
+We can referencing the attributres of a `Person` object by using a **dot notation**. This is a way of telling Python that you want to read a value of what attribute from which object.
 ```python
 print(p1.name)
 print(p1.age)
 print(p1.fav_food)
 ```
-We can see that our `Person` object, by default, has a name "blah", age 12, and a fav_food "burger" as declared in the class definition.
+We can see that our `Person` object, by default, has a name "blah", age 12, and a fav_food "ramen" as declared in the class definition.
 
-However, this is bad practice because everyone not is called "blah" or is 12 years old. Why don't we just declare our `Person` class like this?
-
+To change the values of these properties, we can do them one by one.
 ```python
-class Person:
-    name
-    age
-    fav_food
+p1.name = "Iron man"
+p1.age = 45
+p1.fav_food = "cheese burger"
 ```
-
-This will throw an error 
-```python
-NameError: name 'name' is not defined
-```
-because Python does not allow a user-defined class to have attributes without a value.
+However, this is very repetitive. Keep in mind that we want our program to be scalable, meaning that we want to be able to write a large program that can handle hundreds of thousands of people. Having to change the values of the attributes one by one is not efficient at all. Luckily, Python understands our pain and has a solution to this problem.
 
 ### `__init__()` function
-A way to get around this is to use a built-in `__init__()` function. It is always executed when the class is being initiated (right at the beginning). `__init__()` is used to assign values to object properties.
+We can use a Python built-in `__init__()` function to set the values of the attributes to whatever we want right when we declare an object. Notice that `__init__()` is short for **initialization** (Hint! It is indeed used to initialize objects) 
 
+On one hand, the `__init__()` function is just like a good old function we learned about. It takes in parameters, do some modifications, and does not return anything. On the other hand, it is a special function inside a class (hence it is a **method**). It is special because we do not have to call it explicitly. Python will call the `__init__()` method automatically when we create an object of a class.
+
+The `__init__()` method has a special parameter called `self` which basically describes the instance of the object that calls the method. Just like `__init__()`, we do not have to pass `self` explicitly as argument. Here is how we use the `__init__()` method.
 ```python 
 class Person:
         def __init__(self, name, age, fav_food):
@@ -84,50 +79,84 @@ class Person:
             self.age = age
             self.fav_food = fav_food
 
- p1 = Person("Furn", 20, "Kbbq")
+ p1 = Person("Iron man", 45, "cheese burger")
 ```
-Now if we print attributes in `p1`, we will get "Furn", 20, and "Kbbq"!
 
-We can also create methods in our class. Let's create a method called `birthday()` in our `Person` class where we will increment the age of the person by one.
+This is a standard way of writing the `__init__()` method. It always takes in `self` as the first argument along with values for attributes inside your class which in this case is name, age, and fav_food. We notice the dot notation here again as our program is trying to tell Python "Hey! We want to change the name, age, and favorite food of this object we just created (aliased by `self`).
+
+Now if we print the name, age, and fav_food of `p1`, we will indeed get "Iron man", 45, and "cheese burger"!
+We can create as many objects of a class as we want and each one of them will have its own "memory". So let's say if we create 
+```python
+p2 = Person("Thanos", 110, "Infinity stones")
+```
+
+`p1` will not know anything about `p2` i.e. "Iron man" does not know that "Thanos" exists and is hungry for some infinity stones.
+
+`__init()__` is one example of a method that we can create in a class. We can also create other methods. Since a class is like a collection of methods, we can create as many as we want. Let's now create a method called `birthday()` in our `Person` class that prints out `"Happy Birthday!"` and increments the person's age by one.
 
 ```python
 class Person:
-    def __init__(self,namee,age,fav_food):
+    def __init__(self,name,age,fav_food):
         self.name = name
         self.age = age
         self.fav_food = fav_food
     def birthday(self):
-        self.age += 1
-p1 = Person("Furn", 20, "Kbbq")
+    	print("Happy Birthday!")
+    	self.age += 1
+p1 = Person("Iron man", 45, "cheese burger")
+p2 = Person("Thanos", 110, "Infinity stones")
 print(p1.age)
+print(p2.age)
 p1.birthday()
 print(p1.age)
+print(p2.age)
 ```
-Here we can see that after calling `birthday()`, the age of `p1` increases from 20 to 21. So we can declare methods to modify attributes of a class. Our methods can also take in arguments. Inside our `Person` class, let's declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and changes the current fav_food of the person.
+A few things to notice from this code:
+1. Here we can see that after calling `birthday()`, the age of `p1` increases from 45 to 46 but the age of `p2` does not change. This again emphasizes that each object of a class is independent. Calling `birthday()` on `p1` only changes the attributes of `p1` and has nothing to do with `p2`.
+1. This goes back to the meaning of the dot notation. It might not be clear in what the dot notation is for when we only have one object. However, if we have multiple objects, we must tell our program somehow which object we want to read the age from. 
+1. *Any* method in a class (not just `__init__()`) **must** take in `self` as the first argument. The `self` argument is used when the method attempts to change or access the attributes of the class (using the dot notation).
+
+Now let's try create another method that takes in an argument. We declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and changes the current fav_food of the person.
 ```python
-    def change_of_heart(self, new_fav_food)
+    def change_of_heart(self, new_fav_food):
         self.fav_food = new_fav_food
-        print('Yum!') 
 ```
 Note that when we call this method with our `Person` object, we have to pass in one argument or we will get an error.
 ```python
-p1.change_of_heart('Avocado toast')
+p1.change_of_heart("avocado toast")
 ```
 Try this and see what happens!
 
-The built-in data structures that we learned from the previous session such as list, set, and dictionary are also examples of a class. They also have built-in methods like `list.append()` or `set.add()`.
+Remember `list`, a Python data structure that we learned from last session? We can integrate that with our `Person` class by creating a list of persons as well!
 
-
-__Side note__: Notice that when we declare a method in a class, it takes in at least one argument, `self`. The `self` parameter is only a reference to the current instance of the class. It does not have to be named self and you can call it whatever you like but it has to be the first parameter of any function in a class. This will work just fine!
 ```python
-class Person:
-    def __init__(me, name, age, fav_food):
-        me.name = name
-        me.age = age
-        me.fav_food = fav_food
-    def birthday(uwu):
-        uwu.age += 1
+person_list = []
+person_list.append(p1)
+person_list.append(p2)
+print(person_list[0].name)
 ```
+
+Wait a minute... Notice something similar between 
+
+`p1.change_of_heart("avocado toast")` and `person_list.append(p2)`? 
+
+They both use a dot notation to access some functions that modify the variable before the dot. 
+
+<img src="./images/ahha.jpg" alt="I-knew-it" width=500>
+
+`list` is also a class, but it is defined by Python!! Not only list, other data structures such as dictionaries, sets, tuples are all examples of classes. These classes also contain many methods for example `list.append()`, `tuple.insert()`, and `set.add()` and so on and so forth. 
+
+So class is a concept that is used a lot in Python or any object-oriented programming languages (such as Java, C, C++). It is therefore important for you to have a good understanding of what it is and how to use it.
+
+
+### Encapsulation
+Another important programming concept that ties in nicely when we are talking about class is **encapsulation**. 
+
+Formal definition: "the process of combining data and functions into a single unit called class."
+
+Not very useful right?
+
+Informal definition: an idea of 
 
 ## File handling
 Often times, we need to deal with files in our applications. We might have to read some data from a file to be used in our program or write some data generated by our program onto a file.
