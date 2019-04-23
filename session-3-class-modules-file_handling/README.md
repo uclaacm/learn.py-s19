@@ -8,13 +8,14 @@
 
 ## Resources
 **Slides**
+[link](tinyurl.com/learnpy-s3)
 
 **ACM Membership Attendance**
 
 This is our third session of Learn.py and today we will be talking about
 * Classes/Objects
 * File handling
-* Exception handling: try statement
+* Exception handling: try and except statement
 * Modules and import statement
 
 ## Class/Objects
@@ -100,14 +101,19 @@ class Person:
         self.name = name
         self.age = age
         self.fav_food = fav_food
+	
     def birthday(self):
     	print("Happy Birthday!")
     	self.age += 1
+	
 p1 = Person("Iron man", 45, "cheese burger")
 p2 = Person("Thanos", 110, "Infinity stones")
+
 print(p1.age)
 print(p2.age)
+
 p1.birthday()
+
 print(p1.age)
 print(p2.age)
 ```
@@ -135,7 +141,6 @@ person_list.append(p1)
 person_list.append(p2)
 print(person_list[0].name)
 ```
-
 Wait a minute... Notice something similar between 
 
 `p1.change_of_heart("avocado toast")` and `person_list.append(p2)`? 
@@ -155,7 +160,7 @@ Formal definition: "the process of enclosing data and functions into a single un
 
 Not very useful right?
 
-Informal definition: an idea of 
+Informal definition: <to be updated>
 
 ## File handling
 ### Motivation:
@@ -223,31 +228,39 @@ with open('file.txt', 'r') as f:
 ### write()
 We showed that we can read from a file. We can also write to a file, just like how human can also write to a file. Let's try create a new file `file2.txt` from our Python script.
 ```python
-f2 = open('file2.txt', 'w')
-f2.write('My name is Furn\n')
-f2.write('I love Python!')
+with open('file2.txt', 'w') as f2:
+	f2.write('My name is Furn\n')
+	f2.write('I love Python!')
 ```
 
 Now we can see that a file `file2.txt` has been created in our current directory! If we open this file, we can also see that it contains the sentences we typed in our `write()` method. Awesome!
 
-## Exception handling: TryPy
+## Exception handling: try and except statement
 What happens if we execute this code?
 ```python
 while True
     print('Hello world')
 ```
-
-Python will throw a syntax error because our code is missing `:` after `True`. Syntax errors are one of the most common sources of errors. However, another type of errors are called **exceptions**. They are run-time errors and sometimes they can be fatal. Examples of exceptions are dividing by zero, undefined variable, and parsing string with integer. This code will cause Python to throw an exception at us if we input anything that is not a number.
+Python will throw a syntax error because our code is missing `:` after `True`. Syntax errors are one of the most common sources of errors. 
+However, another type of errors are called **exceptions**. 
+They are run-time errors and sometimes they can be fatal. 
+Examples of exceptions are dividing by zero, undefined variable, and parsing string with integer. 
+This code will cause Python to throw an exception at us if we input anything that is not a number.
 ```python
 while True:
 	x = int(input("Please enter a number: "))
 ```
-
 ### Motivation:
 <img src="./images/try_catch.jpg" alt="try-catch-meme" width=500>
-We can see that from this example, our program asks the user to input a number. If we input a letter, the program crashes with an exception message.
 
-However, there are times that we might not want our program to crash or exit. Imagine if you are writing a Python code for Facebook Ads, specifically for the section where users have to input their credit card number for making a purchase. If a user accidentally entered anything that is not a number, you don't want your application to crash and exit right? We can handle the exceptions and customize them to behave in the way we like with a `try/except` statement. For example, instead of quitting the program, we can handle this exception by printing an error message and asking the user to input a number again.
+We can see that from this example, our program asks the user to input a number. 
+If we input a letter, the program crashes with an exception message.
+
+However, there are times that we might not want our program to crash or exit.
+Imagine if you are writing a Python code for Facebook Ads, specifically for the section where users have to input their credit card number for making a purchase. 
+If a user accidentally entered anything that is not a number, you don't want your application to crash and exit right? 
+We can handle the exceptions and customize them to behave in the way we like with a `try/except` statement. 
+For example, instead of quitting the program, we can handle this exception by printing an error message and asking the user to input a number again.
 
 ```python
 while True:
@@ -257,7 +270,6 @@ while True:
     except:
         print("Oops! That was not a valid number. Try again...")
 ```
-
 So in this program we can see that if the user correctly inputs a number, the statements under `try:` is executed and if the user inputs anything that is not a number (which will cause an exception), the statement under `except:` is executed.
 
 <img src="./images/try2.png" alt="try_statement" width=400>
@@ -377,7 +389,7 @@ import math
 print(math.pi)
 print(math.pow(5,5))
 ```
-## [Topics below are not covered in learn.py session 3 but are in the README for those who are interested in learning more]
+## [Topics below are not covered in Learn.py session 3 but are for those who are interested in learning more]
 
 ### Decorators
 Functions are objects in Python which means that they can be passed as argument to another function or defined inside another function. A **decorator** is like a wrapper of a function. It is useful because we can add certain behaviors to a function without permanently modifying it.
