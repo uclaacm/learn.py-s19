@@ -158,8 +158,13 @@ Not very useful right?
 Informal definition: an idea of 
 
 ## File handling
-### Motivation
-Often times, we need to deal with files in our applications. Suppose we are writing a translator that translates Harry Potter books any language to English. You might be wondering how are we going to input the entire book into our program? Are we going to hard code thousands of pages? Or are we going to let our program reading in from standard input? Both sound like horrible ideas. The publishers should have online copies of Harry Potter somewhere right. So why don't we just read the content from the online copies!
+### Motivation:
+Often times, we need to deal with files in our applications. 
+Suppose we are writing a translator that translates Harry Potter books in any language to English. 
+You might be wondering how are we going to input the entire book into our program? 
+Telling a programmer to type the entire book in to the program sounds horrible.
+Since the publishers should have electronic copies (.txt) of Harry Potter somewhere right. 
+So why don't we just tell our program to read from those instead!
 
 ### How does our program read from a file?
 How do you read from a file on ypur computer? You double click the file icon you want to read from to open the file. You then start reading the file, typically from the beginning to the end of file. You then close the file when you are done.
@@ -232,37 +237,44 @@ while True
     print('Hello world')
 ```
 
-Python will throw a syntax error because our code is missing `:` after `True`. Syntax errors are one of the most common sources of errors. However, another type of errors are called **exceptions**. They are syntactic errors and sometimes they can be fatal. Examples of exceptions are dividing by zero, undefined variable, and parsing string with integer. This code will cause Python to throw an exception at us if we input anything that is not a number.
+Python will throw a syntax error because our code is missing `:` after `True`. Syntax errors are one of the most common sources of errors. However, another type of errors are called **exceptions**. They are run-time errors and sometimes they can be fatal. Examples of exceptions are dividing by zero, undefined variable, and parsing string with integer. This code will cause Python to throw an exception at us if we input anything that is not a number.
 ```python
 while True:
 	x = int(input("Please enter a number: "))
 ```
 
-### Why do we need exception handling?
+### Motivation:
 <img src="./images/try_catch.jpg" alt="try-catch-meme" width=500>
 We can see that from this example, our program asks the user to input a number. If we input a letter, the program crashes with an exception message.
 
-However, there are times that we might not want our program to crash or exit. Imagine if you are writing a code for Facebook Ads, specifically for the section where users have to input their credit card number for making a purchase. If a user accidentally entered anything that is not a number, you don't want your application to crash and exit right? We can handle the exceptions and customize them to behave in the way we like with a `try` keyword. For example, instead of quitting the program, we can handle this exception by printing an error message and asking the user to input a number again.
+However, there are times that we might not want our program to crash or exit. Imagine if you are writing a Python code for Facebook Ads, specifically for the section where users have to input their credit card number for making a purchase. If a user accidentally entered anything that is not a number, you don't want your application to crash and exit right? We can handle the exceptions and customize them to behave in the way we like with a `try/except` statement. For example, instead of quitting the program, we can handle this exception by printing an error message and asking the user to input a number again.
 
 ```python
 while True:
     try:
         x = int(input("Please enter a number: "))
         break
-    except NameError:
+    except:
         print("Oops! That was not a valid number. Try again...")
 ```
-Now if we input a letter, we will no longer get the error and program will keep running until a valid number is entered.
+
+So in this program we can see that if the user correctly inputs a number, the statements under `try:` is executed and if the user inputs anything that is not a number (which will cause an exception), the statement under `except:` is executed.
 
 <img src="./images/try2.png" alt="try_statement" width=400>
 
-Not only this is so much nicer than the default message, we can customize our program to behave like what we want even in the case where exceptions occur.
+The `try/except` statement not only makes our program looks nicer, it also allows us to customize our program to behave like what we want even in the case where exceptions occur.
 
-## Modules and import
-Imagine writing a very large program. As a (good) programmer, you want to store your code into multiple files so your program is more readable and is easier to debug. Generally, we would have some file containing definitions of functions, classes, or variables to be used in the main program and one file containing the main program stating the logics of what to be done next. Those multiple files are called **modules**. They are called libraries in other languages like C, C++, Java.
+## Modules and import statement
+Imagine writing a very large program. As a (good) programmer, you want to group functions that do similar things into one file.
+So our program will consist of multiple files which make it more readable and is easier to debug.
+Generally, we would have some file containing definitions of functions, classes, or variables to be used in the main program and one file containing the main program stating the logics of what to be done next. 
+Those multiple files are called **modules**. (If you know C or C++, they are called libraries!)
 
-### Why using modules?
-Some functions are reusable e.g. generating a random number, calculating factorials, etc. but we don't want to write code for those every time we use it. We can therefore import some modules containing those functions into our program so we write shorter and more efficient code!
+### Motivation
+As we said earlier, breaking large program into multiple modules make the code easier to debug and more readable which will make you a good programmer!
+Some functions are also reusable e.g. generating a random number, calculating factorials, etc. 
+However, we don't want to write code for those functions every time we use them. 
+We can therefore `import` modules containing the functions we need into our program so we write shorter and more efficient code!
 
 ### How to use a module?
 We need to **import** the module(s) we want to use into our Python script before using it. There are **A LOT** of Python standard modules out there to make your life as developer easier so you don't have to write things from scratch everytime.
@@ -272,11 +284,11 @@ We need to **import** the module(s) we want to use into our Python script before
 We can import from a standard module or create your own module. To import a module, we use an `import` clause at the beginning of our script.
 
 ### User-defined module
-Let's create our own `example` module in a file called `example.py` which contains simple `add`, `subtract`, and `multiply` functions. We will then import this `example` module into a separate file called `import.py`. Make sure that the two files are in the same directory!
+Let's first create and import our own simple module! We will create a `mathmod1` module that contains simple `add`, `subtract`, and `multiply` functions. 
 
-*example.py*
+*mathmod1.py*
 ```python
-# Python Module example
+# Simple math functions that take in two arguments
 def add(a, b):
     return a+b
 
@@ -286,39 +298,85 @@ def subtract(a, b):
 def multiply(a, b):
     return a*b
 ```
-*import.py*
+We will then import this `mathmod1` module into our main program called `test.py`.
+Make sure that the two files are in the same directory!
+
+The `import` statement tells Python that we want to refer to the code in `mathmod1` file. 
+When we use a function from `mathmod1`, we use a **dot notation** to tell Python (similar to how we use it in Class) that we want to use an `add` function from file `mathmod1`. 
+If we just call `print(add(4,5.5))` Python will try to find definition of `add` within test.py (our local file) and will return error because we indeed did not define `add` in our test.py.
+
+
+*test.py*
 ```python
-import example
-print(example.add(4,5.5))
-print(example.multiply(4,5.5))
+import mathmod1
+
+print(mathmod1.add(4,5.5))
+print(mathmod1.multiply(4,5.5))
 ```
-We can also choose to import some functions but not all functions in a module.
-*import.py*
+We can also choose to import some functions but not all functions in a module using a `from... import...` statement.
+
+*test.py*
 ```python
 from example import subtract
 
 print(subtract(4,5.5))
 ```
-Note that we now do not have to reference the `subtract` function. In fact, using `example.subtract()` will throw an error because `example` is not defined in our program. Keep in mind that in this case, we cannot use `add` and `multiply` functions from our `example` module.
+Note that we now do **not** have to reference the `subtract` function. 
+In fact, using `mathmod1.subtract()` will throw an error because `mathmod1` is not defined in our program. 
+Keep in mind that in this case, we cannot use `add` and `multiply` functions from our `mathmod1` module because our program is only aware of `subtract` and nothing else.
 
 We can also use the clause `import ... as ...` to change the name of our module for referencing later on in our program.
+
+*test.py*
 ```python
-import example as x
-print(x.add(4,5.5))
+import mathmod1 as m1
+
+print(m1.add(4,5.5))
 ```
+
+Let's now create another module called `mathmod2` that also contains `add`, `subtract`, and `multiply` functions but with three arguments.
+
+*mathmod2.py*
+```python
+# Simple math functions that take in three arguments
+def add(a, b, c):
+    return a+b+c
+
+def subtract(a, b, c):
+    return a-b-c
+
+def multiply(a, b, c):
+    return a*b*c
+```
+
+Now in our `test.py` we can import these two modules.
+
+*test.py*
+```python
+import mathmod1 as m1
+import mathmod2 as m2
+
+sum1 = m1.add(4, 5.5)
+sum2 = m2.add(4, 5.5, 10)
+```
+
+Notice that we can call `add` with both two and three arguments because even though they have the same name, they are two different function declared in two different modules.
+This is another reason we need to use the **dot notation** to tell our program to read the function from which module.
 
 ### Standard module
 There are about 89,000 modules available in Python. 500 of them are available by default. So
 if you are interested in Python standard modules, check this [link](https://docs.python.org/3/py-modindex.html) out!
 
-Now I want to go over one module which you will use in your project for this session.
+Let's try importing some simple standard module called `math`. 
+We can do some cool things with it such as printing the value of `pi` or calculating the value of 5^5.
 
-`NumPy` is a widely-used module. It's main purpose is to perform operations on multidimensional array (think matrices!). We can represent a 2x3 array in `NumPy` by
+*test.py*
 ```python
-[[1, 2, 3],
- [2, 2, 3]]
+import math
+
+print(math.pi)
+print(math.pow(5,5))
 ```
-There are many cool operations in `NumPy` that you can use to modify multidimensional arrays and matrices.
 
 ### Decorators
 Functions are objects in Python which means that they can be passed as argument to another function or defined inside another function. A **decorator** is like a wrapper of a function. It is useful because we can add certain behaviors to a function without permanently modifying it.
