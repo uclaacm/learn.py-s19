@@ -484,17 +484,17 @@ $ pip install <package_name>
 # Challenges:
 ## Level 1:
 ### Challenge: BOBA :D
-You are a boba addict and have decided to create a class called `BobaOrder` that creates a `BobaOrder` object that keeps track of the size of your boba and the sugar level.
+You are a boba addict and have decided to create a class called `BobaOrder` that creates a `BobaOrder` object that keeps track of your boba order.
 Although you are pretty sure this won't help you kick your addiction, you decide to try it out anyway. You decide that your `BobaOrder` class will store a `size` and a `sugarLevel` for each object. You also decide to give your `BobaOrder` some functionality by declaring some functions:
 
 **changeSize(self, newSize)**
-  This takes in a string which has a boba size that you'd like to change your order to. This will update our old `size` variable with the `newSize`.
+This takes in a string which has a boba size that you'd like to change your order to. This will update our old `size` variable with the `newSize`.
 
 **changeSugarLevelBy(self, sugarAmount)**
-  This takes in an integer representing the amount by which you'd like to increase (negative amount to decrease) your boba `sugarLevel` by. However, if adding `sugarAmount` would result in a `sugarLevel` greater than 100 or less than 0, we leave the original `sugarLevel` unchanged.
+This takes in an integer representing the amount by which you'd like to increase (negative amount to decrease) your boba `sugarLevel` by. However, if adding `sugarAmount` would result in a `sugarLevel` greater than 100 or less than 0, we leave the original `sugarLevel` unchanged.
 
 **printOrder(self)**
-  This prints our entire boba order in the format:
+This prints our entire boba order in the format:
   ```
   My Boba Order:
   Size: (insert our BobaOrder size)
@@ -506,7 +506,7 @@ A skeleton of our class would look something like this:
 class BobaOrder:
   def __init__(self, sugarLevel, size):
     #initialize the sugarLevel and size for the object here
-    # NOTE: we can assume that the user initializes sugarLevel to an amount between 0-100 
+    # NOTE: we can assume that the user initializes sugarLevel to an amount between 0-100
 
   def changeSize(self, newSize):
     # changes the size of our order
