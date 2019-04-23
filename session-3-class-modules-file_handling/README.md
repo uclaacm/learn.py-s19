@@ -9,9 +9,11 @@
 ## Resources
 **Slides**
 
-[Link](https://docs.google.com/presentation/d/1rhUJxzlRtiWX6Q7Ju-TBHsbZ_ocqsNvztuAjdamKmUk/edit?usp=sharing)
+* [Link](https://docs.google.com/presentation/d/1rhUJxzlRtiWX6Q7Ju-TBHsbZ_ocqsNvztuAjdamKmUk/edit?usp=sharing)
 
 **ACM Membership Attendance**
+
+* [Link](https://members.uclaacm.com/login)
 
 This is our third session of Learn.py and today we will be talking about
 * Classes/Objects
