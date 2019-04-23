@@ -419,7 +419,7 @@ Suppose you write a very large application that includes many modules. As the nu
 **Packages** allow for a  hierarchical structuring of the module namespace using **dot notation**. They help avoid collisions between module names.
 
 pip is a way of installing Python packages. Make sure that you can run `pip` from your command line by running
-```
+```bash
 $ pip --version
 ```
 If you installed Python from source (python.org) or Homebrew (for Mac users), you should already have `pip`. If `pip` isn't installed, first try to bootstrap it from the standard library by running
