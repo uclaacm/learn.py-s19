@@ -155,13 +155,13 @@ They both use a dot notation to access some functions that modify the variable b
 So class is a concept that is used a lot in Python or any object-oriented programming languages (such as Java, C, C++). It is therefore important for you to have a good understanding of what it is and how to use it.
 
 ### Encapsulation
-Another important programming concept that ties in nicely when we are talking about class is **encapsulation**.
+Encapsulation is an important programming concept that ties in nicely when we are talking about classes and objects.
+Objects in Python can be used for encapsulation. A lot of times you would want to do something with an object – for example, you may wish to give a Person something to eat. However, you don't want to have to know all the nitty-gritty details about how a Person actually eats and digests. You just want to type
+```python
+p1.eat('kale')
+```
+And not have to worry about what goes behind the scene or how the `eat` function is executed.
 
-Formal definition: "the process of enclosing data and functions into a single unit called class."
-
-Not very useful right?
-
-Informal definition: <to be updated>
 
 ## File handling
 ### Motivation:
