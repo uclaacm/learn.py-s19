@@ -429,7 +429,7 @@ $ pip install <package_name>
 # Challenges:
 ## Challenge 1: Philosopher thinking about himself?
 
-Philosopher like to think about the world that they are in
+Philosophers like to think about the world that they are in
 and the meaning of being itself and other non-sense.
 We want to simulate this behavior with Python.
 
@@ -507,7 +507,7 @@ Use a `try-except` block for `senpaisCode`,
 but catching the error and prints `"Senpai, u can't touch this"`,
 when `senpaisCode` is called.
 
-> senpai: A japanese words which describe an informal hierarchical interpersonal relationship found in organizations, associations, clubs, businesses, and schools in Japan.
+> senpai: A japanese word which describes an informal hierarchical interpersonal relationship found in organizations, associations, clubs, businesses, and schools in Japan.
 
 ## Challenge 3: MATH 33A?
 
