@@ -20,7 +20,7 @@ This is our third session of learn.py and today we will be talking about
 
 ## Class/Objects
 ### Why do we need a class?
-Suppose you want to create a variable type that stroes name, age, and favorite food of a person [click]. With what you know right now, you can create three separate variables like this [click]
+Suppose you want to create a variable type that stores name, age, and favorite food of a person. With what you know right now, you can create three separate variables like this:
 
 ```python
 p1_name = "Furn"
@@ -29,16 +29,15 @@ p1_fav_food = "Kbbq"
 
 ```
 
-However, we can see that the variables describing a single person `p1` are stored separately. Imagine having 10 people [click], we will have 30 lines of code just to describe them. Not too bad right? What if we have 100 people [click], we will need 300 lines of code just to store properties of every person. That's very repetitive and inefficient!
+However, we can see that the variables describing a single person `p1` are stored separately. Imagine having 10 people, we will have 30 lines of code just to describe them. Not too bad right? What if we have 100 people, we will need 300 lines of code just to store properties of every person. That's very repetitive and inefficient!
 
 ### What is a class?
 <img src="./images/classmeme.jpg" alt="classmeme" width=500>
-[click]
+
 Instead of having 300 lines of code, we can use a **class** to store all these **attributes** within a single variable called an **object**. 
-[click] So let's make sure we all understand these big words. Here we have a Person class which has three attributes: name, age, and favorite food. We can use this Person class to create Person objects. We can create as many objects as they want, and each of them will contain the three attributes define in our Person class. We can see that our object p2 has a name "thanos", an age of 110, and infinity stones as his favorite food. 
+So let's make sure we all understand these big words. Here we have a Person class which has three attributes: name, age, and favorite food. We can use this Person class to create Person objects. We can create as many objects as they want, and each of them will contain the three attributes define in our Person class. We can see that our object p2 has a name "thanos", an age of 110, and infinity stones as his favorite food. 
 
 So now that we have a clearer idea of what these terms are, let's dive down to see what the actual code looks like.
-[code along]
 Here is the simplest way we can do to declare our Person class.
 ```python
 class Person:
@@ -60,7 +59,7 @@ print(p1.fav_food)
 ```
 We can see that our `Person` object, by default, has a name "blah", age 12, and a fav_food "burger" as declared in the class definition.
 
-However, this is bad practice because everyone is not called "blah" or is 12 years old. Why don't we just declare our `Person` class like this?
+However, this is bad practice because everyone not is called "blah" or is 12 years old. Why don't we just declare our `Person` class like this?
 
 ```python
 class Person:
@@ -87,7 +86,7 @@ class Person:
 
  p1 = Person("Furn", 20, "Kbbq")
 ```
-Now if we print attributes in `p1`, we will get "Furn", 20, and "KBBQ"!
+Now if we print attributes in `p1`, we will get "Furn", 20, and "Kbbq"!
 
 We can also create methods in our class. Let's create a method called `birthday()` in our `Person` class where we will increment the age of the person by one.
 
@@ -104,7 +103,7 @@ print(p1.age)
 p1.birthday()
 print(p1.age)
 ```
-Here we can see that after calling `birthday()`, the age of `p1` increases from 20 to 21. So we can declare methods to modify attributes of a class. Our methods can also take in argument. Inside our `Person` class, let's declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and change the current fav_food of the person.
+Here we can see that after calling `birthday()`, the age of `p1` increases from 20 to 21. So we can declare methods to modify attributes of a class. Our methods can also take in arguments. Inside our `Person` class, let's declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and changes the current fav_food of the person.
 ```python
     def change_of_heart(self, new_fav_food)
         self.fav_food = new_fav_food
@@ -118,7 +117,7 @@ Try this and see what happens!
 
 The built-in data structures that we learned from the previous session such as list, set, and dictionary are also examples of a class. They also have built-in methods like `list.append()` or `set.add()`.
 
-[skip]
+
 __Side note__: Notice that when we declare a method in a class, it takes in at least one argument, `self`. The `self` parameter is only a reference to the current instance of the class. It does not have to be named self and you can call it whatever you like but it has to be the first parameter of any function in a class. This will work just fine!
 ```python
 class Person:
@@ -131,7 +130,6 @@ class Person:
 ```
 
 ## File handling
-[click]
 Often times, we need to deal with files in our applications. We might have to read some data from a file to be used in our program or write some data generated by our program onto a file.
 Here are some important operations on a file.
 ### Opening a file
@@ -154,8 +152,8 @@ There are four modes for opening a file:
 * `'+'`: use to specify more than one mode e.g. `'r+w'` means read and write.
 
 ### Methods for file objects
-### write() 
- We can use the write function to create and write into a file. Let's try creating a file called `file.txt` and specifies the mode to be read and write.
+### write()
+ We can use the write function to create and write into a file. Let's try creating a file called `file.txt` and specifying the mode to read and write.
  Note that if we use `'r+w'` we must create a file first because this mode will return error if the file does not exist.
 
  To create a file in command line:
@@ -177,7 +175,7 @@ If file.txt exists and is not empty, the `write` function will truncate the file
  
  ### read()
  * `f.read()` reads the entire file
- * `f.read(size)` reads atmost `size` bytes
+ * `f.read(size)` reads at most `size` bytes
  
  Both `read()` functions return a string from corresponding file.
 
@@ -211,9 +209,8 @@ print(f.read())         # Returns 'world\n This is our new text file
 ```
 ### Closing a file
 **Syntax**: `fileobj.close()`
-We must close every file object we opened when we're done operating on a file to free up any system resources. After calling `close()` any attempt to use the file object will fail.
+We must close every file object we opened when we're done operating on a file to free up any system resources. After calling `close()`, any attempt to use the file object will fail.
 
-[talk?]
 It is good practice to use the `with` keyword when dealing with file objects to ensure that the file is properly closed after the user finishes using it.
 
 ```python
@@ -239,15 +236,15 @@ while True
     print('Hello world')
 ```
 Python will throw an error because of missing `:` after `True`
-**Exceptions** are syntactic errors and sometimes they can be fatal. They occur during execution. Examples of exceptions are dividing by zero, undefined variable, parsing string with integer. Most exceptions are **not** handled by programs and will look like this.
+**Exceptions** are syntactic errors and sometimes they can be fatal. They occur during execution. Examples of exceptions are dividing by zero, undefined variable, and parsing string with integer. Most exceptions are **not** handled by programs and will look like this.
 
 <img src="./images/try1.png" alt="NameError" width=400>
 
 ### Why do we need exception handling?
 <img src="./images/try_catch.jpg" alt="try-catch-meme" width=500>
-We can see that from this example, our program asks the user to input a number. If we input a letter, the program exists with exception message.
+We can see that from this example, our program asks the user to input a number. If we input a letter, the program exists with an exception message.
 
-However, we can handle these exception ourselves by using the `try` keyword. For example, instead of quitting the program, we can handle this exception by printing an error message and ask the user to input a number again.
+However, we can handle these exceptions ourselves by using the `try` keyword. For example, instead of quitting the program, we can handle this exception by printing an error message and asking the user to input a number again.
 
 ```python
 while True:
@@ -303,7 +300,7 @@ We need to **import** the module(s) we want to use into our Python script before
 
 <img src="./images/import.png" alt="import" width=300>
 
-We can import from a standard module or create your own module. To import a module, we use an `import` clauses at the beginning of our script.
+We can import from a standard module or create your own module. To import a module, we use an `import` clause at the beginning of our script.
 
 ### User-defined module
 Let's create our own `example` module in a file called `example.py` which contains simple `add`, `subtract`, and `multiply` functions. We will then import this `example` module into a separate file called `import.py`. Make sure that the two files are in the same directory!
@@ -345,7 +342,6 @@ print(x.add(4,5.5))
 There are about 89,000 modules available in Python. 500 of them are available by default. So
 if you are interested in Python standard modules, check this [link](https://docs.python.org/3/py-modindex.html) out!
 
-(May cut!)
 Now I want to go over one module which you will use in your project for this session.
 
 `NumPy` is a widely-used module. It's main purpose is to perform operations on multidimensional array (think matrices!). We can represent a 2x3 array in `NumPy` by
@@ -358,7 +354,7 @@ There are many cool operations in `NumPy` that you can use to modify multidimens
 ### Decorators
 Functions are objects in Python which means that they can be passed as argument to another function or defined inside another function. A **decorator** is like a wrapper of a function. It is useful because we can add certain behaviors to a function without permanently modifying it.
 
-Let's look at a simeple `introduce` function. Suppose we want to write a decorator for this function called `introduce_decorator`.
+Let's look at a simple `introduce` function. Suppose we want to write a decorator for this function called `introduce_decorator`.
 
 ```python
 # Function decorator
@@ -447,7 +443,7 @@ $ pip install <package_name>
 # Challenges:
 ## Challenge 1: Philosopher thinking about himself?
 
-Philosopher like to think about the world that they are in
+Philosophers like to think about the world that they are in
 and the meaning of being itself and other non-sense.
 We want to simulate this behavior with Python.
 
@@ -464,6 +460,31 @@ he should print __its own name__ and `"If I annotated this world that I am in, t
 
 __TLDR__: In short, write a piece of code that prints itself.
 
+Here is a skeleton for your code.
+```python
+class Philosopher:
+    def __init__(self, name):
+           # Your code here
+    def ponder(self, name):
+           # Your code here
+
+aristotle = Philosopher('aristotle')
+aristotle.ponder()
+```
+
+__The above code should print the following__
+```
+class Philosopher:
+    def __init__(self, name):
+           # Your code here
+    def ponder(self, name):
+           # Your code here
+
+aristotle = Philosopher('aristotle')
+aristotle.ponder()
+aristotle
+If I annotated this world that I am in, then what am I? The maker of the world?
+```
 I know, very meta isn't it?
 
 
@@ -472,24 +493,35 @@ I know, very meta isn't it?
 [MC Hammer - U Can't Touch This](https://www.youtube.com/watch?v=otCpCn0l4Wo)
 
 We learned about list in our previous sessions. 
+If you access list passes its length, Python will throw an error.
+
+```python
+myList = [1, 2, 3]
+print(myList[4])  # This will throw an error!!!
+```
+
 If senpai's code tries to access the list passes its length,
-Python san will not be happy and it will yell at you.
-However, you can `catch` senpai doing nasty operation 
-like touching part of list that senpai is not supposed to 
-touch.
+Python will not be happy and it will yell at you.
+However, you can catch senpai doing nasty operation 
+like accessing part of list that senpai is not supposed to 
+access.
 
 Given senpai's code, try to use a decorator 
-`try-catch` to catch senpai accessing the list out of index.
+`try-except` to catch senpai accessing the list out of index.
 
 ```python
 def senpaisCode(somelist):
     # senpai got a bit too curious
     print('what is here at index 300000000?', somelist[300000000])
+
+senpaisCode([1,2,3]) # this will throw an error
 ```
 
-Write a decorator named `uCantTouchThis` for `senpaisCode`,
+Use a `try-except` block for `senpaisCode`,
 but catching the error and prints `"Senpai, u can't touch this"`,
 when `senpaisCode` is called.
+
+> senpai: A japanese word which describes an informal hierarchical interpersonal relationship found in organizations, associations, clubs, businesses, and schools in Japan.
 
 ## Challenge 3: MATH 33A?
 
