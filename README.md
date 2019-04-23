@@ -15,8 +15,8 @@ science📊, gaming🎮, web dev💻, and more! No programming/Python background
   - [Slides](https://tinyurl.com/learnpy-s2)
   - [Code](https://github.com/uclaacm/learn.py-s19/tree/master/session-2-basics-of-python-data-structures)
 - Week 4: Basic Python: Classes/Objects, Modules, and File-Handling
-  - Slides
-  - Code
+  - [Slides](https://tinyurl.com/learnpy-s3)
+  - [Code]
 - Week 5: Applications of Python: PyGame
   - Slides
   - Code
