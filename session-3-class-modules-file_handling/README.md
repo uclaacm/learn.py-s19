@@ -161,7 +161,8 @@ Objects in Python can be used for encapsulation. A lot of times you would want t
 p1.eat('kale')
 ```
 And not have to worry about what goes behind the scene or how the `eat` function is executed.
-
+We can see that Python also integrated the concept of encapsulation in many of its applications.
+One example is in file handling which we are about to learn!
 
 ## File handling
 ### Motivation:
