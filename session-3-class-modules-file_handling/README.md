@@ -164,7 +164,74 @@ p1.eat('kale')
 ```
 And not have to worry about what goes behind the scene or how the `eat` function is executed.
 We can see that Python also integrated the concept of encapsulation in many of its applications.
-One example is in file handling which we are about to learn!
+One example is in file handling which we are about to learn! But before that, let's finish this simple exercise!
+
+## Exercise:
+
+### Overview
+Now that you have a brief introduction to classes, let's write our own class!
+
+### Task
+Write a class Student that has the following attributes:
+
+* name
+* gpa
+* stressLevel  #out of 100
+* swipes
+
+
+Since all of these are defining attributes of a Student, make sure that the Student is given a name, GPA, swipes and stress level when they are being created
+
+**Hint**: Think about the init function.
+
+In addition, because the Student has so much on their plate, they can fail a class! When they fail a class, their stress levels shoot up by 10, their GPA drops by 0.1, and they scream “big oof i’m stressed to like x% of my capacity, i need boba” where x is going to be their actual stress level. But know that our student’s stress level cannot go beyond 100, because they practice self-care :D
+
+Our hungry students eat on the UCLA meal plan, and are capable of spending 1 swipe every time they ‘eatMeal’. They’re all on premier plans, so they can also swipe in for more guests (remember that guest includes the student themself) But if they don’t have enough swipes for themselves and the number of **other** guests they bring, they cry “big oof! Out of swipes!” If the student chooses not to disclose how many guests they are bringing, assume they bring just 1 guest (aka just themself).
+
+However, if the student does have enough swipes, make sure to reduce the swipes they have once they swipe for the meal, according to how many people they’re bringing! Just like every practical student, after using the swipes, the student also counts and says “I have x swipes left”. Eating the meal also relaxes the student a little, and their stress levels drop by 5. But remember: your stress levels cannot go below 0! (Our students do not get involved in substance abuse)
+
+**Hint**: Think about default arguments.
+
+Lastly, our student needs a mini elevator pitch of all their information. Every time they’re told to ‘printInfo’, they should say:
+
+```python
+Student Info:
+Name: x  #x is their real name
+GPA: x  #x is their real GPA
+Stress Level: x  #x is their real stress level
+Swipes: x  #x is their real swipe count 
+```
+
+
+### Sample use:
+```python
+
+s1 = Student(‘Cady Heron’, 3.75, 55, 127)
+s1.printInfo()
+s1.failAClass()
+s1.eatMeal()
+s1.eatMeal(5)
+s1.printInfo()
+
+```
+**Output**:
+
+```python
+Student Info:
+Name: Cady Heron
+GPA: 3.75
+Stress Level: 55
+Swipes: 127
+big oof i’m stressed to like 65% of my capacity, i need boba
+I have 126 swipes left
+I have 121 swipes left
+Student Info:
+Name: Cady Heron
+GPA: 3.65
+Stress Level: 50
+Swipes: 121
+
+```
 
 ## File handling
 ### Motivation:
