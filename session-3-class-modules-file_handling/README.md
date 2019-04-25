@@ -23,7 +23,7 @@ This is our third session of Learn.py and today we will be talking about
 
 ## Class/Objects
 ### Motivation:
-Suppose we want to create a person variable who has a name, an age, and a favorite food. With what we know from the last two sessions of Learn.py, we can write a code like this:
+Suppose we want to create a person variable who has a name, an age, and a favorite food. With what we know from the last two sessions of Learn.py, we can write code like this:
 ```python
 p1_name = "Iron man"
 p1_age = 45
@@ -38,10 +38,10 @@ A way to overcome this is to use a class.
 
 <img src="./images/classmeme.jpg" alt="classmeme" width=500>
 
-A class is simply a logical grouping of data and functions. Think of it as a "blue-print". A class is not something in itself. It simply describes how to make something. We establish that we can customize variable types stored in a class. Variables in a class are called **attributes**. We can also define functions within a class, called **methods**. Once we define our class, we can create a variable from the class, called an **object**. An object of a class contains properties and methods defined within that class. Each object is independent of each other.
+A class is a logical grouping of data and functions. Think of it as a "blue-print". A class is not something in itself. It simply describes how to make something. We establish that we can customize variable types stored in a class. Variables in a class are called **attributes**. We can also define functions within a class, called **methods**. Once we define our class, we can create a variable from the class, called an **object**. An object of a class contains properties and methods defined within that class. Each object is independent of each other.
 
 So now that we have a clearer idea of what these terms are, let's dive down to see what the actual code looks like.
-Here is the simplest way we can do to declare our Person class.
+Here is a simple way we can declare our Person class.
 ```python
 class Person:
     name = "blah"
@@ -54,7 +54,7 @@ Now we can create a `Person` **object** called `p1`.
 p1 = Person()
 ```
 
-We can referencing the attributres of a `Person` object by using a **dot notation**. This is a way of telling Python that you want to read a value of what attribute from which object.
+We can reference the attributes of a `Person` object by using the **dot notation**. This is a way of telling Python that you want to read a value of an attribute from a particular object.
 ```python
 print(p1.name)
 print(p1.age)
@@ -62,7 +62,7 @@ print(p1.fav_food)
 ```
 We can see that our `Person` object, by default, has a name "blah", age 12, and a fav_food "ramen" as declared in the class definition.
 
-To change the values of these properties, we can do them one by one.
+We can change the values of these properties one by one.
 ```python
 p1.name = "Iron man"
 p1.age = 45
@@ -71,11 +71,11 @@ p1.fav_food = "cheese burger"
 However, this is very repetitive. Keep in mind that we want our program to be scalable, meaning that we want to be able to write a large program that can handle hundreds of thousands of people. Having to change the values of the attributes one by one is not efficient at all. Luckily, Python understands our pain and has a solution to this problem.
 
 ### `__init__()` function
-We can use a Python built-in `__init__()` function to set the values of the attributes to whatever we want right when we declare an object. Notice that `__init__()` is short for **initialization** (Hint! It is indeed used to initialize objects)
+We can use Python's built-in `__init__()` function to set the values of the attributes to whatever we want right when we declare an object. Notice that `__init__()` is short for **initialization** (Hint! It is indeed used to initialize objects)
 
-On one hand, the `__init__()` function is just like a good old function we learned about. It takes in parameters, do some modifications, and does not return anything. On the other hand, it is a special function inside a class (hence it is a **method**). It is special because we do not have to call it explicitly. Python will call the `__init__()` method automatically when we create an object of a class.
+On one hand, the `__init__()` function is just like a good old function we learned about. It takes in parameters, does some modifications, and does not return anything. On the other hand, it is a special function inside a class (hence it is a **method**). It is special because we do not have to call it explicitly. Python will call the `__init__()` method automatically when we create an object of a class.
 
-The `__init__()` method has a special parameter called `self` which basically describes the instance of the object that calls the method. Just like `__init__()`, we do not have to pass `self` explicitly as argument. Here is how we use the `__init__()` method.
+The `__init__()` method has a special parameter called `self` which basically describes the particular instance of the object that calls the method. Note that we do not have to pass `self` explicitly as an argument. Here is how we use the `__init__()` method.
 ```python
 class Person:
         def __init__(self, name, age, fav_food):
@@ -86,7 +86,7 @@ class Person:
  p1 = Person("Iron man", 45, "cheese burger")
 ```
 
-This is a standard way of writing the `__init__()` method. It always takes in `self` as the first argument along with values for attributes inside your class which in this case is name, age, and fav_food. We notice the dot notation here again as our program is trying to tell Python "Hey! We want to change the name, age, and favorite food of this object we just created (aliased by `self`).
+This is a standard way of writing the `__init__()` method. It automatically takes in `self` as the first argument along with values for attributes inside your class, which in this case is `name`, `age`, and `fav_food`. Notice the dot notation here again as our program is trying to tell Python "Hey! We want to change the name, age, and favorite food of this object we just created (aliased by `self`).
 
 Now if we print the name, age, and fav_food of `p1`, we will indeed get "Iron man", 45, and "cheese burger"!
 We can create as many objects of a class as we want and each one of them will have its own "memory". So let's say if we create
@@ -94,7 +94,7 @@ We can create as many objects of a class as we want and each one of them will ha
 p2 = Person("Thanos", 110, "Infinity stones")
 ```
 
-`p1` will not know anything about `p2` i.e. "Iron man" does not know that "Thanos" exists and is hungry for some infinity stones.
+`p1` will not know anything about `p2` i.e. "Iron man" does not know that "Thanos" exists, nor does he know that "Thanos" is hungry for some infinity stones.
 
 `__init()__` is one example of a method that we can create in a class. We can also create other methods. Since a class is like a collection of methods, we can create as many as we want. Let's now create a method called `birthday()` in our `Person` class that prints out `"Happy Birthday!"` and increments the person's age by one.
 
@@ -122,10 +122,10 @@ print(p2.age)
 ```
 A few things to notice from this code:
 1. Here we can see that after calling `birthday()`, the age of `p1` increases from 45 to 46 but the age of `p2` does not change. This again emphasizes that each object of a class is independent. Calling `birthday()` on `p1` only changes the attributes of `p1` and has nothing to do with `p2`.
-1. This goes back to the meaning of the dot notation. It might not be clear in what the dot notation is for when we only have one object. However, if we have multiple objects, we must tell our program somehow which object we want to read the age from.
+1. This goes back to the importance of the dot notation. It might not be clear what the dot notation is for when we only have one object. However, if we have multiple objects, the dot notation lets us tell our program which object we want to read the age from.
 1. When we define a method in a class, we always have to declare the `self` parameter as the first argument of the method. However, we we are actually calling our method on an object, we don’t have to pass in `self` explicitly. Python will automatically pass in `self` for us.
 
-Now let's try create another method that takes in an argument. We declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and changes the current fav_food of the person.
+Now let's try creating another method that takes in an argument. We declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and changes the current fav_food of the person.
 ```python
     def change_of_heart(self, new_fav_food):
         self.fav_food = new_fav_food
@@ -148,11 +148,11 @@ Wait a minute... Notice something similar between
 
 `p1.change_of_heart("avocado toast")` and `person_list.append(p2)`?
 
-They both use a dot notation to access some functions that modify the variable before the dot.
+They both use a dot notation to access some functions that modify the variable before the dot!
 
 <img src="./images/ahha.jpg" alt="I-knew-it" width=500>
 
-`list` is also a class, but it is defined by Python!! Not only list, other data structures such as dictionaries, sets, tuples are all examples of classes. These classes also contain many methods for example `list.append()`, `tuple.insert()`, and `set.add()` and so on and so forth.
+`list` is also a class, but it is defined by Python!! In addition to list, other data structures such as dictionaries, sets, tuples are all examples of classes as well. These classes also contain many methods for example `list.append()`, `tuple.insert()`, and `set.add()` and so on and so forth.
 
 So class is a concept that is used a lot in Python or any object-oriented programming languages (such as Java, C, C++). It is therefore important for you to have a good understanding of what it is and how to use it.
 
@@ -162,9 +162,9 @@ Objects in Python can be used for encapsulation. A lot of times you would want t
 ```python
 p1.eat('kale')
 ```
-And not have to worry about what goes behind the scene or how the `eat` function is executed.
-We can see that Python also integrated the concept of encapsulation in many of its applications.
-One example is in file handling which we are about to learn! But before that, let's finish this simple exercise!
+And not have to worry about what goes on behind the scenes or how the `eat` function is executed. This is what classes allow us to do.
+We can also see that Python integrated the concept of encapsulation in many of its applications.
+One example is in file handling which we are about to learn!
 
 ## Exercise:
 
@@ -237,25 +237,25 @@ Swipes: 121
 ### Motivation:
 Often times, we need to deal with files in our applications.
 Suppose we are writing a translator that translates Harry Potter books in any language to English.
-You might be wondering how are we going to input the entire book into our program?
+You might be wondering, how are we going to input the entire book into our program?
 Telling a programmer to type the entire book in to the program sounds horrible.
-Since the publishers should have electronic copies (.txt) of Harry Potter somewhere right.
+The publishers should have electronic copies (.txt) of Harry Potter somewhere, right?
 So why don't we just tell our program to read from those instead!
 
 ### How does our program read from a file?
-How do you read from a file on ypur computer? You double click the file icon you want to read from to open the file. You then start reading the file, typically from the beginning to the end of file. You then close the file when you are done.
-Our program does the same thing when we try reading from a file! Python provides functions that perform actions equivalent to what we do as human but in machine languages. Let's now learn about some operations we can perform on a file.
+How do you read a file on your computer? You double click the file icon you want to read from to open the file. You then start reading the file, typically from the beginning to the end of file. You then close the file when you are done.
+Our program does the same thing when we try reading from a file! Python provides functions that perform actions equivalent to what we do as humans but in machine language. Let's now learn about some operations we can perform on a file.
 
 
 ### Opening a file
 **Syntax**: `open(filename, mode)`
 The `open()` function returns a **file object**.
-Just like human, our program has to open the file before reading or writing from it!
+Just like humans, our program has to open the file before reading or writing from it!
 
 #### Side note: File object
-Python provides a `File class` (Wow! Isn't that useful we just learned about classes!) for us to use in file handling. The class has various methods such as `open()`, `read()`, `write()`, and `close()`. It also contains an object called **file object** which is returned when calling `open()`. A file object is an example of encapsulation; it lets us read from and write to a file without concerning about what goes on under the hood. Reading and writing to a file involves some machine language instructions but we do not have to worry about that because the file object handles that for us.
+Python provides a `File class` (Wow! Isn't that useful we just learned about classes!) for us to use in file handling. The class has various methods such as `open()`, `read()`, `write()`, and `close()`. It also contains an object called **file object** which is returned when calling `open()`. A file object is an example of encapsulation; it lets us read from and write to a file without being concerned about what goes on under the hood. Reading and writing to a file involves some machine language instructions but we do not have to worry about that because the file object handles that for us.
 
-There are four modes for opening a file:
+There are five modes for opening a file:
 * `'r'`: read; return error if file does not exist
 * `'w'`: write; create file if file does not exist
 * `'r+'`: read and write
@@ -273,7 +273,7 @@ To read from a file, we can use methods provided by Python.
 
  If the end of file has been reached, `read()` returns an empty string.
 
-Let's now try reading from a file. First create a `file.txt` on your Desktop and input as content
+Let's now try reading from a file. First create a file, called `file.txt`, on your Desktop and input as content
 ```
 Hello World!
 This is our new text file.
@@ -312,10 +312,10 @@ What happens if we execute this code?
 while True
     print('Hello world')
 ```
-Python will throw a syntax error because our code is missing `:` after `True`. Syntax errors are one of the most common sources of errors.
-However, another type of errors are called **exceptions**.
+Python will throw a syntax error because our code is missing `:` after `True`. Syntax errors are one of the most common types of errors.
+However, another type of error are called **exceptions**.
 They are run-time errors and sometimes they can be fatal.
-Examples of exceptions are dividing by zero, undefined variable, and parsing string with integer.
+Examples of exceptions are dividing by zero, using undefined variables, and parsing strings with integers.
 This code will cause Python to throw an exception at us if we input anything that is not a number.
 ```python
 while True:
@@ -354,13 +354,13 @@ Generally, we would have some file containing definitions of functions, classes,
 Those multiple files are called **modules**. (If you know C or C++, they are called libraries!)
 
 ### Motivation
-As we said earlier, breaking large program into multiple modules make the code easier to debug and more readable which will make you a good programmer!
+As we said earlier, breaking large programs into multiple modules makes the code easier to debug and more readable.
 Some functions are also reusable e.g. generating a random number, calculating factorials, etc.
 However, we don't want to write code for those functions every time we use them.
 We can therefore `import` modules containing the functions we need into our program so we write shorter and more efficient code!
 
-### How to use a module?
-We need to **import** the module(s) we want to use into our Python script before using it. There are **A LOT** of Python standard modules out there to make your life as developer easier so you don't have to write things from scratch everytime.
+### How do we use a module?
+We need to **import** the module(s) we want to use into our Python script before using it. There are **A LOT** of standard Python modules out there to make your life as a developer easier so you don't have to write things from scratch everytime.
 
 <img src="./images/import.png" alt="import" width=300>
 
@@ -386,7 +386,7 @@ Make sure that the two files are in the same directory!
 
 The `import` statement tells Python that we want to refer to the code in `mathmod1` file.
 When we use a function from `mathmod1`, we use a **dot notation** to tell Python (similar to how we use it in Class) that we want to use an `add` function from file `mathmod1`.
-If we just call `print(add(4,5.5))` Python will try to find definition of `add` within test.py (our local file) and will return error because we indeed did not define `add` in our test.py.
+If we just call `print(add(4,5.5))` Python will try to find the definition of `add` within test.py (our local file) and will return an error because we indeed did not define `add` in our test.py.
 
 
 *test.py*
@@ -396,7 +396,7 @@ import mathmod1
 print(mathmod1.add(4,5.5))
 print(mathmod1.multiply(4,5.5))
 ```
-We can also choose to import some functions but not all functions in a module using a `from... import...` statement.
+We can also choose to import some functions but not all functions in a module use a `from... import...` statement.
 
 *test.py*
 ```python
