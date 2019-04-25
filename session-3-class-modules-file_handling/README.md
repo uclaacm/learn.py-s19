@@ -123,7 +123,7 @@ print(p2.age)
 A few things to notice from this code:
 1. Here we can see that after calling `birthday()`, the age of `p1` increases from 45 to 46 but the age of `p2` does not change. This again emphasizes that each object of a class is independent. Calling `birthday()` on `p1` only changes the attributes of `p1` and has nothing to do with `p2`.
 1. This goes back to the importance of the dot notation. It might not be clear what the dot notation is for when we only have one object. However, if we have multiple objects, the dot notation lets us tell our program which object we want to read the age from.
-1. When we define a method in a class, we always have to declare the `self` parameter as the first argument of the method. However, we we are actually calling our method on an object, we don’t have to pass in `self` explicitly. Python will automatically pass in `self` for us.
+1. When we define a method in a class, we always have to declare the `self` parameter as the first argument of the method. However, when we are actually calling our method on an object, we don’t have to pass in `self` explicitly. Python will automatically pass in `self` for us.
 
 Now let's try creating another method that takes in an argument. We declare another method called `change_of_heart()` that takes in an argument called `new_fav_food` and changes the current fav_food of the person.
 ```python
