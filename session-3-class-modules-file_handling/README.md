@@ -182,10 +182,10 @@ There are four modes for opening a file:
 * `'x'`: create; return error if file exists
 
 ### Closing a file
-As human, when we are done reading and writing to a file we normally close the file to free up some system resources. Our program has to do the same thing. Pyhon provides a `close()` method which is equivalent to clicking the X button on the top right corner of your file to exit the file. A standard way of making sure that a file is properly closed after user finishes using to is to use the `with` keyword. We will show you how to use  `with` in the next example.
+As human, when we are done reading and writing to a file we normally close the file to free up some system resources. Our program has to do the same thing. Python provides a `close()` method which is equivalent to clicking the X button on the top right corner of your file to exit the file. A standard way of making sure that a file is properly closed after user finishes using to is to use the `with` keyword. We will show you how to use  `with` in the next example.
 
 ### Methods for file objects
-### read()
+### `read()`
 To read from a file, we can use methods provided by Python.
 
 `f.read()` reads the entire file and returns a string from the corresponding file.
@@ -215,7 +215,7 @@ with open('file.txt', 'r') as f:
     print(line1 + line2)
 ```
 
-### write()
+### `write()`
 We showed that we can read from a file. We can also write to a file, just like how human can also write to a file. Let's try create a new file `file2.txt` from our Python script.
 ```python
 f2 = open('file2.txt', 'w')
@@ -434,7 +434,7 @@ Here is a skeleton for your code.
 class Philosopher:
     def __init__(self, name):
            # Your code here
-    def ponder(self, name):
+    def ponder(self):
            # Your code here
 
 aristotle = Philosopher('aristotle')
