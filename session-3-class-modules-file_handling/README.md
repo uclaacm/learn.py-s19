@@ -228,7 +228,7 @@ I have 121 swipes left
 Student Info:
 Name: Cady Heron
 GPA: 3.65
-Stress Level: 50
+Stress Level: 55
 Swipes: 121
 
 ```
