@@ -18,8 +18,10 @@
 * Installing and managing packages with pip
 * Using pygame to make games with python!
 
+## Installing packages:
 
-## Installing pygame
+We know that we can use modules to access functions from code that other people have written for us instead of having to write it ourself again. But what if you have too many modules because you're application is very complex? This is when you use a **package** of modules. Pip is a way to install these packages. Today, we're going to be working with the pygame package, and you will need to install that package using pip. To do this:
+
 ### Mac:
 * Open your terminal
 * Type pip3 install pygame
