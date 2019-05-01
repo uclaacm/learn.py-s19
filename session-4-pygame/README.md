@@ -20,7 +20,7 @@
 
 ## Installing packages:
 
-We know that we can use modules to access functions from code that other people have written for us instead of having to write it ourself again. But what if you have too many modules because you're application is very complex? This is when you use a **package** of modules. Pip is a way to install these packages. Today, we're going to be working with the pygame package, and you will need to install that package using pip. To do this:
+We know that we can use modules to access functions from code that other people have written for us instead of having to write it ourselves again. But what if you have too many modules because you're application is very complex? This is when you use a **package** of modules. Pip is a way to install these packages. Today, we're going to be working with the pygame package, and you will need to install that package using pip. To do this:
 
 ### Mac:
 * Open your terminal
@@ -289,13 +289,13 @@ pygame.quit()
 ### Level 1: Yum!
 
 Change the color of the food after it is eaten.
-For example, the food may first be pink, but after it is eaten, when the food is relocated, it will be a different color, ie blue.
+For example, the food may first be pink, but after it is eaten, when the food is relocated, it will be a different color (i.e. blue).
 
 ### Level 2: No turning back!
 
-Currently, the snake can go 180 degrees on itself.
-The real snake does not do this though, so your goal will be to fix this.
-For example, if the snake is moving right, it should not be able to directly move left if we press the left key.
+Currently, the snake can turn 180 degrees on itself.
+However, imagine a snake (or any animal for that matter) turning its head 180 degrees into its body (or maybe don't because its morbid). This just doesn't make too much sense. Let's prevent this from ever happening. Your job is to fix this issue so that if a player tries to 180 on themselves, they game won't let them. If a player does try to 180 into themselves, the snake will instead continue in the direction that it is currently going.
+For example, if the snake is moving right, it should not be able to directly move left even if we press the left key.
 
 ### Level 3: Poison!
 
