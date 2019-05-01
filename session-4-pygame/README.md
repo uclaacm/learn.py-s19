@@ -96,8 +96,8 @@ class Segment(pygame.sprite.Sprite):
 
 # Here, we create a new class called Food that will be the food that our snake eats throughout the game
 class Food(pygame.sprite.Sprite):
-def __init__(self):
-  super(Food, self).__init__()
+  def __init__(self):
+    super(Food, self).__init__()
 
   # this creates the food object to be a Surface object much like our Segment objects
   # We color our food PINK
