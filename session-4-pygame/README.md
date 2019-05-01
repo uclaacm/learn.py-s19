@@ -35,7 +35,7 @@ We're going to make our very own snake game today! Our snake will be able to eat
 
 ## The Setup
 
-Our snake will consist of several square shaped segments moving together in a line on the grid. If the snake is growing, a segment will be added. 
+Our snake will consist of several square shaped segments moving together in a line on the grid. If the snake is growing, a segment will be added.
 
 In order to make our snake move around, grow, and look like a snake, we'll be experimenting around with a few variables that we will define as the following:
 
@@ -80,75 +80,75 @@ y_change = 0
 # Here, we create a new class called Segment and it's going to be our python sprite (the snake moving around our screen)
 # We put in pygame.sprite.Sprite to state that this class will be based on Pygame's pre-defined Sprite class
 class Segment(pygame.sprite.Sprite):
-def __init__(self, x, y):
-super(Segment, self).__init__()
+  def __init__(self, x, y):
+    super(Segment, self).__init__()
 
-# this creates the segment to be a Surface object (aka any image)
-# In our case, this image is a square with side-length = segment_width
-# We also color fill this square with the color WHITE
-self.image = pygame.Surface([segment_width, segment_width])
-self.image.fill(WHITE)
+    # this creates the segment to be a Surface object (aka any image)
+    # In our case, this image is a square with side-length = segment_width
+    # We also color fill this square with the color WHITE
+    self.image = pygame.Surface([segment_width, segment_width])
+    self.image.fill(WHITE)
 
-# this stores the (x, y) coordinates of the segment
-self.rect = self.image.get_rect()
-self.rect.x = x
-self.rect.y = y
+    # this stores the (x, y) coordinates of the segment
+    self.rect = self.image.get_rect()
+    self.rect.x = x
+    self.rect.y = y
 
 # Here, we create a new class called Food that will be the food that our snake eats throughout the game
 class Food(pygame.sprite.Sprite):
 def __init__(self):
-super(Food, self).__init__()
+  super(Food, self).__init__()
 
-# this creates the food object to be a Surface object much like our Segment objects
-# We color our food PINK
-self.image = pygame.Surface([segment_width, segment_width])
-self.image.fill(PINK)
+  # this creates the food object to be a Surface object much like our Segment objects
+  # We color our food PINK
+  self.image = pygame.Surface([segment_width, segment_width])
+  self.image.fill(PINK)
 
-# this stores the (x, y) coordinates of the food
-self.rect = self.image.get_rect()
-self.rect.x = self.randomCoord(screen.get_width())
-self.rect.y = self.randomCoord(screen.get_height())
+  # this stores the (x, y) coordinates of the food
+  self.rect = self.image.get_rect()
+  self.rect.x = self.randomCoord(screen.get_width())
+  self.rect.y = self.randomCoord(screen.get_height())
 
-# this function will return us a random coordinate on our grid
-# this function also ensures the coordinate returned will not be off-screen
-def randomCoord(self, upperBound):
-coord = randint(0, upperBound//(grid_unit)-1 ) * grid_unit
-return coord
+  # this function will return us a random coordinate on our grid
+  # this function also ensures the coordinate returned will not be off-screen
+  def randomCoord(self, upperBound):
+    coord = randint(0, upperBound//(grid_unit)-1 ) * grid_unit
+    return coord
 
-# when we call this function, we'll move the food to a new random location on our screen
-def eaten(self):
-self.rect.x = self.randomCoord(screen.get_width())
-self.rect.y = self.randomCoord(screen.get_height())
+  # when we call this function, we'll move the food to a new random location on our screen
+  def eaten(self):
+    self.rect.x = self.randomCoord(screen.get_width())
+    self.rect.y = self.randomCoord(screen.get_height())
 
 # Here, we create a class that will keep track of our score
 # This class will also display our score and display our game over screen
 class GameStats:
-def __init__(self, score = 0):
-self.score = score
+  def __init__(self, score = 0):
+    self.score = score
 
-# this function will increase our score by 1
-def increaseScore(self):
-self.score +=1
+  # this function will increase our score by 1
+  def increaseScore(self):
+    self.score +=1
 
-# this function will display our score
-def displayStats(self):
-text = 'Score: ' + str(self.score)
-fw, fh = font.size(text)
-surface = font.render(text, True, GREEN)
-screen.blit(surface, ((screen.get_width() - fw)//2, 10))
+  # this function will display our score
+  def displayStats(self):
+    text = 'Score: ' + str(self.score)
+    fw, fh = font.size(text)
+    surface = font.render(text, True, GREEN)
+    screen.blit(surface, ((screen.get_width() - fw)//2, 10))
 
-# this function will display our game over screen with our final score
-def gameOver(self):
-screen.fill(BLACK)
-text = 'Game Over'
-fw, fh = font.size(text)
-surface = font.render(text, True, RED)
-screen.blit(surface, ((screen.get_width()- fw)//2, 140))
+  # this function will display our game over screen with our final score
+  def gameOver(self):
+    screen.fill(BLACK)
+    text = 'Game Over'
+    fw, fh = font.size(text)
+    surface = font.render(text, True, RED)
+    screen.blit(surface, ((screen.get_width()- fw)//2, 140))
 
-textScore = 'Score: ' + str(self.score)
-fw, fh = font.size(textScore)
-surface = font.render(textScore, True, RED)
-screen.blit(surface, ((screen.get_width() - fw) //2, 170))
+    textScore = 'Score: ' + str(self.score)
+    fw, fh = font.size(textScore)
+    surface = font.render(textScore, True, RED)
+    screen.blit(surface, ((screen.get_width() - fw) //2, 170))
 
 
 # --- Game Initialization ---
@@ -174,17 +174,17 @@ snake_segments = []
 
 # this loops 3 times and adds 3 segments to our snake_segments list
 for i in range(3):
-# This increment will set the segments properly next to each other as the snake keeps growing
-# y remains the same because we are going to first create the snake horizontally straight so that it is on the same y-axis
-x = 252 - (segment_width + segment_margin) * i
-y = 36
-# We initialize a segment of the snake using these coordinates and our Segment class
-segment = Segment(x, y)
+  # This increment will set the segments properly next to each other as the snake keeps growing
+  # y remains the same because we are going to first create the snake horizontally straight so that it is on the same y-axis
+  x = 252 - (segment_width + segment_margin) * i
+  y = 36
+  # We initialize a segment of the snake using these coordinates and our Segment class
+  segment = Segment(x, y)
 
-# We add the current segment to our snake list
-snake_segments.append(segment)
-# We add the current segment to our sprites list
-allspriteslist.add(segment)
+  # We add the current segment to our snake list
+  snake_segments.append(segment)
+  # We add the current segment to our sprites list
+  allspriteslist.add(segment)
 
 # creates a single Food object
 food = Food()
@@ -202,83 +202,83 @@ done = False
 # each time this loops, our screen is updated
 while not done:
 
-# this checks if the user hits the exit button or presses an arrow key
-for event in pygame.event.get():
-if event.type == pygame.QUIT:
-pygame.quit()
+  # this checks if the user hits the exit button or presses an arrow key
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      pygame.quit()
 
-if event.type == pygame.KEYDOWN:
-if event.key == pygame.K_LEFT:
-x_change = (grid_unit) * -1
-y_change = 0
-if event.key == pygame.K_RIGHT:
-x_change = (grid_unit)
-y_change = 0
-if event.key == pygame.K_DOWN:
-x_change = 0
-y_change = (grid_unit)
-if event.key == pygame.K_UP:
-x_change = 0
-y_change = (grid_unit) * -1
+    if event.type == pygame.KEYDOWN:
+      if event.key == pygame.K_LEFT:
+        x_change = (grid_unit) * -1
+        y_change = 0
+      if event.key == pygame.K_RIGHT:
+        x_change = (grid_unit)
+        y_change = 0
+      if event.key == pygame.K_DOWN:
+        x_change = 0
+        y_change = (grid_unit)
+      if event.key == pygame.K_UP:
+        x_change = 0
+        y_change = (grid_unit) * -1
 
-# checks if new position will overlap with Food
-# if it does, it will NOT remove the last segment (snake grows)
-if snake_segments[0].rect.x == food.rect.x and snake_segments[0].rect.y == food.rect.y:
-food.eaten()
-gamestats.increaseScore()
-else:
-# Get rid of last segment of the snake
-# .pop() command removes last item in list
-old_segment = snake_segments.pop()
-allspriteslist.remove(old_segment)
+  # checks if new position will overlap with Food
+  # if it does, it will NOT remove the last segment (snake grows)
+  if snake_segments[0].rect.x == food.rect.x and snake_segments[0].rect.y == food.rect.y:
+    food.eaten()
+    gamestats.increaseScore()
+  else:
+    # Get rid of last segment of the snake
+    # .pop() command removes last item in list
+    old_segment = snake_segments.pop()
+    allspriteslist.remove(old_segment)
 
-# Determine location of new segment and create segment
-x = snake_segments[0].rect.x + x_change
-y = snake_segments[0].rect.y + y_change
-segment = Segment(x, y)
+  # Determine location of new segment and create segment
+  x = snake_segments[0].rect.x + x_change
+  y = snake_segments[0].rect.y + y_change
+  segment = Segment(x, y)
 
-# Insert new segment into the list and group
-snake_segments.insert(0, segment)
-allspriteslist.add(segment)
+  # Insert new segment into the list and group
+  snake_segments.insert(0, segment)
+  allspriteslist.add(segment)
 
 
-first_segment = snake_segments[0].rect
-# break out of loop if snake goes out of the screen
-if first_segment.x < 0 or first_segment.x > screen.get_width():
-break
-if first_segment.y < 0 or first_segment.y > screen.get_height():
-break
+  first_segment = snake_segments[0].rect
+  # break out of loop if snake goes out of the screen
+  if first_segment.x < 0 or first_segment.x > screen.get_width():
+    break
+  if first_segment.y < 0 or first_segment.y > screen.get_height():
+    break
 
-# end the loop if snake runs over itself
-for seg in snake_segments[1:]:
-if first_segment.x == seg.rect.x and first_segment.y == seg.rect.y:
-done = True
-break
+  # end the loop if snake runs over itself
+  for seg in snake_segments[1:]:
+    if first_segment.x == seg.rect.x and first_segment.y == seg.rect.y:
+      done = True
+      break
 
-# --- Draws everything ---
-# Clears the screen (by covering it all with black)
-screen.fill(BLACK)
+  # --- Draws everything ---
+  # Clears the screen (by covering it all with black)
+  screen.fill(BLACK)
 
-# draw all our snake segments and food
-allspriteslist.draw(screen)
+  # draw all our snake segments and food
+  allspriteslist.draw(screen)
 
-# Stats
-gamestats.displayStats()
+  # Stats
+  gamestats.displayStats()
 
-# tells our display to show our changes
-pygame.display.flip()
+  # tells our display to show our changes
+  pygame.display.flip()
 
-# pauses the loop briefly
-clock.tick(5)
+  # pauses the loop briefly
+  clock.tick(5)
 
 # game over message displayed until exit button is clicked
 exit = False
 while not exit:
-for event in pygame.event.get():
-if event.type == pygame.QUIT:
-pygame.quit()
-pygame.display.flip()
-gamestats.gameOver()
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      pygame.quit()
+  pygame.display.flip()
+  gamestats.gameOver()
 
 # allows us to close our pygame display
 pygame.quit()
@@ -288,24 +288,21 @@ pygame.quit()
 
 ### Level 1: Yum!
 
-Change the color of the food after it is eaten. 
+Change the color of the food after it is eaten.
 For example, the food may first be pink, but after it is eaten, when the food is relocated, it will be a different color, ie blue.
 
 ### Level 2: No turning back!
 
 Currently, the snake can go 180 degrees on itself.
-The real snake does not do this though, so your goal will be to fix this. 
+The real snake does not do this though, so your goal will be to fix this.
 For example, if the snake is moving right, it should not be able to directly move left if we press the left key.
 
 ### Level 3: Poison!
 
-Lay out poison blocks for the snake to avoid. 
-The poison block should occur in a random coordinate. 
-If the snake encounters the poison, the score will decrease and the snake will lose a segment of its body. 
-When the poison is eaten, another poison block will occur at a random coordinate. 
-There will always be one poison block on the screen to avoid. 
+Lay out poison blocks for the snake to avoid.
+The poison block should occur in a random coordinate.
+If the snake encounters the poison, the score will decrease and the snake will lose a segment of its body.
+When the poison is eaten, another poison block will occur at a random coordinate.
+There will always be one poison block on the screen to avoid.
 Note that the snake cannot be only one segment.
-If the snake is two segments long and hits poison, the game will end. 
-
-
-
+If the snake is two segments long and hits poison, the game will end.
