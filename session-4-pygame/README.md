@@ -152,7 +152,7 @@ class GameStats:
 
 
 # --- Game Initialization ---
-# pygame.display.set_mode will initialize a window/display for the game. We're going to make this a 800 by 600 pixel screen
+# pygame.display.set_mode will initialize a window/display for the game. We're going to make this a 540 by 360 pixel screen
 screen = pygame.display.set_mode([540, 360])
 # pygame.display.set_caption sets the title we see on top of the window
 pygame.display.set_caption('Snake Game')
