@@ -99,15 +99,15 @@ class Food(pygame.sprite.Sprite):
   def __init__(self):
     super(Food, self).__init__()
 
-  # this creates the food object to be a Surface object much like our Segment objects
-  # We color our food PINK
-  self.image = pygame.Surface([segment_width, segment_width])
-  self.image.fill(PINK)
+    # this creates the food object to be a Surface object much like our Segment objects
+    # We color our food PINK
+    self.image = pygame.Surface([segment_width, segment_width])
+    self.image.fill(PINK)
 
-  # this stores the (x, y) coordinates of the food
-  self.rect = self.image.get_rect()
-  self.rect.x = self.randomCoord(screen.get_width())
-  self.rect.y = self.randomCoord(screen.get_height())
+    # this stores the (x, y) coordinates of the food
+    self.rect = self.image.get_rect()
+    self.rect.x = self.randomCoord(screen.get_width())
+    self.rect.y = self.randomCoord(screen.get_height())
 
   # this function will return us a random coordinate on our grid
   # this function also ensures the coordinate returned will not be off-screen
@@ -176,7 +176,7 @@ snake_segments = []
 for i in range(3):
   # This increment will set the segments properly next to each other as the snake keeps growing
   # y remains the same because we are going to first create the snake horizontally straight so that it is on the same y-axis
-  x = 252 - (segment_width + segment_margin) * i
+  x = 252 - grid_unit * i
   y = 36
   # We initialize a segment of the snake using these coordinates and our Segment class
   segment = Segment(x, y)
