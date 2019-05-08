@@ -8,7 +8,7 @@
 
 ## Resources
 **Slides**
-* [Slides](https://docs.google.com/presentation/d/1OyohvAX0Ly5ZxzpqL6ZVAXHFLeteTg2at_xfQl_oDk8/edit#slide=id.p1)
+* [Slides](https://docs.google.com/presentation/d/1Pi9cKz1Cp7yRLd790zy2qqC0cIwWjxn1vqgdj3m1O-Q/edit?usp=sharing)
 
 **ACM Membership Attendance Portal**
 
