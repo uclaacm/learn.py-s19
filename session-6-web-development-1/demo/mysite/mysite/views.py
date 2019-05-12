@@ -7,13 +7,8 @@ def home_page(request):
 def dark_mode(request):
     return render(request, 'darkMode.html')
     
-def piktures(request, num=-1):
-    if (num == -1):
-        return render(request, 'piktures.html')
-    else:
-        return render(request, 'piktures/1.html')
+def piktures(request, num):
+    return render(request, 'piktures/'+str(num)+'.html')
 
 def piktures_home(request):
-    print('hallo')
-    #return render(request, 'piktures.html')
-    return render_to_response('piktures_home.html')
+    return render(request, 'piktures.html')
