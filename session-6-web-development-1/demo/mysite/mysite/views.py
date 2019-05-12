@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 
+# Views are Python functions that take a Web request and return a Web Response- in this case, an HttpResponse object
+# that contains the contents of the specified HTML page
 def home_page(request):
     file = open("../../index.html")
     html = file.read()

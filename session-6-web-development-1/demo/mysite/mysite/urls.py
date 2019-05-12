@@ -18,6 +18,8 @@ from django.urls import path
 
 from . import views
 
+# Whenever a request for a new page is made, Django finds the urlpatterns variable, and goes through the list until
+# finds the one that matches the requested URL. If found, Django calls the given view, whose definitions are in views.py
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page),
