@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+ul {
+    display: inline-block;
+    text-align: center;
+}
+
+h1 {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.dark-mode {
+    background-color: #303030;
+    color: white;
+}
