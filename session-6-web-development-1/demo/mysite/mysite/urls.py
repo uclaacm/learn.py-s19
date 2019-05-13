@@ -19,8 +19,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from . import views
 
-# Whenever a request for a new page is made, Django finds the urlpatterns variable, and goes through the list until
-# finds the one that matches the requested URL. If found, Django calls the given view, whose definitions are in views.py
+# Whenever a request for a new page is made, Django finds the urlpatterns variable, and goes through the list until it
+# finds the one that matches the requested URL. If found, Django sends a request to the given view function (the second parameter)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page),

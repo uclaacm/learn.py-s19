@@ -51,6 +51,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+# Django will look for our HTML files in the directory specified by DIRS: the 'templates' directory inside of our
+# BASE_DIR (the top level mysite directory)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -117,7 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
+
+# Similar to the TEMPLATES variable above, Django looks for our static files in the director(ies) specified in the 
+# STATICFILES_DIRS tuple - in this case, the 'static' directory in BASE_DIR (the top level mysite directory)
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static'),
 )
