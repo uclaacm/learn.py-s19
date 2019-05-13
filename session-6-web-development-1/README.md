@@ -11,6 +11,10 @@
 
 **ACM Membership Attendance Portal**
 
+**Additional Learning Materials**
+
+* For more on web dev, check out for fall workshop series, Hackschool! https://github.com/uclaacm/hackschool-f18
+
 ## What we'll be learning today
 * How does the ~web work?
 * What is HTML/CSS?
