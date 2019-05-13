@@ -9,7 +9,5 @@ def dark_mode(request):
     return render(request, 'darkMode.html')
     
 def piktures(request, num):
-    return render(request, 'piktures/'+str(num)+'.html')
-
-def piktures_home(request):
+    print('num is equal to',num)
     return render(request, 'piktures.html')
