@@ -49,7 +49,9 @@ TODO
 
 ## What is HTML/CSS?
 
-TODO
+HTML, or Hyper Text Markup Language, is a markup language used when creating webpages. It allows us our webpages to have writing, links, pictures, videos, and many more. 
+CSS stands for Cascading Style Sheets. It allows us to style our webpages, such as changing font size/color or changing the layout of our page. 
+
 
 **Creating our first HTML file**
 
@@ -74,7 +76,23 @@ Let's create an HTML file called `index.html`
     </body>
 </html>
 ```
-TODO: Go over each of the tags
+As you can see from the code above, we include many tags in our HTML file. Tags begin with a less than sign ('<') and end with a greater than sign ('>'). We will define each of the tags we've used so far. 
+
+* ```<!DOCTYPE html>``` tag tells the browser that this will be an HTML file
+* ```<html>``` and ```</html>``` tags are placed around our HTML content
+* ```<head>``` and ```</head>``` tags contain information that is not typically displayed in the browser
+* ```<title>``` and ```</title>``` tags include the title of our page, which will be displayed on the webpage toolbar and on search-engine results
+* ```<body>``` and ```</body>``` tags contain all visible content 
+* ```<h1>``` and ```</h1>``` tags contain a heading title
+    * Header tags can range from 1-6, where 1 represents the largest and most important title and 6 represents the smallest title. Header tags are great to use when specifying section names
+* ```<ul>``` and ```</ul>``` tags represent an unordered list, which means our list will be written in bullet points
+* ```<li>``` and ```</li>``` tags contain the information we want in an element of our list
+* ```<p>``` and ```</p>``` tags represent a paragraph
+* ```<a>``` and ```</a>``` tags contain the word or phrase that will lead to another link if clicked on
+    * href is an attribute that will specify the URL. This will go inside the starting/first link tag
+* ```<img>``` tag helps insert an image
+    * src is an attribute that specifies the URL to the image, which can be local or online
+    
 
 Now if we open `index.html` file from our file explorer, we should be able to see the webpage! But, it doesn't look that great. This is where CSS comes in! 
 
@@ -98,9 +116,16 @@ h1 {
     font-weight: bold;
 }
 ```
-
-TODO: Explain some of the CSS stuff
-
+* Our first block of code begins with the selector body, which means everything inside the braces will apply to what we put between the body tags in our HTML file
+    * text-align will help align our text. Here, we tell it to center our fonts, but other valid types of alignment we can use include right and left
+    * font-family defines the type of font. It takes in multiple fonts because not all user will have a specific font. In this example, the browser will try to load Noto Sans, but if the user doesn't have this font, it will load sans-serif instead.    
+* Our second block of code begins with the selctor ul, which means means everything inside the braces will apply to our unordered list
+    * The display of inline-block places the element on the same line as the adjacent content, but the element behaves as a block element.
+* Our third block of code will begins with the selector h1, which means everything inside the braces will apply to our header
+    * The font-size determines the font size, so here, we decided to make the font 2 times bigger than the default size. 
+    * The font-weight allow us to create lighter or bolder forms of the content. 
+ 
+ 
 Great, now we have the CSS file! But what's the point if our HTML file doesn't use it? 
 
 To link the HTML and CSS file, add this inside the `head` tag in `index.html`
@@ -118,7 +143,7 @@ Try opening `index.html` now!
 
 Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is where Django comes in
 
-TODO: Explain Django
+Django is a Python web framework that can help us create complex web applications. A benefit of Django is that it contains everything we need to create a web application, including a command line interface and web server. This means that we don't have to install anything else besides Django. Some popular websites that use Django are Instagram, Pinterest, and the Washington Post.  
 
 Let try using Django!
 
@@ -251,7 +276,9 @@ Create two new HTML files in `templates/`, like so:
     </body>
 </html>
 ```
-TODO: Quick recap of the HTML tags?
+Feel free to go back and look at the definition of each tag. 
+* ```<link>``` tag specified the relationship between our file and an external source
+    * rel is an attribute that defines the type of relationship
 
 Let's put our CSS knowledge to good use, and style these pages. We want to create separate CSS files for each, so create them in the `static/css/` directory:
 
@@ -283,7 +310,7 @@ h1 {
 }
 ```
 
-TODO: quick recap of the CSS?
+Feel free to go back and review the CSS terminology.
 
 Now, let's link our HTML and CSS files.
 In `darkMode.html`, add this line inside the `<head>` tag:
