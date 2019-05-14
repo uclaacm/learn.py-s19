@@ -49,9 +49,11 @@ TODO
 
 ## What is HTML/CSS?
 
-HTML, or Hyper Text Markup Language, is a markup language used when creating webpages. It allows us our webpages to have writing, links, pictures, videos, and many more. 
-CSS stands for Cascading Style Sheets. It allows us to style our webpages, such as changing font size/color or changing the layout of our page. 
+HTML, or Hyper Text Markup Language, is a markup language used when creating webpages. It allows us our webpages to have writing, links, pictures, videos, and many more. If you right click any webpage in chrome and click 'Inspect Element', you'll see the HTML!
 
+CSS stands for Cascading Style Sheets. It allows us to style our webpages, such as changing font size/color or changing the layout of our page.
+
+Think of it this way, HTML is the skeleton code that puts content on a page while CSS is the code that styles our HTML and makes it look fancy :)
 
 **Creating our first HTML file**
 
@@ -69,32 +71,149 @@ Let's create an HTML file called `index.html`
             <li>You can create lists :o</li>
             <li>~Dark Mode</li>
         </ul>
-        <p>And HTML and CSS can do way more than that! Colors, images, 
+        <p>And HTML and CSS can do way more than that! Colors, images,
             <a href="https://coolcssanimation.com">animations</a>, and <a href="https://fonts.google.com">fonts</a> are only the tip of the iceberg!
         </p>
         <img src="https://images.ecosia.org/zfq6X0TFYLa9U6gPuSmSPNnGB6E=/0x390/smart/https%3A%2F%2Fstatic.zerochan.net%2FPikachu.full.933229.jpg"/>
     </body>
 </html>
 ```
-As you can see from the code above, we include many tags in our HTML file. Tags begin with a less than sign ('<') and end with a greater than sign ('>'). We will define each of the tags we've used so far. 
+As you can see from the code above, we include many tags in our HTML file. Tags begin with a less than sign ('<') and end with a greater than sign ('>'). Whatever text is wrapped in a tag will be formatted with the tag's properties. We will define each of the tags we've used so far.
 
-* ```<!DOCTYPE html>``` tag tells the browser that this will be an HTML file
-* ```<html>``` and ```</html>``` tags are placed around our HTML content
-* ```<head>``` and ```</head>``` tags contain information that is not typically displayed in the browser
-* ```<title>``` and ```</title>``` tags include the title of our page, which will be displayed on the webpage toolbar and on search-engine results
-* ```<body>``` and ```</body>``` tags contain all visible content 
+* ```<!DOCTYPE html>``` tag tells the browser that this will be an HTML file. We include this at the top of all of our HTML files.
+* ```<html>``` and ```</html>``` tags are placed around our HTML content. This will enclose everything we code for our page.
+* ```<head>``` and ```</head>``` tags contain information that is not typically displayed in the browser. In this tag we will typically set the `title` of our page, link our CSS code (the code that will style our HTML to make it look fancier), and import other necessary files (i.e. Google Fonts).
+* ```<title>``` and ```</title>``` tags include the title of our page, which will be displayed on the webpage toolbar and on search-engine results.
+    For example, the code below
+    ```HTML
+  <!DOCTYPE html>
+  <html>
+  	<head>
+  		<title>Pusheen <3 </title>
+  	</head>
+  	<body></body>
+  </html>
+    ```
+    will show up like this on our browser:
+    <img src="images/title_tag.png">
+
+* ```<body>``` and ```</body>``` tags contain all visible content we will display on our page :)
 * ```<h1>``` and ```</h1>``` tags contain a heading title
-    * Header tags can range from 1-6, where 1 represents the largest and most important title and 6 represents the smallest title. Header tags are great to use when specifying section names
-* ```<ul>``` and ```</ul>``` tags represent an unordered list, which means our list will be written in bullet points
-* ```<li>``` and ```</li>``` tags contain the information we want in an element of our list
-* ```<p>``` and ```</p>``` tags represent a paragraph
-* ```<a>``` and ```</a>``` tags contain the word or phrase that will lead to another link if clicked on
-    * href is an attribute that will specify the URL. This will go inside the starting/first link tag
-* ```<img>``` tag helps insert an image
-    * src is an attribute that specifies the URL to the image, which can be local or online
-    
+    * Header tags can range from 1-6, where 1 represents the largest and most important title and 6 represents the smallest title. Header tags are great to use when specifying section names.
+    We can see what this looks like if we add some header tags in between our body tags from the previous example.
+    ```html
+  <!DOCTYPE html>
+  <html>
+  	<head>
+  		<title>Pusheen <3</title>
+  	</head>
+  	<body>
+  		<h1>h1 uwu</h1>
+  		<h2>h2 owo</h2>
+  		<h3>h3 T.T</h3>
+  	</body>
+  </html>
+    ```
+    This will show up as:
+    <img src="images/header_tags.png">
 
-Now if we open `index.html` file from our file explorer, we should be able to see the webpage! But, it doesn't look that great. This is where CSS comes in! 
+* ```<ul>``` and ```</ul>``` tags represent an unordered list. This allows us to create a bullet-point list.
+* ```<li>``` and ```</li>``` tags contain the information we want in an element of our list.
+  Let's see what this looks like. This code:
+  ```HTML
+  <!DOCTYPE html>
+  <html>
+  	<head>
+  		<title>Pusheen <3</title>
+  	</head>
+  	<body>
+  		<h1>h1 uwu</h1>
+  		<h2>h2 owo</h2>
+  		<h3>h3 T.T</h3>
+  		<ul>
+  			<li>Red Flavor</li>
+  			<li>As If It's Your Last</li>
+  			<li>What is Love</li>
+  			<li>Starry Night</li>
+  		</ul>
+  	</body>
+  </html>
+  ```
+  will look like this:
+  <img src="images/ul_tag.png">
+
+  Similarly, we could turn our bullet-point list into a numbered list by changing our `<ul></ul>` tags to the _ordered_ list tags `<ol></ol>`. So changing our above code will to this:
+  ```HTML
+`  <ol>
+    <li>Red Flavor</li>
+    <li>As If It's Your Last</li>
+    <li>What is Love</li>
+    <li>Starry Night</li>
+  </ol>`
+  ```
+  will show up like this in our browser:
+  <img src="images/ol_tag.png">
+
+* ```<p>``` and ```</p>``` tags represent a paragraph. Whatever words we put in between these tags will be formatted as a paragraph.
+  Let's make some changes to our previous example to show this:
+  ```HTML
+  <!DOCTYPE html>
+  <html>
+  	<head>
+  		<title>Pusheen <3</title>
+  	</head>
+  	<body>
+  		<h1>A History</h1>
+  		<p>Pusheen first appeared in May 2010 in the comic strip "Pusheen Things" on Claire Belton and Andrew Duff's website, Everyday Cute. In 2011, Belton and Duff launched a spin-off site dedicated to Pusheen. In 2013, Belton published I Am Pusheen The Cat, a collection of comic strips featuring Pusheen.</p>
+  		<p>Pusheen has become well known for appearing in sticker sets on Facebook, which are images that can be attached to personal messages or comments. The feature, including a set of Pusheen stickers, was introduced to Android in April 2013, and added to the main website in July of the same year. In an article for PC Magazine on emoji and unicode, Sascha Segan referred to Pusheen as Facebook's "proprietary emoji", being used as a form of vendor lock-in.</p>
+  	</body>
+  </html>
+  ```
+  This will now create two different paragraphs with our text.
+  <img src="images/paragraph_tag.png">
+
+* ```<a href="insert_some_link_here">``` and ```</a>``` tags contain the word or phrase that will lead to another link if clicked on. This tag can also wrap around other tags like paragraphs, headers, and even images.
+    * href is an attribute that will specify the URL. This will go inside the starting/first link tag.
+    Here we can see this in action:
+  ```HTML
+  <!DOCTYPE html>
+  <html>
+  	<head>
+  		<title>Pusheen <3</title>
+  	</head>
+  	<body>
+  		<a href="https://en.wikipedia.org/wiki/Pusheen"><h1>A History</h1></a>
+  		<p>Pusheen first appeared in May 2010 in the comic strip "Pusheen Things" on Claire Belton and Andrew Duff's website, Everyday Cute. In 2011, Belton and Duff launched a spin-off site dedicated to Pusheen. In 2013, Belton published I Am Pusheen The Cat, a collection of comic strips featuring Pusheen.</p>
+  		<p>Pusheen has become well known for appearing in sticker sets on Facebook, which are images that can be attached to personal messages or comments. The feature, including a set of Pusheen stickers, was introduced to Android in April 2013, and added to the main website in July of the same year. In an article for PC Magazine on emoji and unicode, Sascha Segan referred to Pusheen as Facebook's "proprietary emoji", being used as a form of vendor lock-in.</p>
+  		<a href="https://pusheen.com">Click Here For More Info</a>
+  	</body>
+  </html>
+    ```
+    This shows up like this:
+    <img src="images/a_tag.png">
+
+* ```<img src="insert_link_or_path_to_image_here">``` tag allows us to insert an image.
+    * src is an attribute that specifies the URL to the image, which can be local or online. To obtain the link of an image in Google, right click it and hit 'Copy image address'.
+  Let's put an image in our Pusheen html page!
+  ```HTML
+  <!DOCTYPE html>
+  <html>
+  	<head>
+  		<title>Pusheen <3</title>
+  	</head>
+  	<body>
+  		<a href="https://en.wikipedia.org/wiki/Pusheen"><h1>A History</h1></a>
+  		<p>Pusheen first appeared in May 2010 in the comic strip "Pusheen Things" on Claire Belton and Andrew Duff's website, Everyday Cute. In 2011, Belton and Duff launched a spin-off site dedicated to Pusheen. In 2013, Belton published I Am Pusheen The Cat, a collection of comic strips featuring Pusheen.</p>
+  		<p>Pusheen has become well known for appearing in sticker sets on Facebook, which are images that can be attached to personal messages or comments. The feature, including a set of Pusheen stickers, was introduced to Android in April 2013, and added to the main website in July of the same year. In an article for PC Magazine on emoji and unicode, Sascha Segan referred to Pusheen as Facebook's "proprietary emoji", being used as a form of vendor lock-in.</p>
+  		<a href="https://pusheen.com">Click Here For More Info</a>
+  		<img src="https://cdn.shopify.com/s/files/1/0072/6034/0322/products/2c064e2a716a2b0ebb2f97904d837e00--emojis_300x300.jpg?v=1540454370">
+  	</body>
+  </html>
+  ```
+This will then add our Pusheen image!
+<img src="images/img_tag.png">
+
+Now if we open `index.html` file from our file explorer, we should be able to see the webpage! But, it doesn't look that great. This is where CSS comes in!
 
 **Creating our first CSS file**
 
@@ -122,11 +241,11 @@ h1 {
 * Our second block of code begins with the selctor ul, which means means everything inside the braces will apply to our unordered list
     * The display of inline-block places the element on the same line as the adjacent content, but the element behaves as a block element.
 * Our third block of code will begins with the selector h1, which means everything inside the braces will apply to our header
-    * The font-size determines the font size, so here, we decided to make the font 2 times bigger than the default size. 
-    * The font-weight allow us to create lighter or bolder forms of the content. 
- 
- 
-Great, now we have the CSS file! But what's the point if our HTML file doesn't use it? 
+    * The font-size determines the font size, so here, we decided to make the font 2 times bigger than the default size.
+    * The font-weight allow us to create lighter or bolder forms of the content.
+
+
+Great, now we have the CSS file! But what's the point if our HTML file doesn't use it?
 
 To link the HTML and CSS file, add this inside the `head` tag in `index.html`
 
@@ -174,7 +293,7 @@ def home_page(request):
 
 TODO: explain that
 
-Wait, but our project currently doesn't know where to find `index.html`! It's not even in our project directory! 
+Wait, but our project currently doesn't know where to find `index.html`! It's not even in our project directory!
 
 We could just move it into the top-level `mysite` directory, but we will most likely end up having many many HTML files in our project. So let's create a separate directory for our HTML files, called `templates`
 
@@ -224,11 +343,11 @@ urlpatterns = [
 
 TODO: explain this. This should work (except CSS)
 
-You might've noticed that all the hard work we put into styling `index.html` has disappeared. Like before, Django doesn't know about our CSS file! 
+You might've noticed that all the hard work we put into styling `index.html` has disappeared. Like before, Django doesn't know about our CSS file!
 
 Create a directory called `static`, in the same directory as our `templates` directory, and in there, create a directory called `css`. Move `style.css` into this directory.
 
-> That seems like a lot of directories for just one file. And you're right, but, static files encompass more than just CSS files - image files are another example. While it may seem like overkill for this demo, it's a good idea to practice organizing your files this way. 
+> That seems like a lot of directories for just one file. And you're right, but, static files encompass more than just CSS files - image files are another example. While it may seem like overkill for this demo, it's a good idea to practice organizing your files this way.
 
 To make sure Django knows to look there for all static files in the future, go to `settings.py`, and add this to the bottom of the file:
 
@@ -251,7 +370,7 @@ Create two new HTML files in `templates/`, like so:
 ```HTML
 <!-- Call this darkMode.html -->
 <!DOCTYPE html>
-<html> 
+<html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
         <title>Dark mode</title>
@@ -276,7 +395,7 @@ Create two new HTML files in `templates/`, like so:
     </body>
 </html>
 ```
-Feel free to go back and look at the definition of each tag. 
+Feel free to go back and look at the definition of each tag.
 * ```<link>``` tag specified the relationship between our file and an external source
     * rel is an attribute that defines the type of relationship
 
@@ -334,7 +453,7 @@ TODO: Recap of what this does?
 
 In `urls.py`, add this to the `urlpatterns` list:
 
-```python 
+```python
 path('darkMode/', views.dark_mode),
 ```
 
@@ -346,7 +465,7 @@ Awesome! TODO: intro to options within URLS - don't want to create a view functi
 
 In `urls.py`, add this to the `urlpatterns` list:
 
-```python 
+```python
 path('piktures/<int:num>/', views.piktures),
 ```
 
@@ -372,4 +491,3 @@ TODO?
 
 ## Challenges:
 TODO :)
-
