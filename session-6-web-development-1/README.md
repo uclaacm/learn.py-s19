@@ -13,11 +13,11 @@
 
 **Additional Learning Materials**
 
-* For more on web dev, check out our fall workshop series, Hackschool! 
+* For more on web dev, check out our fall workshop series, Hackschool!
     * https://github.com/uclaacm/hackschool-f18
-* Want to learn more about Django? 
+* Want to learn more about Django?
     * Documentation: https://docs.djangoproject.com/en/2.2/
-    
+
 ## What we'll be learning today
 * How does the ~web work?
 * What is HTML/CSS?
@@ -102,7 +102,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </html>
     ```
     will show up like this on our browser:
-    <img src="images/title_tag.png">
+    <img src="images/title-tag.png">
 
 * ```<body>``` and ```</body>``` tags contain all visible content we will display on our page :)
 * ```<h1>``` and ```</h1>``` tags contain a heading title
@@ -122,7 +122,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </html>
     ```
     This will show up as:
-    <img src="images/header_tags.png">
+    <img src="images/header-tags.png">
 
 * ```<ul>``` and ```</ul>``` tags represent an unordered list. This allows us to create a bullet-point list.
 * ```<li>``` and ```</li>``` tags contain the information we want in an element of our list.
@@ -147,7 +147,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </html>
   ```
   will look like this:
-  <img src="images/ul_tag.png">
+  <img src="images/ul-tag.png">
 
   Similarly, we could turn our bullet-point list into a numbered list by changing our `<ul></ul>` tags to the _ordered_ list tags `<ol></ol>`. So changing our above code will to this:
   ```HTML
@@ -159,7 +159,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </ol>
   ```
   will show up like this in our browser:
-  <img src="images/ol_tag.png">
+  <img src="images/ol-tag.png">
 
 * ```<p>``` and ```</p>``` tags represent a paragraph. Whatever words we put in between these tags will be formatted as a paragraph.
   Let's make some changes to our previous example to show this:
@@ -177,7 +177,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </html>
   ```
   This will now create two different paragraphs with our text.
-  <img src="images/paragraph_tag.png">
+  <img src="images/paragraph-tag.png">
 
 * ```<a href="insert_some_link_here">``` and ```</a>``` tags contain the word or phrase that will lead to another link if clicked on. This tag can also wrap around other tags like paragraphs, headers, and even images.
     * href is an attribute that will specify the URL. This will go inside the starting/first link tag.
@@ -197,7 +197,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </html>
     ```
     This shows up like this:
-    <img src="images/a_tag.png">
+    <img src="images/a-tag.png">
 
 * ```<img src="insert_link_or_path_to_image_here">``` tag allows us to insert an image.
     * src is an attribute that specifies the URL to the image, which can be local or online. To obtain the link of an image in Google, right click it and hit 'Copy image address'.
@@ -218,7 +218,7 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
   </html>
   ```
 This will then add our Pusheen image!
-<img src="images/img_tag.png">
+<img src="images/img-tag.png">
 
 Now if we open `index.html` file from our file explorer, we should be able to see the webpage! But, it doesn't look that great. This is where CSS comes in!
 
@@ -267,7 +267,7 @@ Try opening `index.html` now!
 
 ## Intro to Django
 
-Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is what we'll be playing around with in Django today. 
+Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is what we'll be playing around with in Django today.
 
 But first, what is Django? Django is a Python web framework that can help us create complex web applications. A benefit of Django is that it contains everything we need to create a web application, including a command line interface, web server, database, built-in admin site, etc. This means that we don't have to install anything else besides Django to get a working web app (How cool is that??). Some popular websites that use Django are Instagram, Pinterest, and The Washington Post.  
 
@@ -285,8 +285,8 @@ This creates a new Django project called mysite. To start the server and get the
 ```
 python manage.py runserver
 ```
-This command starts a server at URL `localhost:8000`. 
-Try visiting `localhost:8000` in your browser. 
+This command starts a server at URL `localhost:8000`.
+Try visiting `localhost:8000` in your browser.
 You should see a default page given by Django.
 
 Now we can start by linking the HTML file we just created.
@@ -301,7 +301,7 @@ from django.shortcuts import render
 def home_page(request):
     return render(request, 'index.html')
 ```
-This is a function that takes in the request from the user and 
+This is a function that takes in the request from the user and
 uses the `render` function to return a html page named `index.html`.
 
 Wait, but our project currently doesn't know where to find `index.html`! It's not even in our project directory!
@@ -334,10 +334,10 @@ TEMPLATES = [
 ]
 ```
 
-We added the variable `os.path.join(BASE_DIR, 'templates')` to the array in the key `DIRS`. 
-`BASE_DIR` is a string that is the path to our `mysite` folder. 
+We added the variable `os.path.join(BASE_DIR, 'templates')` to the array in the key `DIRS`.
+`BASE_DIR` is a string that is the path to our `mysite` folder.
 It will look something like `/folder/Desktop/mysite`.
-`os.path.join` is a function that takes in 2 strings and joins them 
+`os.path.join` is a function that takes in 2 strings and joins them
 to give a valid directory path. In this case, the output will be
 `/folder/Desktop/mysite/templates`. Now Django knows where to look for
 our HTML files.
@@ -359,10 +359,10 @@ urlpatterns = [
 ]
 ```
 
-When a request comes in, Django tries to match the URL with the 
-patterns within `urlpattern`. If the user accesses `localhost:8000`, 
-it will match the pattern `''` and the function `home_page` will be 
-called. If user access `localhost:8000/admin/`, it will match the 
+When a request comes in, Django tries to match the URL with the
+patterns within `urlpattern`. If the user accesses `localhost:8000`,
+it will match the pattern `''` and the function `home_page` will be
+called. If user access `localhost:8000/admin/`, it will match the
 pattern `admin/` and the function `admin.site.urls` will be called.
 
 You might've noticed that all the hard work we put into styling `index.html` has disappeared. Like before, Django doesn't know about our CSS file!
@@ -477,7 +477,7 @@ def dark_mode(request):
     return render(request, 'darkMode.html')
 ```
 
-Again, this serves the html file `darkMode.html` when the function 
+Again, this serves the html file `darkMode.html` when the function
 `dark_mode` is called.
 But Django does not know when to call this function, so we need to add
 a new URL pattern.
@@ -491,18 +491,18 @@ path('darkMode/', views.dark_mode),
 
 Great! Now, when Django sees `localhost:8000/darkMode/` it knows to call the `dark_mode` function inside views.
 
-Awesome! 
+Awesome!
 
-Now, imagine we have 10 pages. They are all pictures of pikachu. 
+Now, imagine we have 10 pages. They are all pictures of pikachu.
 We want to serve them at the URL `piktures/1`, `picktures/2`, etc.
 From what we have learned so far, we will have to define 10 functions
-and 10 URL functions. 10 is still doable but imagine having 100, or 
+and 10 URL functions. 10 is still doable but imagine having 100, or
 even 1000 pages.
 
-Django allows you to create generic URL pattern that can capture 
-a lot of cases. In our case, we want to match URL with `piktures/` 
-followed by some integer. And then handle all the cases under the 
-same function. 
+Django allows you to create generic URL pattern that can capture
+a lot of cases. In our case, we want to match URL with `piktures/`
+followed by some integer. And then handle all the cases under the
+same function.
 
 In `urls.py`, add this to the `urlpatterns` list:
 
@@ -522,25 +522,25 @@ def piktures(request, num):
     return render(request, 'piktures.html')
 ```
 
-This function will be called for a URL like `piktures/1`. But notice 
-the extra parameter `num`. Django will call this function with the 
-value of the integer mtched within the URL. For instance, if the 
-URL is `piktures/1`, `num=1`. If `piktures/2`, `num=2`. 
+This function will be called for a URL like `piktures/1`. But notice
+the extra parameter `num`. Django will call this function with the
+value of the integer mtched within the URL. For instance, if the
+URL is `piktures/1`, `num=1`. If `piktures/2`, `num=2`.
 
 We print out the number in the function just to be sure.
 
-Now, you should be able to access the page `piktures.html` from any 
+Now, you should be able to access the page `piktures.html` from any
 URL like `piktures/1` or `piktures/2`.
-Also check your terminal for output from the server, what numbers is 
+Also check your terminal for output from the server, what numbers is
 the server printing?
 
-Given the flexibility, we can be very flexible with routing. 
+Given the flexibility, we can be very flexible with routing.
 We can use something like `render(request, 'file' + str(num) + '.html')` to render multiple pages from one view function. Try creating some additional HTML files and using that function ;)
 
 We've only uncovered the tip of the iceberg as to what Django can do in this workshop. Feel free to learn more by checking out the documentation (there's a great tutorial in there), or trying out other online tutorials!
 
 ## Challenges:
 
-Try creating a new HTML file! Introduce the person next to you, or if you're not at our workshop, introduce your favorite musician. Include some images, and style it nicely with your new CSS skillz. 
+Try creating a new HTML file! Introduce the person next to you, or if you're not at our workshop, introduce your favorite musician. Include some images, and style it nicely with your new CSS skillz.
 
 After you've done that, see if you can set up the URL for it in our Django project!
