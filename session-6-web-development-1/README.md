@@ -48,7 +48,7 @@ Now let's get started!
 
 ## How does the ~web work?
 
-You are the client. You request a webpage from a server, which is essentially a computer that's always running somewhere far far away. The give you the webpage you requested for (assuming nothing goes wrong). Voila! You can now see a webpage on your browser. 
+You are the client. You request a webpage from a server, which is essentially a computer that's always running somewhere far far away. It responds by sending you the webpage you requested (assuming nothing goes wrong). Voila! You can now see a webpage on your browser. Welcome to the ~web!
 
 ## What is HTML/CSS?
 
