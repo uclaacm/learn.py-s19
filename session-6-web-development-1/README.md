@@ -220,7 +220,9 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
 This will then add our Pusheen image!
 <img src="images/img-tag.png">
 
-Now if we open `index.html` file from our file explorer, we should be able to see the webpage! But, it doesn't look that great. This is where CSS comes in!
+So if we look at what our `index.html` file from before, we should be able to see this:
+<img src="images/index-html.png">
+But, it doesn't look that great. This is where CSS comes in!
 
 **Creating our first CSS file**
 
