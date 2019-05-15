@@ -493,6 +493,15 @@ path('darkMode/', views.dark_mode),
 
 Great! Now, when Django sees `localhost:8000/darkMode/` it knows to call the `dark_mode` function inside views.
 
+Really quick, let's also create a link to that page in `index.html`
+
+Edit the unordered list so that it looks like this:
+
+```HTML
+<li>You can create lists :o</li>
+<li><a href="/darkMode">~Dark Mode</a></li>
+```
+
 Awesome!
 
 Now, imagine we have 10 pages. They are all pictures of pikachu.
@@ -538,6 +547,8 @@ the server printing?
 
 Given the flexibility, we can be very flexible with routing.
 We can use something like `render(request, 'file' + str(num) + '.html')` to render multiple pages from one view function. Try creating some additional HTML files and using that function ;)
+
+Note that you can't have slashes in file names, so you can't just create a file called `piktures/1.html`, so what you have to do in this case is create a new folder in `templates` called `piktures`, then add files called `1.html`, etc. in there!
 
 We've only uncovered the tip of the iceberg as to what Django can do in this workshop. Feel free to learn more by checking out the documentation (there's a great tutorial in there), or trying out other online tutorials!
 
