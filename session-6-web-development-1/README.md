@@ -13,8 +13,11 @@
 
 **Additional Learning Materials**
 
-* For more on web dev, check out our fall workshop series, Hackschool! https://github.com/uclaacm/hackschool-f18
-
+* For more on web dev, check out our fall workshop series, Hackschool! 
+    * https://github.com/uclaacm/hackschool-f18
+* Want to learn more about Django? 
+    * Documentation: https://docs.djangoproject.com/en/2.2/
+    
 ## What we'll be learning today
 * How does the ~web work?
 * What is HTML/CSS?
@@ -23,15 +26,15 @@
 The demo today will have quite a few files and directories - if you fall behind at any moment, check out the completed demo code in the repo, or ask a mentor for help!
 
 ## What you'll need:
-* A text editor (like Sublime or VS Code)
+* A text editor (like Sublime or VS Code or Vim)
 * Python
 * Django
 
-### Windows:
+### Installing Django on Windows:
 * Open Powershell/Command Prompt
 * `pip install django`
 
-### Mac:
+### Installing Django on Mac:
 * Open Terminal
 * `pip3 install django`
 
@@ -45,11 +48,15 @@ Now let's get started!
 
 ## How does the ~web work?
 
-TODO
+You are the client. You request a webpage from a server, which is essentially a computer that's always running somewhere far far away. The give you the webpage you requested for (assuming nothing goes wrong). Voila! You can now see a webpage on your browser. 
 
 ## What is HTML/CSS?
 
-HTML, or Hyper Text Markup Language, is a markup language used when creating webpages. It allows us our webpages to have writing, links, pictures, videos, and many more. If you right click any webpage in chrome and click 'Inspect Element', you'll see the HTML!
+HTML, or Hyper Text Markup Language, is a markup language used when creating webpages. It allows our webpages to have writing, links, pictures, videos, and much more. If you right click any webpage in Chrome and click 'Inspect Element', you'll see the HTML!
+
+<img src="images/inspect-meme.png">
+
+> The panel on the right shows the HTML that renders the meme in our browser. It's alright if you don't understand everything just yet; that's why you're reading this!
 
 CSS stands for Cascading Style Sheets. It allows us to style our webpages, such as changing font size/color or changing the layout of our page.
 
@@ -144,12 +151,12 @@ As you can see from the code above, we include many tags in our HTML file. Tags 
 
   Similarly, we could turn our bullet-point list into a numbered list by changing our `<ul></ul>` tags to the _ordered_ list tags `<ol></ol>`. So changing our above code will to this:
   ```HTML
-`  <ol>
+  <ol>
     <li>Red Flavor</li>
     <li>As If It's Your Last</li>
     <li>What is Love</li>
     <li>Starry Night</li>
-  </ol>`
+  </ol>
   ```
   will show up like this in our browser:
   <img src="images/ol_tag.png">
@@ -238,9 +245,9 @@ h1 {
 * Our first block of code begins with the selector body, which means everything inside the braces will apply to what we put between the body tags in our HTML file
     * text-align will help align our text. Here, we tell it to center our fonts, but other valid types of alignment we can use include right and left
     * font-family defines the type of font. It takes in multiple fonts because not all user will have a specific font. In this example, the browser will try to load Noto Sans, but if the user doesn't have this font, it will load sans-serif instead.    
-* Our second block of code begins with the selctor ul, which means means everything inside the braces will apply to our unordered list
+* Our second block of code begins with the selector ul, which means means everything inside the braces will apply to our unordered list
     * The display of inline-block places the element on the same line as the adjacent content, but the element behaves as a block element.
-* Our third block of code will begins with the selector h1, which means everything inside the braces will apply to our header
+* Our third block of code begins with the selector h1, which means everything inside the braces will apply to our header
     * The font-size determines the font size, so here, we decided to make the font 2 times bigger than the default size.
     * The font-weight allow us to create lighter or bolder forms of the content.
 
@@ -254,15 +261,15 @@ To link the HTML and CSS file, add this inside the `head` tag in `index.html`
 <link rel="stylesheet" href="style.css"/>
 ```
 
-TODO: Explain this, and where the fonts.googleapis.com link came from?
+The first `<link>` tag import the Noto Sans font from the Google Fonts website, so that our CSS can apply it! (If you go to fonts.google.com, you can check out all their cool fonts, plus they make it super easy for you to import them into your own webpages). The second `<link>` tag imports our CSS file!
 
 Try opening `index.html` now!
 
 ## Intro to Django
 
-Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is where Django comes in.
+Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is what we'll be playing around with in Django today. 
 
-Django is a Python web framework that can help us create complex web applications. A benefit of Django is that it contains everything we need to create a web application, including a command line interface and web server. This means that we don't have to install anything else besides Django. Some popular websites that use Django are Instagram, Pinterest, and the Washington Post.  
+But first, what is Django? Django is a Python web framework that can help us create complex web applications. A benefit of Django is that it contains everything we need to create a web application, including a command line interface, web server, database, built-in admin site, etc. This means that we don't have to install anything else besides Django to get a working web app (How cool is that??). Some popular websites that use Django are Instagram, Pinterest, and The Washington Post.  
 
 Let try using Django!
 
@@ -274,7 +281,7 @@ Django makes it really easy to get a web application up and running. Make sure y
 django-admin startproject mysite
 ```
 
-To start the server and get the web app running, `cd` into the directory that was just created and type:
+This creates a new Django project called mysite. To start the server and get the web app running, `cd` into the `mysite` directory that was just created and type:
 ```
 python manage.py runserver
 ```
@@ -305,7 +312,7 @@ This is what your file directory should look like:
 
 <img src="images/file-directory.png">
 
-Move `index.html` inside that directory.
+Move `index.html` inside `templates`.
 
 Now we have our HTML files organized nicely in our project hierarchy, but Django doesn't know to look there for our files! To fix that, go to `settings.py` in the lower-level `mysite` directory, find the `TEMPLATES` variable, and modify it so it looks like this:
 
@@ -376,9 +383,15 @@ STATICFILES_DIRS = (
 we are passing a string to a directory `/folder/Desktop/mysite/static`.
 Now Django also knows where to find the css files.
 
+Now that you've changed the location of the CSS file, make sure that the HTML files that use it know where it is too! Go back to `index.html` and change the `<link>` tag to this:
+
+```CSS
+<link rel="stylesheet" href="static/css/style.css"/>
+```
+
 **Serving multiple webpages**
 
-We want to use Django for many reasons, but one of them is so that we can serve multiple webpages. Let's do that now.
+There are many reasons why someone would want to use Django, but one of them is so that we can serve multiple webpages. Let's do that now.
 
 Create two new HTML files in `templates/`, like so:
 
@@ -466,7 +479,7 @@ def dark_mode(request):
 
 Again, this serves the html file `darkMode.html` when the function 
 `dark_mode` is called.
-But Django does know when to call this function, so we need to add
+But Django does not know when to call this function, so we need to add
 a new URL pattern.
 
 
@@ -509,8 +522,8 @@ def piktures(request, num):
     return render(request, 'piktures.html')
 ```
 
-This function will be called for URL like `piktures/1`. But notice 
-the extra parameter `num`. Django will call this function we the 
+This function will be called for a URL like `piktures/1`. But notice 
+the extra parameter `num`. Django will call this function with the 
 value of the integer mtched within the URL. For instance, if the 
 URL is `piktures/1`, `num=1`. If `piktures/2`, `num=2`. 
 
@@ -522,13 +535,12 @@ Also check your terminal for output from the server, what numbers is
 the server printing?
 
 Given the flexibility, we can be very flexible with routing. 
-We can use it like `render(request, 'file' + str(num) + '.html')`.
-Then, we can render multiple pages from one view function.
+We can use something like `render(request, 'file' + str(num) + '.html')` to render multiple pages from one view function. Try creating some additional HTML files and using that function ;)
 
-## Templates [This will not be covered in the workshop, but keep reading to learn more!]
-
-TODO?
-
+We've only uncovered the tip of the iceberg as to what Django can do in this workshop. Feel free to learn more by checking out the documentation (there's a great tutorial in there), or trying out other online tutorials!
 
 ## Challenges:
-TODO :)
+
+Try creating a new HTML file! Introduce the person next to you, or if you're not at our workshop, introduce your favorite musician. Include some images, and style it nicely with your new CSS skillz. 
+
+After you've done that, see if you can set up the URL for it in our Django project!
