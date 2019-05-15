@@ -8,7 +8,8 @@
 
 ## Resources
 **Slides**
-* tinyurl.com/learnpy-s6
+
+* [Slides](tinyurl.com/learnpy-s6)
 
 **ACM Membership Attendance Portal**
 
