@@ -1,4 +1,4 @@
-# Learn.py Session 5 Application of Python: Web Development Part 1
+# Learn.py Session 6 Application of Python: Web Development Part 1
 
 **Location:** Covel 227
 
@@ -33,7 +33,7 @@ The demo today will have quite a few files and directories - if you fall behind 
 
 ### Mac:
 * Open Terminal
-* `pip install django`
+* `pip3 install django`
 
 ### Did it work?
 * `python -m django --version`
@@ -132,7 +132,7 @@ To link the HTML and CSS file, add this inside the `head` tag in `index.html`
 
 ```HTML
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-<link rel="stylesheet" href="static/css/style.css"/>
+<link rel="stylesheet" href="style.css"/>
 ```
 
 TODO: Explain this, and where the fonts.googleapis.com link came from?
@@ -141,7 +141,7 @@ Try opening `index.html` now!
 
 ## Intro to Django
 
-Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is where Django comes in
+Now we have a beautiful HTML file. But, we can only serve one at a time. How can we serve multiple files at the same time? This is where Django comes in.
 
 Django is a Python web framework that can help us create complex web applications. A benefit of Django is that it contains everything we need to create a web application, including a command line interface and web server. This means that we don't have to install anything else besides Django. Some popular websites that use Django are Instagram, Pinterest, and the Washington Post.  
 
@@ -151,13 +151,17 @@ Let try using Django!
 
 Django makes it really easy to get a web application up and running. Make sure you're in the directory you want to create your project in (preferably in the same directory as `index.html` and `style.css`), then type:
 
-`django-admin startproject mysite`
+```
+django-admin startproject mysite
+```
 
 To start the server and get the web app running, `cd` into the directory that was just created and type:
-
-`python manage.py runserver`
-
-TODO: go to localhost:8000 wow
+```
+python manage.py runserver
+```
+This command starts a server at URL `localhost:8000`. 
+Try visiting `localhost:8000` in your browser. 
+You should see a default page given by Django.
 
 Now we can start by linking the HTML file we just created.
 
@@ -166,17 +170,17 @@ Recall that web pages are served by the client sending a request to the server, 
 Create a file called `views.py` in the `mysite` directory
 
 ```python
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 
 def home_page(request):
     return render(request, 'index.html')
 ```
-
-TODO: explain that
+This is a function that takes in the request from the user and 
+uses the `render` function to return a html page named `index.html`.
 
 Wait, but our project currently doesn't know where to find `index.html`! It's not even in our project directory! 
 
-We could just move it into the top-level `mysite` directory, but we will most likely end up having many many HTML files in our project. So let's create a separate directory for our HTML files, called `templates`
+We could just move it into the top-level `mysite` directory, but we will most likely end up having many many HTML files in our project. So let's create a separate directory for our HTML files, called `templates`.
 
 This is what your file directory should look like:
 
@@ -204,7 +208,14 @@ TEMPLATES = [
 ]
 ```
 
-TODO: Explain the DIRS thing
+We added the variable `os.path.join(BASE_DIR, 'templates')` to the array in the key `DIRS`. 
+`BASE_DIR` is a string that is the path to our `mysite` folder. 
+It will look something like `/folder/Desktop/mysite`.
+`os.path.join` is a function that takes in 2 strings and joins them 
+to give a valid directory path. In this case, the output will be
+`/folder/Desktop/mysite/templates`. Now Django knows where to look for
+our HTML files.
+
 
 Now that we're ready for the server's response, how do we send the request? Through URLS!
 
@@ -222,7 +233,11 @@ urlpatterns = [
 ]
 ```
 
-TODO: explain this. This should work (except CSS)
+When a request comes in, Django tries to match the URL with the 
+patterns within `urlpattern`. If the user accesses `localhost:8000`, 
+it will match the pattern `''` and the function `home_page` will be 
+called. If user access `localhost:8000/admin/`, it will match the 
+pattern `admin/` and the function `admin.site.urls` will be called.
 
 You might've noticed that all the hard work we put into styling `index.html` has disappeared. Like before, Django doesn't know about our CSS file! 
 
@@ -238,9 +253,9 @@ STATICFILES_DIRS = (
 )
 ```
 
-TODO: explain that
-
-TODO: this should work
+`STATICFILES_DIRS` is a tuple with one element. Just like above
+we are passing a string to a directory `/folder/Desktop/mysite/static`.
+Now Django also knows where to find the css files.
 
 **Serving multiple webpages**
 
@@ -330,7 +345,11 @@ def dark_mode(request):
     return render(request, 'darkMode.html')
 ```
 
-TODO: Recap of what this does?
+Again, this serves the html file `darkMode.html` when the function 
+`dark_mode` is called.
+But Django does know when to call this function, so we need to add
+a new URL pattern.
+
 
 In `urls.py`, add this to the `urlpatterns` list:
 
@@ -340,17 +359,27 @@ path('darkMode/', views.dark_mode),
 
 Great! Now, when Django sees `localhost:8000/darkMode/` it knows to call the `dark_mode` function inside views.
 
-TODO: this should work
+Awesome! 
 
-Awesome! TODO: intro to options within URLS - don't want to create a view function for each web page we want served
+Now, imagine we have 10 pages. They are all pictures of pikachu. 
+We want to serve them at the URL `piktures/1`, `picktures/2`, etc.
+From what we have learned so far, we will have to define 10 functions
+and 10 URL functions. 10 is still doable but imagine having 100, or 
+even 1000 pages.
+
+Django allows you to create generic URL pattern that can capture 
+a lot of cases. In our case, we want to match URL with `piktures/` 
+followed by some integer. And then handle all the cases under the 
+same function. 
 
 In `urls.py`, add this to the `urlpatterns` list:
 
 ```python 
 path('piktures/<int:num>/', views.piktures),
 ```
-
-TODO: explain this
+This is a pattern where the URL has to be `piktures/` followed by some
+integer, indicated by `int` keyword. o
+We will see the meaning of `num` in just a second.
 
 But `views.piktures` isn't defined yet! Let's do that:
 
@@ -361,9 +390,21 @@ def piktures(request, num):
     return render(request, 'piktures.html')
 ```
 
-TODO: explain this?
+This function will be called for URL like `piktures/1`. But notice 
+the extra parameter `num`. Django will call this function we the 
+value of the integer mtched within the URL. For instance, if the 
+URL is `piktures/1`, `num=1`. If `piktures/2`, `num=2`. 
 
-TODO: now you can access piktures by changing the url, and check the server to see what it prints. it may seem kind of useless now, since we render the same page each time, but this allows us to render multiple pages, just from one view function - talk about how you can rende piktures/1.html, piktures/2.html, etc.
+We print out the number in the function just to be sure.
+
+Now, you should be able to access the page `piktures.html` from any 
+URL like `piktures/1` or `piktures/2`.
+Also check your terminal for output from the server, what numbers is 
+the server printing?
+
+Given the flexibility, we can be very flexible with routing. 
+We can use it like `render(request, 'file' + str(num) + '.html')`.
+Then, we can render multiple pages from one view function.
 
 ## Templates [This will not be covered in the workshop, but keep reading to learn more!]
 
