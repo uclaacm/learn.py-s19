@@ -223,7 +223,7 @@ This will then add our Pusheen image!
 <img src="images/img-tag.png">
 
 So if we look at what our `index.html` file from before, we should be able to see this:
-<img src="images/index-html.png">
+<img src="images/index-html.PNG">
 But, it doesn't look that great. This is where CSS comes in!
 
 **Creating our first CSS file**
