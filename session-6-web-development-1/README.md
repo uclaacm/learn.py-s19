@@ -9,7 +9,7 @@
 ## Resources
 **Slides**
 
-* [Slides](tinyurl.com/learnpy-s6)
+* [Slides](https://docs.google.com/presentation/d/1FuvZ_yudjDhsZNENoA6knZ798WnN8CmseNhzSBh5ssw/edit)
 
 **ACM Membership Attendance Portal**
 
