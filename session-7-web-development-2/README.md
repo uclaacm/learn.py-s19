@@ -180,6 +180,12 @@ So far we only have 2 types of data. We requested for
 (1) an HTML page, (2) a number/integer. 
 
 ## What is JavaScript?
+```js
+Array(16).join('wat' - 1) + ' Batman!';
+```
+
+<img src="image/javascript.png" height="500px">
+
 Well, so far our webpages have been static. We can also 
 make it more interactive with JavaScript. 
 JavaScript is a programming language for the web. __It 
@@ -302,7 +308,7 @@ Try visting `localhost:8000/square` in your browser.
 See what happens!
 
 
-## Request for data in the frontend
+## Request for data in the webpage 
 Remember the very complicated function that we defined in 
 our server? We can make use of it from our website!
 Also, by making a request to the server at the given URL. 
@@ -314,10 +320,10 @@ code make a request to server as well!
 function main() {
     var ourButton = document.getElementById('btn');
     var ourAnswer = document.getElementById('answer');
-    console.log(ourButton.innerText);
-    fetch('http://localhost:8000/square/2').then(function (response) {
+    fetch('http://localhost:8000/square/2')
+    .then(function (response) {
         console.log(response);
-    })
+    });
 }
 window.onload = main;
 ```
@@ -331,11 +337,280 @@ fetch('http://localhost:8000/square/2')
 .then(function (response) {
     return response.json();
 })
-.then(function (json) {
-    console.log(json);
-})
+.then(function (answer) {
+    console.log(answer);
+});
 ```
 
 Now we see `4` being printed in our Console!
+Again, this is RPC. We use the URL to call a function
+sitting in our server.
 
 ## Time to Get Interactive
+Let's say we want to trigger the RPC only when user
+click the button. 
+```js
+ourButton.onclick = function () {
+    fetch('http://localhost:8000/square/2')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (answer) {
+        console.log(answer);
+    });
+}
+```
+By setting `ourButton`'s `onlick` property to a function,
+JavaScript will call our function which does the RPC 
+for us. Now when you reload the page. It should not 
+print anything, unless you click the button.
+
+Printing the result to the Console is not that helpful.
+We can put it onto our screen. By setting `ourAnswer`'s
+`innerText` property!
+```js
+ourButton.onclick = function () {
+    fetch('http://localhost:8000/square/2')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (answer) {
+        console.log(answer);
+        ourAnswer.innerText = answer;
+    });
+}
+```
+
+Now, try reloading the page and click the button.
+The number `4` should pop up on your screen.
+
+## What's the point of this?
+<img src="image/stupidgalen.png" width="500px">
+
+You must think I am quite stupid. If I want to use a 
+function that compute a number squared in my website,
+I can simply do that with JavaScript.
+```js
+function square(x) {
+    return x * x;
+}
+```
+Why bother to write a server for this simple function?
+Well, when your function grows more complicated, we 
+need the server to help us. Let's see an example.
+
+Head over to https://m.uber.com/looking.
+When you select a destination, it gives you the price 
+for different types of vehicles.
+
+<img src="image/uber.png">
+
+Imagine the function that Uber uses to calculate the 
+price. Its complexity is way beyond our `square` 
+function. We need to have an optimal path algorithm to
+obtain the route. We need to know the congestion level
+and availability of drivers. Considering all these 
+factors, it is impossible to write a function in our 
+webpage for this. 
+
+More importantly, this website requires user input. 
+User needs to select a destination before it can 
+calculate the price, right?
+
+This does not really justify me, the stupid, putting a 
+square function inside a function. It is just an 
+overkill. However, 
+
+<h2>
+I hope you see the point of RPC.
+I hope you know how to set up RPC on server.
+I hope you know how to do a RPC in JavaScript 
+(aka from the website).
+</h2>
+
+## What is JSON?
+
+So far, our remote function only returns a number. 
+What if we want it to return a way more delicated data
+structure, for example, a list, a dictionary?
+
+Before that, let's look at one data type in JavaScript,
+__Object__.
+
+```js
+var myObject = { 'name': 'Galen', 'age': 12 };
+```
+Wait a minute, this looks quite familiar. Isn't this
+just like a dictionary in Python?
+```py
+myDict = { 'name': 'Galen', 'age': 12 };
+```
+Yes, it is exactly that.
+Whatever you can do to a dictionary in Python you can do 
+to an object in JavaScript.
+
+<div style="display: flex; width: 100%">
+
+```py
+# Python
+myDict = { 'name': 'Galen', 'age': 12 }
+myDict['gpa'] = 1.2
+myDict['age'] = 13
+myDict['arr'] = [1, 2, 3]
+print(myDict)
+# output: { 'name': 'Galen', 'age': 13, 'gpa': 1.2, 'arr': [1, 2, 3] }
+```
+
+<div style="width: 10px">
+</div>
+
+```js
+// JavaScript
+var myObj = { 'name': 'Galen', 'age': 12 };
+myObj['gpa'] = 1.2;
+myObj['age'] = 13;
+myObj['arr'] = [1, 2, 3];
+console.log(myObj);
+// output: { 'name': 'Galen', 'age': 13, 'gpa': 1.2 , 'arr': [1, 2, 3]}
+```
+</div>
+
+>Yes, list in Python looks like Array in JavaScript as well. 
+
+Now, I can tell you what JSON stands for: __JavaScript Object Notation__.
+They are data that looks like a JavaScript object.
+To send complex data strucutre, we can send over with JSON!
+Let's check out some examples.
+Head over to official-joke-api.appspot.com/jokes/random.
+
+```json
+{
+    "id": 74,
+    "type": "programming",
+    "setup": "Why do C# and Java developers keep breaking their keyboards?",
+    "punchline": "Because they use a strongly typed language."
+}
+```
+You see that it returns a python-dictionary-like data. Again, this is a RPC. 
+You are calling some function in the server that returns you a JSON object
+that contains some random jokes.
+
+Let's try it out Django as well.
+
+```py
+# views.py
+from django.http import HttpResponse, JsonResponse
+# ...
+def squared(request, num):
+    sq = num * num
+    json = {
+        'answer': sq,
+        'count': 0
+    }
+    return JsonResponse(json)
+```
+
+Now try `localhost:8000/square/2`. Again, does it return only a number this 
+time?
+
+We see that using Python objects, we can easily send JSON data.
+Let's make the server remember the number of times that our squared function
+is being called. And return it in the `'count'` field within our JSON.
+
+```py
+# views.py
+from django.http import HttpResponse, JsonResponse
+# ...
+num_calls = 0
+def squared(request, num):
+    sq = num * num
+    global num_calls # access global variable
+    num_calls += 1
+    json = {
+        'answer': sq,
+        'count': num_calls
+    }
+    return JsonResponse(json)
+```
+Note that to refer to a global variable, we have to use the `global` keyword.
+Now, each time you access `localhost:8000/square/2` it should increment the 
+counter and return it in the JSON response. Now let's see how the data is
+represented in JavaScript in our webpage.
+
+We temporarily comment out the line where we put data on the page. We want 
+to see the data first.
+```js
+ourButton.onclick = function () {
+    fetch('http://localhost:8000/square/2')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (answer) {
+        console.log(answer);
+        // ourAnswer.innerText = answer;
+    });
+}
+```
+
+If you head to Console, you should see the output as an object! 
+```js
+{answer: 4, count: 1}
+```
+This is convenient since Python and JavaScript uses 2 simliar data types
+that can be easily expressed as JSON. 
+
+We can now put both of our data onto the page.
+```js
+ourButton.onclick = function () {
+    fetch('http://localhost:8000/square/2')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (answer) {
+        console.log(answer);
+        var text = answer['answer'].toString() + ' count: ' + answer['count'].toString();
+        ourAnswer.innerText = text;
+    });
+}
+```
+
+Now our webpage also shows the count as well!
+
+<img src="image/result.png" width="500px">
+
+It looks ugly but you can CSS to style it.
+
+## Server sends JSON, Client sends JSON too!
+So far, we only see an example of server sending JSON data to client 
+(aka our webpage). However, client can also send JSON data to server. 
+Such operation is neccessary when you take in complex input from the user.
+For instance, a location on a map. However, we do not have time to cover
+those. But you have a solid understanding of things to try it on your own.
+As a first step, read the `fetch` function documentation and see our examples
+from HackSchool!
+
+<img src="image/json.jpg" width="300px">
+
+## Conclusion: What is an API?
+
+Now, you understand why we need RPC. We need it for complex computation or 
+operation. Also, if the data depends on the state of the server, for instance
+the `num_calls` variable in our Django app, we will need to use RPC. RPC also
+increase usability and interactions. You also know how to pass complex data
+between the server and client.
+
+Back to the Uber example. Now you know all the neccessary mechanism to 
+implement such call (of course, when Uber provides you with a function to 
+calculate ride fares). When you select a location, some `button.onclick` 
+function is triggered and a RPC is done and some JSON data is sent back to
+our web page. Then, the fares are displayed on the webpage. 
+
+Previously, you might have heard the word "API" floating around. 
+It stands for Application Programming Interface. In the context of web,
+it usually refers to a set of routes/endpoints that we can use to retrieve
+data via RPC. Our `/sqaure/2` route is an example of an API. 
+
+In fact, Uber exposes some of their API for us to use as well. If you check
+out the [Uber API docuemention](https://developer.uber.com/docs/riders/references/api/v1.2/estimates-price-get).
+You can estimate the price for a ride, through a RPC with `fetch` function.
+This means that you can build our own webpage that estimate Uber price for you!

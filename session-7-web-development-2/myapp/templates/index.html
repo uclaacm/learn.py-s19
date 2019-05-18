@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+        function main() {
+            var ourButton = document.getElementById('btn');
+            var ourAnswer = document.getElementById('answer');
+            ourButton.onclick = function() {
+                fetch('http://localhost:8000/square/2')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (answer) {
+                    console.log(answer);
+                    var text = answer['answer'].toString() + ' count: ' + answer['count'].toString();
+                    ourAnswer.innerText = text; 
+                })
+            }
+        }
+        window.onload = main;
+	</script>
+</head>
+<body>
+	<button id="btn">Calculate 2 squared</button>
+	<h1>Answer:</h1>
+	<h1 id="answer"></h1>
+</body>
+</html>
