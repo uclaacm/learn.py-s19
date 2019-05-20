@@ -18,11 +18,11 @@ def squared(request, num):
     sq = num * num
     global num_calls 
     num_calls += 1
-    json = {
+    myJson = {
         'answer': sq,
         'count': num_calls
     }
-    return JsonResponse(json)
+    return JsonResponse(myJson)
 
 def squaredPage(request):
     with open('templates/index.html', 'r') as f:

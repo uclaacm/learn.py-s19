@@ -503,11 +503,11 @@ from django.http import HttpResponse, JsonResponse
 # ...
 def squared(request, num):
     sq = num * num
-    json = {
+    myJson = {
         'answer': sq,
         'count': 0
     }
-    return JsonResponse(json)
+    return JsonResponse(myJson)
 ```
 
 Now try `localhost:8000/square/2`. Again, does it return only a number this 
