@@ -7,7 +7,7 @@ __Time__: 6:15 PM - 8:15 PM, 33 May 2019
 __Teacher__: Galen Wong
 
 ## Resrouces:
-Slides: [TODO]()
+Slides: [Link](https://docs.google.com/presentation/d/1WtkbIpaLZH94XGXe5nCp6tUKjvTAurjVVlZGr9ZPLtY/edit?usp=sharing)
 
 [ACM Membership Attendance Portal](https://members.uclaacm.com/login)
 
