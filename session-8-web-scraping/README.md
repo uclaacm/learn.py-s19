@@ -44,20 +44,20 @@
     * `pip install beautifulsoup4`
     * `pip install selenium`
 * Follow this [link](https://pypi.org/project/selenium/)
-    * Scroll down to the [drivers section](assets/WebDriver.png) and click the link for your browser.  I will plug Chrome again here.
+    * Scroll down to the [drivers section](https://pypi.org/project/selenium/#drivers) and click the link for your browser.  I will plug Chrome again here.
     * Download the web driver version that corresponds to your web browser version.
     * You're done!  Just remember where the driver file is.  We'll need it later.
 * Check it it worked with `pip list`!  You should see beautifulsoup and selenium listed.
 
-### Installing on Mac:
+### Installing on Mac/Linux:
 * Open Terminal
     * `pip3 install requests`
     * `pip3 install beautifulsoup4`
     * `pip3 install selenium`
 * Follow this [link](https://pypi.org/project/selenium/)
-    * Scroll down to the [drivers section](assets/WebDriver.png) and click the link for your browser.  I will plug Chrome again here.
+    * Scroll down to the [drivers section](https://pypi.org/project/selenium/#drivers) and click the link for your browser.  I will plug Chrome again here.
     * Download the web driver version that corresponds to your web browser version.
-        * You can [check Chrome's version](assets/ChromeVersion.png) by clicking the **three dots** on the top right of the screen --> **help** --> **About Google Chrome**
+        * You can [check Chrome's version](assets/ChromeVersion.png) by clicking the **three dots** on the top right of the screen → **Help** → **About Google Chrome**
     * You're done!  Just remember where the driver file is.  We'll need it later.
 * Check it it worked with `pip3 list`!  You should see beautifulsoup and selenium listed.
 
