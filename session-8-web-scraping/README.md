@@ -331,6 +331,7 @@ def print_food_from_block(block):
 for block in menu_blocks:
     get_food_from_block(block)
 ```
+---
 
 ### Using the Information
 So we printed the dining menu.  That's a great start to web scraping, but we can do better.  Let's pick out foods we like from the dining halls.  This will involve doing three things
