@@ -8,7 +8,7 @@
 
 ## Resources
 **Slides**
-* TODO
+* tinyurl.com/learnpy-s8
 
 **ACM Membership Attendance Portal**
 * [Portal](https://members.uclaacm.com)
