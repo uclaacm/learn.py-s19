@@ -63,7 +63,21 @@
 
 ## Our Goal
 **We want to be able to write a program that can automatically find useful information on webpages.**
+
+## How might a human do this
+When you look at the dining hall for food, you scan through the menu of each dining hall to find what you like.  You might read through Covel's menu and find something you like.  Once you find something, you know your looking in Covel under – let's say – dinner.  So you note that Covel is serving that food for dinner and continue looking.  
+
+The program will do this too!  However, instead of the page your web browser presents, it just looks at the HTML. It will look at the menu for each dining hall and meal period, and it will scan for food that you tell it you like.  We can break it down into steps
+
+1. Navigate to the page / Request the page
+2. Find all of the menus
+    1. Find all of the food in each menu
+3. Output only the food we like (filter the list)
+
 ## We need to talk about trees
+It's just like a family tree! Note that a descendant and ancestor also take their meanings from a family tree.  
+
+<img src="assets/SwkdB.gif">
 
 ## HTML – It's still here
 As we talked about in our web dev session. HTML is a markup language used when creating webpages.  Since HTML is how webpages are generally represented, we need to have a basic knowledge of how it works. However, we don't care about what each tag does or how to write HTML anymore.  We care only about the **structure** of and HTML file and how to **search and navigate** though it.
@@ -74,8 +88,29 @@ An HTML file is structured as a tree.  This means that there is one big element,
 
 A lot of web pages will **reuse elements**.  We can use this to our advantage because the format of the file becomes repetitive and predictable. We will see an example of this when we start web scraping.
 
+## Quick Challenges:
+### Draw the DOM tree for the following HTML
+*You may omit the text, only worry about HTML elements*
+```html
+<html>
+    <head>
+        <title>Snakes</title>
+    </head>
+    <body>
+        <h1> Snakes </h1>
+        <p> Snakes are really cool.  I made a list of all the reasons that snakes are the coolest animals.</p>
+        <li>
+            <ul>They look like noodles</ul>
+            <ul>They can do like <em>999</em> damage</ul>
+            <ul>They go ssssssssss</ul>
+        </li>
+        <p>Thank you for coming to my TED talk.</p>
+    </body>
+</html>
+```
+
 ## What is web scraping
-**Web scraping** is the (usually automated) process of extracting data from the web.  For example, if you manually used the internet to take note of a few stock prices then you are technically web scraping.  Our goal, however, is to automate this mundane task.
+**Web scraping** is the (usually automated) process of extracting data from the web.  For example, if you manually used the internet to take note of a few stock prices then you are technically web scraping.  Our goal, however, is to automate this mundane task.  How do we do this?  Well, a lot of websites will repeat similar elements to display information.  These elements are usually formatted the same way, so we can search for these elements and find what we want easily.  **Patterns and repetition** are some of the most important things in web scraping.  How might a page be organized such that you know where to find information easily?
 
 ## Why use web scraping
 The internet has a wealth of information!  Sifting through all it manually is a hassle.  If a website is nice, the owners will provide an API (Application Program Interface).  An API may let you get the data you want straight from the server.  For example, a API for a dictionary might let you send the server a word directly and then respond to you with the definition.  If this is the case, we're done.  We don't need to web scrape for that information because we can just ask the server directly.
@@ -87,7 +122,7 @@ Like anything, web scraping must be used responsibly.  Remember a few things:
 1. Some information may be under Copyright.
 2. You must be authorized to access said information (no hacking, kids)
 3. Don't spam a server.  Sending to many requests to a server can overwhelm it which can cause harm to the people who rely on it – or maintain it!
-  
+
 ## Let's Start Coding: BeautifulSoup
 Our goal here is to get a webpage's HTML and get information from it, so lets do the first step!  Let's **request a webpage**.  We'll use the UCLA dining menu: http://menu.dining.ucla.edu/Menus. First, we need to import the two libraries
 * `requests`: we'll use this to ask websites for their HTML page (this is a "request")
@@ -98,7 +133,8 @@ import requests # We are using requests.get from here
 from bs4 import BeautifulSoup
 ```
 
-Now, lets make a request to the UCLA dining page to get it's content.  We use `requests.get` which will give us a special `response` object that contains what the server sent us.
+Now, lets make a request to the UCLA dining page to get it's content.  We use `requests.get` which will give us a special `response` object that contains what the server sent us.  **`requests.get` is like typing a url into a web browser**.  However, where your browser would display the page all pretty for you, we just get the content of the response as a string.
+
 ```python
 my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 ```
@@ -139,10 +175,21 @@ print(soup.prettify())
 ```
 ---
 
-When you run this, you'll notice that the HTML is nicely formatted now, but this isn't the only thing BeautifulSoup can do.  It can also search the page for different elements.  Let's take a look at the UCLA dining page. Right click on one of the menu items and select inspect element.  The element that should be highlighted has an `<a>` with `class=recipelink`.  This is the element with the information we want.  Try right clicking on a different menu item and selecting inspect element again.  They should look very similar.  We can use this similarity.
+When you run this, you'll notice that the HTML is nicely formatted now, but this isn't the only thing BeautifulSoup can do.  It can also search the page for different elements.  
 
 ### Finding the Food and Printing It
-The element you found is a inside of element that starts with this tag: `<div class="menu-block third-col">`.  Note that `third-col` can be different depending on the time of day. 
+Let's take a look at the UCLA dining page. Right click on one of the menu items and select inspect element.  The element that should be highlighted has an `<a>` with `class=recipelink`.  This is the element with the information we want.  Try right clicking on a different menu item and selecting inspect element again.  They should look very similar.  We can use this similarity. Now, scroll up and find and tag that looks like this: `<div class="menu-block third-col">`.  Note that `third-col` can be different depending on the time of day.  If you hover over it, Chrome will highlight where that element is on the page!
+
+<img src="assets/InspectMenu.png" width=45%><img src="assets/InspectFood.png" width=45% style="float: right">
+
+    Sidebar: 
+    What is `<div>`: a div tag's longer name is a divider.  Think of it like a container that simply holds other elements.
+
+    What is "class": class is a broad category for css for consistent styling of similar elements.
+
+    Why we care about "class":  Since classes group similar items, we can find all items of one type (say, menu blocks) by searching for a class.  It's all about patterns!  Classes indicate where elements are repeated.
+
+
 ```html
 <!--Each Element is inside of the one above it-->
 <div class="menu-block third-col"> <!--BLOCK FOR EACH DINING HALL-->
@@ -157,20 +204,23 @@ The element you found is a inside of element that starts with this tag: `<div cl
 So we can see that each block for each dining hall is represented by a `<div>` element with the class `menu-block [X]`.  So, **each of these elements contains the food for a specific dining hall at a specific time.**  Let's grab all of them.  Since the class of the blocks we want all start with "menu-block" we can find all `<div>` elements where `class` starts with "menu-block".
 
 ```python
-def is_menu_item(css_class):
-	return str(css_class).startswith("menu-block")
+def is_menu_item(class_name):
+	return str(class_name).startswith("menu-block")
 
 # Find all <div> elements where is_menu_item returns true given its class
 menu_blocks = soup.find_all("div", {"class":is_menu_item})
 ```
 We do two things here:
-1. Define a function that returns true if the string `css_class` starts with "menu-block"
+1. Define a function that returns true if the string `class_name` starts with "menu-block"
 2. find all `<div>` elements whose `class` start with "menu-block"
 
 Great!  Let's check if it worked by printing the first block!
 ```python
 print(menu_blocks[0].prettify())
 ```
+If you copy this into a text editor like Sublime and wrap the whole thing in `<html> <body> [COPIED STUFF] </body> </html>` then open it with a web browser, you'll see that it indeed displays only one dining hall's information.  You will also notice that it looks very ugly.  Don't worry about that, it's just because we didn't copy the CSS.
+<img src="assets/MiniMenu.png" width=500>
+
 ---
 **Checkpoint: Your code should look like this:**
 ```python
@@ -184,8 +234,8 @@ my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 soup = BeautifulSoup(my_response.content, 'html.parser')
 # print(soup.prettify())
 
-def is_menu_item(css_class):
-	return str(css_class).startswith("menu-block")
+def is_menu_item(class_name):
+	return str(class_name).startswith("menu-block")
 
 menu_blocks = soup.find_all("div", {"class":is_menu_item})
 print(menu_blocks[0].prettify())
@@ -196,7 +246,11 @@ Upon running the program, your output should be a sizeable amount of HTML that s
 
 If you look back at inspect element for a menu item, you can find the following information from this block:
 
-<img src=assets/Information.png>
+<img src=assets/Information2.png>
+
+You can see how this corresponds to the page we see.
+
+<img src="assets/LabeledPage.png">
 
 Notice that the they put all of the menu options in elements with the tag `<li class="menu-item">`.  So, in our menu block, we can grab all of the `<li>` elements with the "menu-item" class. Let's start writing a function that takes a block and prints all the food, the dining hall for that block, and the time for that block.
 
@@ -255,8 +309,8 @@ my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 soup = BeautifulSoup(my_response.content, 'html.parser')
 # print(soup.prettify())
 
-def is_menu_item(css_class):
-	return str(css_class).startswith("menu-block")
+def is_menu_item(class_name):
+	return str(class_name).startswith("menu-block")
 
 menu_blocks = soup.find_all("div", {"class":is_menu_item})
 # print(menu_blocks[0].prettify())
@@ -325,13 +379,12 @@ def get_food_from_block(block):
 ```
 Instead of printing the information we get, we store it in an object and return the new objects we made.
 
-**Finally, lets write find_foods**
+**Finally, lets write find_food**
 
-For find foods, we actually need an auxiliary function called `contains_substring` which answers yes or no to this question: "Does `food_item` contain any substrings from the list `sub_list`".  `sub_list` will be the list of food we like.
+For `find_food`, we actually need an auxiliary function called `contains_substring` which answers yes or no to this question: "Does `food_item` contain any substrings from the list `sub_list`".  `sub_list` will be the list of food we like.
 
-We also use a **lambda expression** in find_food.  A GREEK LETTER!?  Dont fear!  This isn't math class.  
-* Here is what the **lambda expression** does: "Does x contain a food in food_list?"  
-* Here is what `filter` does: "filter `food_list` to only elements that (here comes the lambda) **contain a food in `food_list`**"
+Please note that, in `find_food`, `fav_foods` is a list of **strings**, but `menu` is a list of `FoodItems`!  
+
 ```python
 '''
 Looks at each item in sub_list and checks if it's a substring of item
@@ -341,11 +394,22 @@ def contains_substring(sub_list, food_item):
 		if sub in food_item:
 			return True
 	return False
+```
+
+Example for contains_substring:
+
+`contains_substring` is a very generic function.  To help wrap your mind around it, something like `contains_substring(["Pizza", "Pork"], "Cheese Pizza")` should return `True` because "Cheese Pizza" has "Pizza" in it.
+
+```python
 '''
-Returns a list of elements from food_list that contain 
+Returns a list of elements from menu that contain one of our fav_foods
 '''
-def find_food(food_list, foods):
-	return list(filter(lambda x: contains_substring(foods, x.name), food_list))
+def find_food(menu, fav_foods):
+    found_food = []
+    for menu_option in menu:
+        if contains_substring(fav_foods, menu_option.name):
+            found_food.append(menu_option)
+	return found_food
 ```
 
 Now let's wrap this up and call our functions for all of the blocks!
@@ -373,8 +437,8 @@ my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 
 soup = BeautifulSoup(my_response.content, 'html.parser')
 
-def is_menu_item(css_class):
-	return str(css_class).startswith("menu-block")
+def is_menu_item(class_name):
+	return str(class_name).startswith("menu-block")
 
 menu_blocks = soup.find_all("div", {"class":is_menu_item})
 
@@ -414,10 +478,14 @@ def contains_substring(sub_list, food_item):
 			return True
 	return False
 '''
-Returns a list of elements from food_list that contain 
+Returns a list of elements from menu that contain one of our fav_foods
 '''
-def find_food(food_list, foods):
-	return list(filter(lambda x: contains_substring(foods, x.name), food_list))
+def find_food(menu, fav_foods):
+    found_food = []
+    for menu_option in menu:
+        if contains_substring(fav_foods, menu_option.name):
+            found_food.append(menu_option)
+	return found_food
 
 my_food = []
 
@@ -432,7 +500,7 @@ Try running it!  You should get a list of all foods with pizza or pork.  Note th
 
 Now you have a neat program that can quickly tell you if the dining halls are serving your favorite foods!  
 
-## Web Wars: Revenge of Javascript 
+## (BONUS) Web Wars: Revenge of Javascript 
 <img src="assets/TOJ.png" style="float:right" height=200>
 
 Javascript is a wonderful language, and people who use Javascript are very smart, insightful, beautiful people who I love and cherish.  That being said, Javascript makes our lives harder.  Why is this?  Well, take a look at the image bellow.
