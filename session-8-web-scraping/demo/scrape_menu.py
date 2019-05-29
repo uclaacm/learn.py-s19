@@ -80,7 +80,7 @@ def get_food_from_block(block):
 	menu_items = block.find_all("li", {"class":"menu-item"})
 	for item in menu_items:
 		name = item.span.a.text
-		new_items.append(food_item(name, dining_hall, time))
+		new_items.append(FoodItem(name, dining_hall, time))
 	return new_items
 
 '''
