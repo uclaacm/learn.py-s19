@@ -622,3 +622,7 @@ browser.quit()
 ```
 
 When you run this, you should see the Chrome automatically hit the next button and move to the next page.  You'll also see more quotes appear in the command line.  We did it!  Selenium is a very powerful tool you can use whenever you need to automate browser activity.  Just remember, use it responsibly!
+
+## Challenges
+### Only Vegetarian or Vegan
+Write another function `find_food_v` that finds food that says "Pizza" in it and is also vegetarian or vegan.  You may chose another food if you like.
