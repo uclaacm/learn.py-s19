@@ -204,11 +204,11 @@ Let's take a look at the UCLA dining page. Right click on one of the menu items 
 So we can see that each block for each dining hall is represented by a `<div>` element with the class `menu-block [X]`.  So, **each of these elements contains the food for a specific dining hall at a specific time.**  Let's grab all of them.  Since the class of the blocks we want all start with "menu-block" we can find all `<div>` elements where `class` starts with "menu-block".
 
 ```python
-def is_menu_item(class_name):
+def is_menu_block(class_name):
 	return str(class_name).startswith("menu-block")
 
-# Find all <div> elements where is_menu_item returns true given its class
-menu_blocks = soup.find_all("div", {"class":is_menu_item})
+# Find all <div> elements where is_menu_block returns true given its class
+menu_blocks = soup.find_all("div", {"class":is_menu_block})
 ```
 We do two things here:
 1. Define a function that returns true if the string `class_name` starts with "menu-block"
@@ -234,10 +234,10 @@ my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 soup = BeautifulSoup(my_response.content, 'html.parser')
 # print(soup.prettify())
 
-def is_menu_item(class_name):
+def is_menu_block(class_name):
 	return str(class_name).startswith("menu-block")
 
-menu_blocks = soup.find_all("div", {"class":is_menu_item})
+menu_blocks = soup.find_all("div", {"class":is_menu_block})
 print(menu_blocks[0].prettify())
 ```
 ---
@@ -309,10 +309,10 @@ my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 soup = BeautifulSoup(my_response.content, 'html.parser')
 # print(soup.prettify())
 
-def is_menu_item(class_name):
+def is_menu_block(class_name):
 	return str(class_name).startswith("menu-block")
 
-menu_blocks = soup.find_all("div", {"class":is_menu_item})
+menu_blocks = soup.find_all("div", {"class":is_menu_block})
 # print(menu_blocks[0].prettify())
 
 def print_food_from_block(block):
@@ -438,10 +438,10 @@ my_response = requests.get("http://menu.dining.ucla.edu/Menus")
 
 soup = BeautifulSoup(my_response.content, 'html.parser')
 
-def is_menu_item(class_name):
+def is_menu_block(class_name):
 	return str(class_name).startswith("menu-block")
 
-menu_blocks = soup.find_all("div", {"class":is_menu_item})
+menu_blocks = soup.find_all("div", {"class":is_menu_block})
 
 class FoodItem:
 	def __init__(self, name, hall, time):
