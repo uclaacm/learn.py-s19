@@ -30,8 +30,8 @@ science📊, gaming🎮, web dev💻, and more! No programming/Python background
   - [Slides](https://docs.google.com/presentation/d/1WtkbIpaLZH94XGXe5nCp6tUKjvTAurjVVlZGr9ZPLtY/edit?usp=sharing)
   - [Code](https://github.com/uclaacm/learn.py-s19/tree/master/session-7-web-development-2)
 - Week 9: Applications of Python: Web Scraping
-  - Slides
-  - Code
+  - [Slides](https://tinyurl.com/learnpy-s8)
+  - [Code](https://github.com/uclaacm/learn.py-s19/tree/master/session-8-web-scraping)
 
 ## Essential Links
 - [ACM website](http://www.uclaacm.com/)
